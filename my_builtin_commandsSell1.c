@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * _myexitShll - This function is responsible for gracefully exiting the shell.
  * @infoShll: A structure that may contain relevant arguments, ensuring a consistent
