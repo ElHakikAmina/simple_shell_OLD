@@ -1,10 +1,10 @@
-
 #include "main.h"
+
 /**
  * my_ffreeShll - function that frees a string of strings
  * @my_ppShll: it is a string of strings
  * Return: Always returns 0
- */
+*/
 void my_ffreeShll(char **my_ppShll)
 {
 	char **my_aShll = my_ppShll;
@@ -30,11 +30,13 @@ int my_bfreeShll(void **my_ptrShll)
 	}
 	return (0);
 }
+
 /**
  * my_free_listShll - function that frees all nodes of a list
  * @my_head_ptrShll: it is an address of pointer to head node
- * Return: returns void
- */
+ * Return: Nothing
+*/
+
 void my_free_listShll(my_list_stShll **my_head_ptrShll)
 {
 	my_list_stShll *my_nodeShll, *my_next_nodeShll, *my_headShll;
@@ -54,13 +56,13 @@ void my_free_listShll(my_list_stShll **my_head_ptrShll)
 }
 
 /**
- * _memsetShll - function that fills the memory with const byte
+ * _mymemsetShll - function that fills the memory with const byte
  * @my_sShll: it is a pointer ta memory area
  * @my_bShll: it is a the byte to fill *s with
  * @my_nShll: it is a  the amount of bytes to be filled
  * Return: it returns (s)
  */
-char *_memsetShll(char *my_sShll, char my_bShll, unsigned int my_nShll)
+char *_mymemsetShll(char *my_sShll, char my_bShll, unsigned int my_nShll)
 {
 	unsigned int my_iShll;
 
@@ -68,14 +70,15 @@ char *_memsetShll(char *my_sShll, char my_bShll, unsigned int my_nShll)
 		my_sShll[my_iShll] = my_bShll;
 	return (my_sShll);
 }
+
 /**
- * _reallocShll - function that  reallocates a block of memory
+ * _myreallocShll - function that  reallocates a block of memory
  * @my_ptrShll: it is a  pointer to previous mallocated block
  * @my_old_sizeShll: it is a byte size of previous block
  * @my_new_sizeShll:it is a  byte size of new block
- * Return: it returns pointer
+ * Return: pointer
  */
-void *_reallocShll(void *my_ptrShll, unsigned int my_old_sizeShll, unsigned int my_new_sizeShll)
+void *_myreallocShll(void *my_ptrShll, unsigned int my_old_sizeShll, unsigned int my_new_sizeShll)
 {
 	char *my_pShll;
 
@@ -95,4 +98,3 @@ void *_reallocShll(void *my_ptrShll, unsigned int my_old_sizeShll, unsigned int 
 	free(my_ptrShll);
 	return (my_pShll);
 }
-

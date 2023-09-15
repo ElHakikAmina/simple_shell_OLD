@@ -1,7 +1,5 @@
 #include "main.h"
 
-
-
 /**
  * my_set_aliasShll - this function will : sets alias to string
  * @my_infoShll: this will : parameter struct
@@ -22,4 +20,3 @@ int my_set_aliasShll(my_info_stShll *my_infoShll, char *my_strShll)
 	my_unset_aliasShll(my_infoShll, my_strShll);
 	return (my_add_node_endShll(&(my_infoShll->my_aliasShll), my_strShll, 0) == NULL);
 }
-

@@ -13,9 +13,6 @@
 #include <errno.h>
 
 
-
-
-
 /* READ_BUF_SIZE */
 #define MY_READ_BUF_SIZESHLL 1024
 /* WRITE_BUF_SIZE */

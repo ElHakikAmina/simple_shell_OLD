@@ -2,7 +2,7 @@
 
 /**
  * _myexitShll - This function is responsible for gracefully exiting the shell.
- * @infoShll: A structure that may contain relevant arguments, ensuring a consistent
+ * @my_infoShll: A structure that may contain relevant arguments, ensuring a consistent
  * function prototype.
  * Return: This function exits the shell with a specified exit status (0) if info.argv[0] is not equal to "exit".
  */
@@ -15,16 +15,16 @@ int _myexitShll(my_info_stShll *my_infoShll)
 
 	if (my_infoShll->my_argvShll[1])
 	{
-		my_exitcheckShll = _erratoiShll(my_infoShll->my_argvShll[1]);
+		my_exitcheckShll = _myerratoiShll(my_infoShll->my_argvShll[1]);
 		if (my_exitcheckShll == -1)
 		{
 			my_infoShll->my_statusShll = 2;
-			print_error(my_infoShll, "Illegal number: ");
-			_eputs(my_infoShll->my_argvShll[1]);
-			_eputchar('\n');
+			my_print_errorShll(my_infoShll, "Illegal number: ");
+			_myeputsShll(my_infoShll->my_argvShll[1]);
+			_myeputcharShll('\n');
 			return (1);
 		}
-		my_infoShll->my_err_numShll = _erratoi(my_infoShll->my_argvShll[1]);
+		my_infoShll->my_err_numShll = _myerratoiShll(my_infoShll->my_argvShll[1]);
 		return (-2);
 
 	}
@@ -34,7 +34,7 @@ int _myexitShll(my_info_stShll *my_infoShll)
 
 /**
  * _myhelpShll - this function is responsible for changing the current directory of the process.
- * @infoShll: Structure containing potential arguments. Used to maintain
+ * @my_infoShll: Structure containing potential arguments. Used to maintain
  *          constant function prototype.
  *  Return: Always return 0
  */
@@ -44,9 +44,9 @@ int _myhelpShll(info_stShll *infoShll)
 	char **my_arg_arrayShll;
 
 	my_arg_arrayShll = my_infoShll->my_argvShll;
-	_putsShll("help call works. Function not yet implemented \n");
+	_myputsShll("help call works. Function not yet implemented \n");
 	if (0)
-		_putsShll(*my_arg_arrayShll);
+		_myputsShll(*my_arg_arrayShll);
 	return (0);
 }
 
@@ -63,12 +63,12 @@ int my_print_aliasShll(my_list_stShll *my_nodeShll)
 
 	if (my_nodeShll)
 	{
-		my_pShll = _strchrShll(my_nodeShll->my_strShll, '=');
+		my_pShll = _mystrchrShll(my_nodeShll->my_strShll, '=');
 		for (my_aShll = my_nodeShll->my_strShll; my_aShll <= my_pShll; my_aShll++)
-			_putcharShll(*my_aShll);
-		_putcharShll('\'');
-		_putsShll(p + 1);
-		_putsShll("'\n");
+			_myputcharShll(*my_aShll);
+		_myputcharShll('\'');
+		_myputsShll(my_pShll + 1);
+		_myputsShll("'\n");
 		return (0);
 	}
 	return (1);
