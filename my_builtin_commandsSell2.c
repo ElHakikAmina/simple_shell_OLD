@@ -2,7 +2,7 @@
 
 /**
  * _myaliasShll - mimics the alias builtin (man alias)
- * @infoShll: Structure containing potential arguments. Used to maintain
+ * @my_infoShll: Structure containing potential arguments. Used to maintain
  * constant function prototype.
  * Return: Always 0
  */
@@ -18,25 +18,26 @@ int _myaliasShll(my_info_stShll *my_infoShll)
 		my_nodeShll = my_infoShll->my_aliasShll;
 		while (my_nodeShll)
 		{
-			print_alias(my_nodeShll);
+			my_print_aliasShll(my_nodeShll);
 			my_nodeShll = my_nodeShll->my_nextShll;
 		}
 		return (0);
 	}
-	for (my_i = 1; my_infoShll->my_argvShll[i]; my_i++)
+	for (my_iShll = 1; my_infoShll->my_argvShll[i]; my_iShll++)
 	{
-		my_p = _strchrShll(infoShll->argvShll[i], '=');
-		if (pShll)
+		my_pShll = _mystrchrShll(my_infoShll->my_argvShll[i], '=');
+		if (my_pShll)
 			my_set_aliasShll(my_infoShll, my_infoShll->my_argvShll[i]);
 		else
-			my_print_aliasShll(my_node_starts_withShll(my_infoShll->my_aliasShll, my_infoShll->my_argvShll[i], '='));
+			my_print_aliasShll(my_node_starts_withShll(my_infoShll->my_aliasShll,
+					       	my_infoShll->my_argvShll[i], '='));
 	}
-
 	return (0);
 }
+
 /**
  * _mycdShll - this function is responsible for changes the current directory of the process
- * @infoShll: Structure containing potential arguments. Used to maintain
+ * @my_infoShll: Structure containing potential arguments. Used to maintain
  *          constant function prototype.
  *  Return: Always 0
  */
@@ -47,37 +48,37 @@ int _mycdShll(my_info_stShll *my_infoShll)
 
 	my_sShell = my_getcwdShll(my_bufferShll, 1024);
 	if (!my_sShll)
-		_putsShll("TODO: >>getcwd failure emsg here<<\n");
+		_myputsShll("TODO: >>getcwd failure emsg here<<\n");
 	if (!my_infoShll->my_argvShll[1])
 	{
-		dir = _getenvShll(my_info, "HOME=");
-		if (!dir)
-			chdir_ret = chdir((dir = _getenv(my_infoShll, "PWD=")) ? dir : "/");
+		my_dirShll = _mygetenvShll(my_infoShll, "HOME=");
+		if (!my_dirShll)
+			my_chdir_retShll = my_chdirShll((my_dirShll = _mygetenvShll(my_infoShll, "PWD=")) ? my_dirShll : "/");
 		else
-			chdir_ret = chdir(dir);
+			my_chdir_retShll = my_chdirShll(my_dirShll);
 	}
-	else if (_strcmp(my_infoShll->my_argvShll[1], "-") == 0)
+	else if (_mystrcmpShll(my_infoShll->my_argvShll[1], "-") == 0)
 	{
-		if (!_getenvShll(my_infoShll, "OLDPWD="))
+		if (!_mygetenvShll(my_infoShll, "OLDPWD="))
 		{
-			_putsShll(s);
-			_putcharShll('\n');
+			_myputsShll(my_sShll);
+			_myputcharShll('\n');
 			return (1);
 		}
-		_putsShll(_getenvShll(my_infoShll, "OLDPWD=")), _putcharShll('\n');
-		my_chdir_retShll = chdir((dir = _getenv(info, "OLDPWD=")) ? dir : "/");
+		_myputsShll(_mygetenvShll(my_infoShll, "OLDPWD=")), _myputcharShll('\n');
+		my_chdir_retShll = my_chdirShll((my_dirShll = _mygetenvShll(my_infoShll, "OLDPWD=")) ? my_dirShll : "/");
 	}
 	else
-		my_chdir_retShll = my_chdirShll(info->argv[1]);
+		my_chdir_retShll = my_chdirShll(my_infoShll->my_argvShll[1]);
 	if (my_chdir_retShll == -1)
 	{
-		print_error(my_infoShll, "can't cd to ");
-		_eputsShll(my_infoShll->argv[1]), _eputchar('\n');
+		my_print_errorShll(my_infoShll, "can't cd to ");
+		_myeputsShll(my_infoShll->my_argvShll[1]), _myeputcharShll('\n');
 	}
 	else
 	{
-		_setenvShll(my_infoShll, "OLDPWD", _getenv(info, "PWD="));
-		_setenvShll(my_infoShll, "PWD", getcwd(buffer, 1024));
+		_mysetenvShll(my_infoShll, "OLDPWD", _mygetenvShll(my_infoShll, "PWD="));
+		_mysetenvShll(my_infoShll, "PWD", my_getcwdShll(my_bufferShll, 1024));
 	}
 	return (0);
 }

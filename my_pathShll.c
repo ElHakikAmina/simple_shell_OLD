@@ -36,7 +36,7 @@ char *my_get_pathShll(my_info_stShll *my_infoShll, char *my_pathstrShll, char *m
 
 	if (!my_pathstrShll)
 		return (NULL);
-	if ((_strlenShll(my_cmdShll) > 2) && my_starts_with(my_cmdShll, "./"))
+	if ((_mystrlenShll(my_cmdShll) > 2) && my_starts_withShll(my_cmdShll, "./"))
 	{
 		if (my_is_cmdShll(my_infoShll, my_cmdShll))
 			return (my_cmdShll);
@@ -45,15 +45,14 @@ char *my_get_pathShll(my_info_stShll *my_infoShll, char *my_pathstrShll, char *m
 	{
 		if (!my_pathstrShll[my_iShll] || my_pathstrShll[my_iShll] == ':')
 		{
-			my_path = my_dup_charsShll(my_pathstr, my_curr_posShll, my_iShll);
+			my_pathShll = my_dup_charsShll(my_pathstrShll, my_curr_posShll, my_iShll);
 			if (!*my_pathShll)
-				_strcat(my_pathShll, my_cmdShll);
+				_mystrcatShll(my_pathShll, my_cmdShll);
 			else
 			{
-				_strcatShll(my_pathShll, "/");
-				_strcatShll(my_pathShll, my_cmdShll);
+				_mystrcatShll(my_pathShll, "/");
+				_mystrcatShll(my_pathShll, my_cmdShll);
 			}
-			if (my_is_cmd(my_infoShll, my_pathShll))
 				return (my_pathShll);
 			if (!my_pathstrShll[my_iShll])
 				break;
@@ -84,4 +83,3 @@ int my_is_cmdShll(my_info_stShll *my_infoShll, char *my_pathShll)
 	}
 	return (0);
 }
-
