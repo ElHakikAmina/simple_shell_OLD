@@ -94,10 +94,10 @@ int my_replace_aliasShll(my_info_stShll *my_infoShll)
 		if (!my_nodeShll)
 			return (0);
 		free(my_infoShll->my_argvShll[0]);
-		p = _strchr(my_nodeShll->my_strShll, '=');
+		p = _strchrShll(my_nodeShll->my_strShll, '=');
 		if (!my_pShll)
 			return (0);
-		my_pShll = _strdup(my_pShll + 1);
+		my_pShll = _strdupShll(my_pShll + 1);
 		if (!my_pShll)
 			return (0);
 		my_infoShll->my_argvShll[0] = my_pShll;
@@ -131,23 +131,23 @@ int my_replace_stringShll(char **my_oldShll, char *my_newShll)
 int my_replace_varsShll(my_info_stShll *my_infoShll)
 {
 	int my_iShll = 0;
-	list_stShll *my_nodeShll;
+	my_list_stShll *my_nodeShll;
 
 	for (my_iShll = 0; my_infoShll->my_argvShll[my_iShll]; my_iShll++)
 	{
 		if (my_infoShll->my_argvShll[my_iShll][0] != '$' || !my_infoShll->my_argvShll[my_iShll][1])
 			continue;
 
-		if (!_strcmp(my_infoShll->my_argvShll[my_iShll], "$?"))
+		if (!_strcmpShll(my_infoShll->my_argvShll[my_iShll], "$?"))
 		{
 			my_replace_stringShll(&(my_infoShll->my_argvShll[my_iShll]),
-				_strdup(my_convert_numberShll(my_infoShll->my_statusShll, 10, 0)));
+				_strdupShll(my_convert_numberShll(my_infoShll->my_statusShll, 10, 0)));
 			continue;
 		}
-		if (!_strcmp(my_infoShll->my_argvShll[my_iShll], "$$"))
+		if (!_strcmpShll(my_infoShll->my_argvShll[my_iShll], "$$"))
 		{
 			my_replace_stringShll(&(my_infoShll->my_argvShll[my_iShll]),
-				_strdup(my_convert_numberShll(getpid(), 10, 0)));
+				_strdupShll(my_convert_numberShll(getpid(), 10, 0)));
 			continue;
 		}
 		my_nodeShll = my_node_starts_withShll(my_infoShll->my_envShll, 
@@ -155,10 +155,10 @@ int my_replace_varsShll(my_info_stShll *my_infoShll)
 		if (my_nodeShll)
 		{
 			my_replace_stringShll(&(my_infoShll->my_argvShll[my_iShll]),
-				_strdup(_strchr(my_nodeShll->my_strShll, '=') + 1));
+				_strdupShll(_strchrShll(my_nodeShll->my_strShll, '=') + 1));
 			continue;
 		}
-		my_replace_stringShll(&my_infoShll->my_argvShll[my_iShll], _strdup(""));
+		my_replace_stringShll(&my_infoShll->my_argvShll[my_iShll], _strdupShll(""));
 	}
 	return (0);
 }
