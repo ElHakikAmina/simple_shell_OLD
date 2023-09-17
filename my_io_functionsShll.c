@@ -139,4 +139,3 @@ int my_renumber_historyShll(my_info_stShll *my_infoShll)
 	}
 	return (my_infoShll->my_histcountShll = my_iShll);
 }
-
