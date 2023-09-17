@@ -56,13 +56,13 @@ void my_free_listShll(my_list_stShll **my_head_ptrShll)
 }
 
 /**
- * _mymemsetShll - function that fills the memory with const byte
+ * _memsetShll - function that fills the memory with const byte
  * @my_sShll: it is a pointer ta memory area
  * @my_bShll: it is a the byte to fill *s with
  * @my_nShll: it is a  the amount of bytes to be filled
  * Return: it returns (s)
  */
-char *_mymemsetShll(char *my_sShll, char my_bShll, unsigned int my_nShll)
+char *_memsetShll(char *my_sShll, char my_bShll, unsigned int my_nShll)
 {
 	unsigned int my_iShll;
 
@@ -72,13 +72,13 @@ char *_mymemsetShll(char *my_sShll, char my_bShll, unsigned int my_nShll)
 }
 
 /**
- * _myreallocShll - function that  reallocates a block of memory
+ * _reallocShll - function that  reallocates a block of memory
  * @my_ptrShll: it is a  pointer to previous mallocated block
  * @my_old_sizeShll: it is a byte size of previous block
  * @my_new_sizeShll:it is a  byte size of new block
  * Return: pointer
  */
-void *_myreallocShll(void *my_ptrShll, unsigned int my_old_sizeShll, unsigned int my_new_sizeShll)
+void *_reallocShll(void *my_ptrShll, unsigned int my_old_sizeShll, unsigned int my_new_sizeShll)
 {
 	char *my_pShll;
 

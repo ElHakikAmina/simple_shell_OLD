@@ -1,9 +1,13 @@
 #include "main.h"
+
 /**
  * _strlenShll - gets the length of a givin string
+ *
  * @my_sShll: string
+ *
  * Return: string length
- */
+*/
+
 int _strlenShll(char *my_sShll)
 {
 	int my_lShll = 0;
@@ -18,10 +22,13 @@ int _strlenShll(char *my_sShll)
 
 /**
  * _strcatShll - this function concatenates 2 strings
+ *
  * @my_destShll: it is the destination buffer
  * @my_srcShll: it is the source buffer
+ *
  * Return: pointer to dest buffer
- */
+*/
+
 char *_strcatShll(char *my_destShll, char *my_srcShll)
 {
 	char *my_resShll = my_destShll;
@@ -33,18 +40,22 @@ char *_strcatShll(char *my_destShll, char *my_srcShll)
 	*my_destShll = *my_srcShll;
 	return (my_resShll);
 }
+
 /**
  * _strcpyShll - this function  copies a string
+ *
  * @my_destShll: it is a destination
  * @my_srcShll: it is a source
+ *
  * Return: pointer to dest
- */
+*/
+
 char *_strcpyShll(char *my_destShll, char *my_srcShll)
 {
 	int my_iShll = 0;
 
-	if (my_destShll == my_srcShll || my_srcShllShll == 0)
-		return (my_destShllShll);
+	if (my_destShll == my_srcShll || my_srcShll == 0)
+		return (my_destShll);
 	while (my_srcShll[my_iShll])
 	{
 		my_destShll[my_iShll] = my_srcShll[my_iShll];
@@ -56,9 +67,12 @@ char *_strcpyShll(char *my_destShll, char *my_srcShll)
 
 /**
  * _strdupShll - this function duplicates a string
+ *
  * @my_strShll: it is a string
+ *
  * Return: it returns pointer the the dup string
- */
+*/
+
 char *_strdupShll(const char *my_strShll)
 {
 	int my_lenShll = 0;
@@ -78,11 +92,14 @@ char *_strdupShll(const char *my_strShll)
 }
 
 /**
- * starts_withShll - this function checkes if needle starts with haystack
+ * my_starts_withShll - this function checkes if needle starts with haystack
+ *
  * @my_haystackShll: it is a string to search
  * @my_needleShll: it is the substring to find
+ *
  * Return: address of the next char of haystack or null
- */
+*/
+
 char *my_starts_withShll(const char *my_haystackShll, const char *my_needleShll)
 {
 	while (*my_needleShll)
@@ -90,4 +107,3 @@ char *my_starts_withShll(const char *my_haystackShll, const char *my_needleShll)
 			return (NULL);
 	return ((char *)my_haystackShll);
 }
-
