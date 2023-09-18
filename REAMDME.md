@@ -104,7 +104,7 @@ Here's a list of allowed functions and system calls employed in this project:
 * _exit (man 2 _exit)
 
 To access additional details about these functions, consult the respective manual pages.
-
+h
 
 The project reached completion within a span of 15 days.
 
