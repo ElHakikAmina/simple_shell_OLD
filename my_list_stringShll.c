@@ -1,4 +1,5 @@
 #include "main.h"
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
  * my_print_liststrShll function that  prints only the str element of a list_t linked list
@@ -56,6 +57,7 @@ my_list_stShll *my_add_nodeShll(my_list_stShll **my_headShll, const char *my_str
 	*my_headShll = my_new_headShll;
 	return (my_new_headShll);
 }
+
 /**
  * my_add_node_endShll - function that adds a node to the end of the list
  *
@@ -64,7 +66,7 @@ my_list_stShll *my_add_nodeShll(my_list_stShll **my_headShll, const char *my_str
  * @my_numShll: it is a  node index used by history
  *
  * Return: size of list
- */
+*/
 
 my_list_stShll *my_add_node_endShll(my_list_stShll **my_headShll, const char *my_strShll, int my_numShll)
 {
@@ -98,6 +100,7 @@ my_list_stShll *my_add_node_endShll(my_list_stShll **my_headShll, const char *my
 		*my_headShll = my_new_nodeShll;
 	return (my_new_nodeShll);
 }
+
 /**
  * my_print_listShll - function that prints all elements of a list_st linked list
  *
@@ -124,7 +127,7 @@ my_size_tShll my_print_listShll(const my_list_stShll *my_hShll)
 }
 
 /**
- * node_starts_withShll - function that  returns node whose string starts with prefix
+ * my_node_starts_withShll - function that  returns node whose string starts with prefix
  *
  * @my_nodeShll: it is a pointer to list head
  * @my_prefixShll: it is a string to match

@@ -1,4 +1,5 @@
 #include "main.h"
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
  * my_set_aliasShll - this function will : sets alias to string

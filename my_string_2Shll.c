@@ -1,4 +1,5 @@
 #include "main.h"
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
  * _strncpyShll - this function copies string
@@ -39,7 +40,7 @@ char *_strncpyShll(char *my_destShll, char *my_srcShll, int my_nShll)
  * @my_srcShll: it is a source
  * @my_nShll: it is a the amount of bytes to be used
  *
- * Return: it returns the concatenated string
+ * Return: the concatenated string
 */
 
 char *_strncatShll(char *my_destShll, char *my_srcShll, int my_nShll)
@@ -63,7 +64,7 @@ char *_strncatShll(char *my_destShll, char *my_srcShll, int my_nShll)
 /**
  * _strchrShll - locates a char in a string
  *
- * @sShll: string
+ * @sShll: string input
  * @cShll: character to be located
  *
  * Return: a pointer to memory area

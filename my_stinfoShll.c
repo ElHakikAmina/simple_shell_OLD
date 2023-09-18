@@ -1,4 +1,5 @@
 #include "main.h"
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
  * my_clear_infoShll - function that initializes info_t structure
@@ -42,7 +43,7 @@ void my_set_infoShll(my_info_stShll *my_infoShll, char **my_avShll)
 				my_infoShll->my_argvShll[1] = NULL;
 			}
 		}
-		for (my_iShll = 0; my_infoShll->my_argvShll && my_infoShll->my_argvShll[i]; my_iShll++)
+		for (my_iShll = 0; my_infoShll->my_argvShll && my_infoShll->my_argvShll[my_iShll]; my_iShll++)
 			;
 		my_infoShll->my_argcShll = 1;
 		my_replace_aliasShll(my_infoShll);

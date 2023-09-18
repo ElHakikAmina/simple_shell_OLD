@@ -1,4 +1,5 @@
 #include "main.h"
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
  * my_dup_charsShll - function that duplicates characters
@@ -7,7 +8,7 @@
  * @my_startShll: it is starting index
  * @my_stopShll: it is stopping index
  *
- * Return: it returns pointer to new buffer
+ * Return: a pointer to new buffer
 */
 
 char *my_dup_charsShll(char *my_pathstrShll, int my_startShll, int my_stopShll)
@@ -29,7 +30,7 @@ char *my_dup_charsShll(char *my_pathstrShll, int my_startShll, int my_stopShll)
  * @my_pathstrShll: it is the PATH string
  * @my_cmdShll: it is command to find
  *
- * Return: it returns the full path of cmd if success or NULL
+ * Return: the full path of cmd if success or NULL
 */
 
 char *my_get_pathShll(my_info_stShll *my_infoShll, char *my_pathstrShll, char *my_cmdShll)
@@ -72,7 +73,7 @@ char *my_get_pathShll(my_info_stShll *my_infoShll, char *my_pathstrShll, char *m
  * @my_infoShll: it is the info struct
  * @my_pathShll: it is path to the file
  *
- * Return:it returns  1 if true, 0 if false
+ * Return: 1 if true, 0 if false
 */
 
 int my_is_cmdShll(my_info_stShll *my_infoShll, char *my_pathShll)

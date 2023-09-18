@@ -1,12 +1,13 @@
 #include "main.h"
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
- * **my_str_tokShll - this function splits a string into words repeated delimeters are ignored
+ * my_str_tokShll - splits a string into words repeated delimeters are ignored
  *
- * @my_strShll: it is a string
- * @my_dShll: it is a the delimeter string
+ * @my_strShll: a string
+ * @my_dShll: the delimeter string
  *
- * Return: it returns a pointer to an array of strings, or NULL for fail
+ * Return: a pointer to an array of strings, or NULL for fail
 */
 
 char **my_str_tokShll(char *my_strShll, char *my_dShll)
@@ -51,12 +52,12 @@ char **my_str_tokShll(char *my_strShll, char *my_dShll)
 }
 
 /**
- * **my_str_tok2Shll - this function do : splits a string into words
+ * my_str_tok2Shll - splits a string into words
  *
- * @my_strShll: it is a string
- * @my_dShll: it is a the delimeter string
+ * @my_strShll: a string
+ * @my_dShll: the delimeter string
  *
- * Return: it returns pointer to an array of strings, or NULL for fail
+ * Return: pointer to an array of strings, or NULL (failure)
 */
 
 char **my_str_tok2Shll(char *my_strShll, char my_dShll)

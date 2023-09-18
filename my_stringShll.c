@@ -1,4 +1,5 @@
 #include "main.h"
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
  * _strlenShll - gets the length of a givin string
@@ -66,11 +67,11 @@ char *_strcpyShll(char *my_destShll, char *my_srcShll)
 }
 
 /**
- * _strdupShll - this function duplicates a string
+ * _strdupShll - duplicates a string
  *
- * @my_strShll: it is a string
+ * @my_strShll: string input
  *
- * Return: it returns pointer the the dup string
+ * Return: pointer the the dup string
 */
 
 char *_strdupShll(const char *my_strShll)

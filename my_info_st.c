@@ -1,4 +1,6 @@
 #include "main.h"
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri */
+
 /**
  * my_free_infoShll - function that  free info_t struct fields
  * @my_infoShll: it is a struct address
@@ -30,4 +32,3 @@ void my_free_infoShll(my_info_stShll *my_infoShll, int my_allShll)
 		_putcharShll(MY_BUF_FLUSHSHLL);
 	}
 }
-

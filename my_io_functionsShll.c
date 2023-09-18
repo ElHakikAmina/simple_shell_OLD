@@ -1,4 +1,6 @@
 #include "main.h"
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri */
+
 /**
  * my_get_history_fileShll - function that gets the history file
  * @my_infoShll: it returns  parameter struct
@@ -33,14 +35,14 @@ char *my_get_history_fileShll(my_info_stShll *my_infoShll)
 int my_read_historyShll(my_info_stShll *my_infoShll)
 {
 	int my_iShll, my_lastShll = 0, my_linecountShll = 0;
-	ssize_t my_fdShll, my_rdlen, my_fsizeShll = 0;
+	ssize_t my_fdShll, my_rdlenShll, my_fsizeShll = 0;
 	struct my_statShll my_stShll;
 	char *my_bufShll = NULL, *my_filenameShll = my_get_history_fileShll(my_infoShll);
 
 	if (!my_filenameShll)
 		return (0);
 
-	my_fdShll = open(my_filenameShll, MY_O_RDONLYSHLL);
+	my_fdShll = open(my_filenameShll, O_RDONLY);
 	free(my_filenameShll);
 	if (my_fdShll == -1)
 		return (0);
@@ -88,25 +90,27 @@ int my_write_historyShll(my_info_stShll *my_infoShll)
 	if (!my_filenameShll)
 		return (-1);
 
-	my_fdShll = open(my_filenameShll, MY_O_CREATSHLL | MY_O_TRUNCSHLL | MY_O_RDWRSHLL, 0644);
+	my_fdShll = open(my_filenameShll, O_CREAT | O_TRUNC | O_RDWR, 0644);
 	free(my_filenameShll);
 	if (my_fdShll == -1)
 		return (-1);
 	for (my_nodeShll = my_infoShll->my_historyShll; my_nodeShll; my_nodeShll = my_nodeShll->my_nextShll)
 	{
 		_putsfdShll(my_nodeShll->my_strShll, my_fdShll);
-		_putfdShll('\n', fdShll);
+		_putfdShll('\n', my_fdShll);
 	}
 	_putfdShll(MY_BUF_FLUSHSHLL, my_fdShll);
-	close(fdShll);
+	close(my_fdShll);
 	return (1);
 }
 
 /**
  * my_build_history_listShll - function that adds entry to a history linked list
+ *
  * @my_infoShll: it is a Structure containing potential arguments. Used to maintain
  * @my_bufShll: it is a buffer
  * @my_linecountShll: it si a the history linecount, histcount
+ *
  * Return: it returns Always 0
  */
 int my_build_history_listShll(my_info_stShll *my_infoShll, char *my_bufShll, int my_linecountShll)

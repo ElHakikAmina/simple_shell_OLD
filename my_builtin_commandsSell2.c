@@ -1,4 +1,5 @@
 #include "main.h"
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
  * _aliasShll - mimics the alias builtin (man alias)
@@ -30,7 +31,7 @@ int _aliasShll(my_info_stShll *my_infoShll)
 			my_set_aliasShll(my_infoShll, my_infoShll->my_argvShll[i]);
 		else
 			my_print_aliasShll(my_node_starts_withShll(my_infoShll->my_aliasShll,
-					       	my_infoShll->my_argvShll[i], '='));
+					       	my_infoShll->my_argvShll[my_iShll], '='));
 	}
 	return (0);
 }

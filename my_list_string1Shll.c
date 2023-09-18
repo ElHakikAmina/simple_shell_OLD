@@ -1,10 +1,14 @@
 #include "main.h"
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri */
+
 /**
- * my_delete_node_at_indexShll - unction that deletes node at given index
+ * my_delete_node_at_indexShll -  deletes node at given index
+ *
  * @my_headShll: it is a address of pointer to first node
  * @my_indexShll: it is aindex of node to delete
- * Return: it returns 1 on success, 0 on failure
- */
+ *
+ * Return: 1 on success, 0 on failure
+*/
 
 int my_delete_node_at_indexShll(my_list_stShll **my_headShll, unsigned int my_indexShll)
 {
@@ -38,11 +42,15 @@ int my_delete_node_at_indexShll(my_list_stShll **my_headShll, unsigned int my_in
 	}
 	return (0);
 }
+
 /**
  * my_list_lenShll -function that  determines length of linked list
+ *
  * @my_hShll: it is a pointer to first node
+ *
  * Return: it returns size of list
- */
+*/
+
 size_t my_list_lenShll(const my_list_stShll *my_hShll)
 {
 	my_size_tShll my_iShll = 0;
@@ -57,6 +65,7 @@ size_t my_list_lenShll(const my_list_stShll *my_hShll)
 
 /**
  * my_list_to_stringsShll - function that returns an array of strings of the list->str
+ *
  * @my_headShll: it is a pointer to first node
  *
  * Return: it returns  array of strings
@@ -90,12 +99,16 @@ char **my_list_to_stringsShll(my_list_stShll *my_headShll)
 	my_strsShll[my_iShll] = NULL;
 	return (my_strsShll);
 }
+
 /**
  * my_get_node_indexShll - function that gets the index of a node
+ *
  * @my_headShll: it is a pointer to list head
  * @my_nodeShll: it is a pointer to the node
+ *
  * Return: it returns  index of node or -1
- */
+*/
+
 ssize_t my_get_node_indexShll(my_list_stShll *my_headShll, my_list_stShll *my_nodeShll)
 {
 	my_size_tShll my_iShll = 0;

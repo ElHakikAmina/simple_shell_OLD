@@ -1,4 +1,5 @@
 #include "main.h"
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
  * _putsShll - this function  prints a string
@@ -50,7 +51,7 @@ int _putcharShll(char my_cShll)
  * @my_s1Shll: first string
  * @my_s2Shll: second string
  *
- * Return: neg if s1 < s2, pos if s1 > s2, zero if s1 == s2
+ * Return: neg if s1 < s2, pos if s1 > s2, zero otherwise
 */
 
 int _strcmpShll(char *my_s1Shll, char *my_s2Shll)

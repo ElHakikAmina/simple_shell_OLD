@@ -1,4 +1,5 @@
 #include "main.h"
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
  * my_is_chainShll - test if current char in buffer is a chain delimeter
@@ -18,18 +19,18 @@ int my_is_chainShll(my_info_stShll *my_infoShll, char *my_bufShll, size_t *my_pS
 	{
 		my_bufShll[my_jShll] = 0;
 		my_jShll++;
-		my_infoShll->my_cmd_buf_typeShll = CMD_OR;
+		my_infoShll->my_cmd_buf_typeShll = MY_CMD_ORSHLL;
 	}
 	else if (my_bufShll[my_jShll] == '&' && my_bufShll[my_jShll + 1] == '&')
 	{
 		my_bufShll[my_jShll] = 0;
 		my_jShll++;
-		my_infoShll->my_cmd_buf_typeShll = CMD_AND;
+		my_infoShll->my_cmd_buf_typeShll = MY_CMD_ANDSHLL;
 	}
 	else if (my_bufShll[my_jShll] == ';')
 	{
 		my_bufShll[my_jShll] = 0;
-		my_infoShll->my_cmd_buf_typeShll = CMD_CHAIN;
+		my_infoShll->my_cmd_buf_typeShll = MY_CMD_CHAINSHLL;
 	}
 	else
 		return (0);
@@ -53,7 +54,7 @@ void my_check_chainShll(my_info_stShll *my_infoShll, char *my_bufShll, size_t *m
 {
 	size_t my_jShll = *my_pShll;
 
-	if (my_infoShll->my_cmd_buf_typeShll == CMD_AND)
+	if (my_infoShll->my_cmd_buf_typeShll == MY_CMD_ANDSHLL)
 	{
 		if (my_infoShll->my_statusShll)
 		{
@@ -61,7 +62,7 @@ void my_check_chainShll(my_info_stShll *my_infoShll, char *my_bufShll, size_t *m
 			my_jShll = my_lenShll;
 		}
 	}
-	if (my_infoShll->my_cmd_buf_typeShll == CMD_OR)
+	if (my_infoShll->my_cmd_buf_typeShll == MY_CMD_ORSHLL)
 	{
 		if (!my_infoShll->my_statusShll)
 		{
@@ -94,7 +95,7 @@ int my_replace_aliasShll(my_info_stShll *my_infoShll)
 		if (!my_nodeShll)
 			return (0);
 		free(my_infoShll->my_argvShll[0]);
-		p = _strchrShll(my_nodeShll->my_strShll, '=');
+		my_pShll = _strchrShll(my_nodeShll->my_strShll, '=');
 		if (!my_pShll)
 			return (0);
 		my_pShll = _strdupShll(my_pShll + 1);
