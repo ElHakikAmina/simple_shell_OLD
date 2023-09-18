@@ -4,10 +4,11 @@
  * @my_infoShll: it is a struct address
  * @my_allShll: it is true if freeing all fields
  * Return: Always returns  0
- */
-void my_free_infoShll(my_info_stShll *infoShll, int my_allShll)
+*/
+
+void my_free_infoShll(my_info_stShll *my_infoShll, int my_allShll)
 {
-	ffree(my_infoShll->my_argvShll);
+	my_ffreeShll(my_infoShll->my_argvShll);
 	my_infoShll->my_argvShll = NULL;
 	my_infoShll->my_pathShll = NULL;
 

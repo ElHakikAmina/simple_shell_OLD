@@ -28,7 +28,7 @@ int my_delete_node_at_indexShll(my_list_stShll **my_headShll, unsigned int my_in
 		if (my_iShll == my_indexShll)
 		{
 			my_prev_nodeShll->my_nextShll = my_nodeShll->my_nextShll;
-			free(my_node->my_strShll);
+			free(my_nodeShll->my_strShll);
 			free(my_nodeShll);
 			return (1);
 		}
@@ -45,7 +45,7 @@ int my_delete_node_at_indexShll(my_list_stShll **my_headShll, unsigned int my_in
  */
 size_t my_list_lenShll(const my_list_stShll *my_hShll)
 {
-	كغ_size_tShll my_iShll = 0;
+	my_size_tShll my_iShll = 0;
 
 	while (my_hShll)
 	{
@@ -64,7 +64,7 @@ size_t my_list_lenShll(const my_list_stShll *my_hShll)
 char **my_list_to_stringsShll(my_list_stShll *my_headShll)
 {
 	my_list_stShll *my_nodeShll = my_headShll;
-	كغ_size_tShll my_iShll = my_list_lenShll(my_headShll), my_jShll;
+	my_size_tShll my_iShll = my_list_lenShll(my_headShll), my_jShll;
 	char **my_strsShll;
 	char *my_strShll;
 
@@ -98,7 +98,7 @@ char **my_list_to_stringsShll(my_list_stShll *my_headShll)
  */
 ssize_t my_get_node_indexShll(my_list_stShll *my_headShll, my_list_stShll *my_nodeShll)
 {
-	my_size_t my_iShll = 0;
+	my_size_tShll my_iShll = 0;
 
 	while (my_headShll)
 	{
@@ -109,5 +109,3 @@ ssize_t my_get_node_indexShll(my_list_stShll *my_headShll, my_list_stShll *my_no
 	}
 	return (-1);
 }
-
-
