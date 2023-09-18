@@ -103,31 +103,6 @@ Here's a list of allowed functions and system calls employed in this project:
 * write (man 2 write)
 * _exit (man 2 _exit)
 
-### Custom Functions (Recreation of Standard C Functions)
-We've implemented the following custom functions:
-
-* _strncpy
-* _strlen
-* _putchar
-* _atoi
-* _puts
-* _strcmp
-* _isalpha
-* array_rev
-* intlen
-* _itoa
-* _strcat
-* _strcpy
-* _strchr
-* _strncmp
-* _strdup
-* _memcpy
-* _calloc
-* _realloc
-* _getenv
-* _getline
-* _strtok
-
 To access additional details about these functions, consult the respective manual pages.
 
 
