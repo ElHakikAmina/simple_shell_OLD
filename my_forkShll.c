@@ -1,9 +1,14 @@
 #include "main.h"
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri */
+
 /**
- * my_fork_cmdShll - function that forks an exec thread to run cmd
- * @my_infoShll:it is a  struct
- * Return: it is a void, no returns
- */
+ * my_fork_cmdShll - forks an exec thread to run cmd
+ *
+ * @my_infoShll: a  struct
+ *
+ * Return: Nothing
+*/
+
 void my_fork_cmdShll(my_info_stShll *my_infoShll)
 {
 	my_pid_tShll my_child_pidShll;
