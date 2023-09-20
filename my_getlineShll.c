@@ -2,7 +2,22 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
- * read_bufShll - function that reads a buffer
+ * my_sigintHandlerShll - function that  blocks ctrl-c
+ *
+ * @my_sig_numShll: it is a the signal number
+ *
+ * Return: Nothing
+*/
+
+void my_sigintHandlerShll(__attribute__((unused))int my_sig_numShll)
+{
+        _putsShll("\n");
+        _putsShll("$ ");
+        _putcharShll(MY_BUF_FLUSHSHLL);
+}
+
+/**
+ * my_read_bufShll - function that reads a buffer
  * @my_infoShll: it is a struct
  * @my_bufShll: it is a buffer
  * @my_iShll: it is a size 
@@ -22,7 +37,7 @@ my_ssize_tShll my_read_bufShll(my_info_stShll *my_infoShll, char *my_bufShll, my
 }
 
 /**
- * my_input_buf - function that buffer chained commands
+ * my_input_bufShll - function that buffer chained commands
  *
  * @my_infoShll: it is a struct
  * @my_bufShll: it is a address to buffer
@@ -40,11 +55,11 @@ my_ssize_tShll my_input_bufShll(my_info_stShll *my_infoShll, char **my_bufShll, 
 	{
 		free(*my_bufShll);
 		*my_bufShll = NULL;
-		signal(MY_SIGINTSHLL, my_sigintHandlerShll);
-#if USE_GETLINE
+		signal(SIGINT, my_sigintHandlerShll);
+#if MY_USE_GETLINESHLL
 		my_rShll = my_getlineShll(my_bufShll, &my_len_pShll, my_stdinShll);
 #else
-		my_rShll = _getlineShll(my_infoShll, my_bufShll, &my_len_pShll);
+		my_rShll = my_getlineShll(my_infoShll, my_bufShll, &my_len_pShll);
 #endif
 		if (my_rShll > 0)
 		{
@@ -66,21 +81,6 @@ my_ssize_tShll my_input_bufShll(my_info_stShll *my_infoShll, char **my_bufShll, 
 }
 
 /**
- * my_sigintHandlerShll - function that  blocks ctrl-c
- *
- * @my_sig_numShll: it is a the signal number
- *
- * Return: Nothing
-*/
-
-void my_sigintHandlerShll(__attribute__((unused))int my_sig_numShll)
-{
-        _putsShll("\n");
-        _putsShll("$ ");
-        _putcharShll(MY_BUF_FLUSHSHLL);
-}
-
-/**
  * my_get_inputShll - function that gets a line minus the newline
  *
  * @my_infoShll: it is a  struct
@@ -93,9 +93,9 @@ my_ssize_tShll my_get_inputShll(my_info_stShll *my_infoShll)
 	static char *my_bufShll;
 	static my_size_tShll my_iShll, my_jShll, my_lenShll;
 	ssize_t my_rShll = 0;
-	char **my_buf_pShll = &(infoShll->arg), *my_pShll;
+	char **my_buf_pShll = &(my_infoShll->my_argShll), *my_pShll;
 
-	_putcharShll(BUF_FLUSHSHLL);
+	_putcharShll(MY_BUF_FLUSHSHLL);
 	my_rShll = my_input_bufShll(my_infoShll, &my_bufShll, &my_lenShll);
 	if (my_rShll == -1)
 		return (-1);
@@ -161,9 +161,9 @@ int _getlineShll(my_info_stShll *my_infoShll, char **my_ptrShll, my_size_tShll *
 		return (my_pShll ? free(my_pShll), -1 : -1);
 
 	if (my_sShll)
-		_strncat(my_new_pShll, my_bufShll + my_iShll, my_kShll - my_iShll);
+		_strncatShll(my_new_pShll, my_bufShll + my_iShll, my_kShll - my_iShll);
 	else
-		_strncpy(my_new_pShll, my_bufShll + my_iShll, my_kShll - my_iShll + 1);
+		_strncpyShll(my_new_pShll, my_bufShll + my_iShll, my_kShll - my_iShll + 1);
 
 	my_sShll += my_kShll - my_iShll;
 	my_iShll = my_kShll;

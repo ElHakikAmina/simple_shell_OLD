@@ -14,20 +14,20 @@ void my_get_locationShll(my_info_stShll *my_infoShll)
 	char *my_pathShll = NULL;
 	int my_iShll, my_kShll;
 
-	my_infoShll->my_pathShll = my_info->my_argv[0];
+	my_infoShll->my_pathShll = my_infoShll->my_argvShll[0];
 	if (my_infoShll->my_linecount_flagShll == 1)
 	{
 		my_infoShll->my_line_countShll++;
 		my_infoShll->my_linecount_flagShll = 0;
 	}
 	
-	for (my_iShll = 0, my_kShll = 0; my_infoShll->arg[i]; i++)
-		if (!my_is_delimShll(my_infoShll->arg[i], "\t\n"))
+	for (my_iShll = 0, my_kShll = 0; my_infoShll->my_argShll[my_iShll]; my_iShll++)
+		if (!my_is_delimShll(my_infoShll->my_argShll[my_iShll], "\t\n"))
 			my_kShll++;
 	if (!my_kShll)
 		return;
 
-	my_pathShll = my_get_pathShll(my_infoShll, _getenvShll(my_infoShll, "PATH"), my_infoShll->argv[0]);
+	my_pathShll = my_get_pathShll(my_infoShll, _getenvShll(my_infoShll, "PATH"), my_infoShll->my_argvShll[0]);
 	if (my_pathShll)
 	{
 		my_infoShll->my_pathShll = my_pathShll;
@@ -35,8 +35,8 @@ void my_get_locationShll(my_info_stShll *my_infoShll)
 	}
 	else
 	{
-		if ((my_interactiveShll(my_infoShll) || _getenv(my_infoShll, "PATH")
-			|| my_infoShll->argv[0][0] == '/') && my_is_cmdShll(my_infoShll, my_infoShll->argv[0]))
+		if ((my_interactiveShll(my_infoShll) || _getenvShll(my_infoShll, "PATH")
+			|| my_infoShll->my_argvShll[0][0] == '/') && my_is_cmdShll(my_infoShll, my_infoShll->my_argvShll[0]))
 			my_fork_cmdShll(my_infoShll);
 		else if (*(my_infoShll->my_argShll) != '\n')
 		{
@@ -45,4 +45,3 @@ void my_get_locationShll(my_info_stShll *my_infoShll)
 		}
 	}
 }
-

@@ -60,7 +60,7 @@ int my_hshShll(my_info_stShll *my_infoShll, char **my_avShll)
 		my_rShll = my_get_inputShll(my_infoShll);
 		if (my_rShll != -1)
 		{
-			my_set_infoShll(my_info, my_avShll);
+			my_set_infoShll(my_infoShll, my_avShll);
 			my_builtin_retShll = my_find_builtinShll(my_infoShll);
 			if (my_builtin_retShll == -1)
 				my_get_locationShll(my_infoShll);

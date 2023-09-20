@@ -16,15 +16,15 @@ void my_fork_cmdShll(my_info_stShll *my_infoShll)
 	my_child_pidShll = fork();
 	if (my_child_pidShll == -1)
 	{
-		my_perrorShll("Error:");
+		perror("Error:");
 		return;
 	}
 	if (my_child_pidShll == 0)
 	{
-		if (my_execveShll(my_infoShll->my_pathShll, my_infoShll->argv, my_get_environShll(my_infoShll)) == -1)
+		if (execve(my_infoShll->my_pathShll, my_infoShll->my_argvShll, my_get_environShll(my_infoShll)) == -1)
 		{
 			my_free_infoShll(my_infoShll, 1);
-			if (my_errnoShll == MY_EACCESSHLL)
+			if (errno == EACCES)
 				exit(126);
 			exit(1);
 		}
@@ -40,4 +40,3 @@ void my_fork_cmdShll(my_info_stShll *my_infoShll)
 		}
 	}
 }
-
