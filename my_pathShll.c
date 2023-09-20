@@ -2,6 +2,29 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
+ * my_is_cmdShll - function that determines if a file is executable command
+ * 
+ * @my_infoShll: it is the info struct
+ * @my_pathShll: it is path to the file
+ *
+ * Return: 1 if true, 0 if false
+*/
+
+int my_is_cmdShll(my_info_stShll *my_infoShll, char *my_pathShll)
+{
+        struct my_statShll my_stShll;
+
+        (void)my_infoShll;
+        if (!my_pathShll || my_statShll(my_pathShll, &my_stShll))
+                return (0);
+
+        if (my_stShll my_st_modeShll & MY_S_IFREGSHLL)
+                return (1);
+
+        return (0);
+}
+
+/**
  * my_dup_charsShll - function that duplicates characters
  *
  * @my_pathstrShll: it is the PATH string
@@ -65,27 +88,4 @@ char *my_get_pathShll(my_info_stShll *my_infoShll, char *my_pathstrShll, char *m
 		my_iShll++;
 	}
 	return (NULL);
-}
-
-/**
- * my_is_cmdShll - function that determines if a file is executable command
- * 
- * @my_infoShll: it is the info struct
- * @my_pathShll: it is path to the file
- *
- * Return: 1 if true, 0 if false
-*/
-
-int my_is_cmdShll(my_info_stShll *my_infoShll, char *my_pathShll)
-{
-	struct my_statShll my_stShll;
-
-	(void)my_infoShll;
-	if (!my_pathShll || my_statShll(my_pathShll, &my_stShll))
-		return (0);
-
-	if (my_stShll my_st_modeShll & MY_S_IFREGSHLL)
-		return (1);
-
-	return (0);
 }

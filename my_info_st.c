@@ -2,10 +2,12 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
- * my_free_infoShll - function that  free info_t struct fields
- * @my_infoShll: it is a struct address
+ * my_free_infoShll - frees my_info_tShll struct fields
+ *
+ * @my_infoShll: a struct @
  * @my_allShll: it is true if freeing all fields
- * Return: Always returns  0
+ *
+ * Return: 0 (Always)
 */
 
 void my_free_infoShll(my_info_stShll *my_infoShll, int my_allShll)

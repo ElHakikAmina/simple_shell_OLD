@@ -1,11 +1,14 @@
 #include "main.h"
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
- * Created by aina el hakik and  Mehdi Belaazri 
  * my_get_locationShll function that finds a command in path
+ *
  * @my_infoShll: it is a struct
- * Return: Always returns 0
- */
+ *
+ * Return: 0 (Always)
+*/
+
 void my_get_locationShll(my_info_stShll *my_infoShll)
 {
 	char *my_pathShll = NULL;

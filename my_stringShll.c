@@ -2,23 +2,53 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
- * _strlenShll - gets the length of a givin string
+ * _strcpyShll - this function  copies a string
  *
- * @my_sShll: string
+ * @my_destShll: it is a destination
+ * @my_srcShll: it is a source
  *
- * Return: string length
+ * Return: pointer to dest
 */
 
-int _strlenShll(char *my_sShll)
+char *_strcpyShll(char *my_destShll, char *my_srcShll)
 {
-	int my_lShll = 0;
+        int my_iShll = 0;
 
-	if (!my_sShll)
-		return (0);
+        if (my_destShll == my_srcShll || my_srcShll == 0)
+                return (my_destShll);
+        while (my_srcShll[my_iShll])
+        {
+                my_destShll[my_iShll] = my_srcShll[my_iShll];
+                my_iShll++;
+        }
+        my_destShll[my_iShll] = 0;
+        return (my_destShll);
+}
 
-	while (*my_sShll++)
-		my_lShll++;
-	return (my_lShll);
+/**
+ * _strdupShll - duplicates a string
+ *
+ * @my_strShll: string input
+ *
+ * Return: pointer the the dup string
+*/
+
+char *_strdupShll(const char *my_strShll)
+{
+        int my_lenShll = 0;
+        char *my_resShll;
+
+        if (my_strShll == NULL)
+                return (NULL);
+
+        while (*my_strShll++)
+                my_lenShll++;
+        my_resShll = malloc(sizeof(char) * (my_lenShll + 1));
+        if (!my_resShll)
+                return (NULL);
+        for (my_lenShll++; my_lenShll--;)
+                my_resShll[my_lenShll] = *--my_strShll;
+        return (my_resShll);
 }
 
 /**
@@ -43,56 +73,6 @@ char *_strcatShll(char *my_destShll, char *my_srcShll)
 }
 
 /**
- * _strcpyShll - this function  copies a string
- *
- * @my_destShll: it is a destination
- * @my_srcShll: it is a source
- *
- * Return: pointer to dest
-*/
-
-char *_strcpyShll(char *my_destShll, char *my_srcShll)
-{
-	int my_iShll = 0;
-
-	if (my_destShll == my_srcShll || my_srcShll == 0)
-		return (my_destShll);
-	while (my_srcShll[my_iShll])
-	{
-		my_destShll[my_iShll] = my_srcShll[my_iShll];
-		my_iShll++;
-	}
-	my_destShll[my_iShll] = 0;
-	return (my_destShll);
-}
-
-/**
- * _strdupShll - duplicates a string
- *
- * @my_strShll: string input
- *
- * Return: pointer the the dup string
-*/
-
-char *_strdupShll(const char *my_strShll)
-{
-	int my_lenShll = 0;
-	char *my_resShll;
-
-	if (my_strShll == NULL)
-		return (NULL);
-
-	while (*my_strShll++)
-		my_lenShll++;
-	my_resShll = malloc(sizeof(char) * (my_lenShll + 1));
-	if (!my_resShll)
-		return (NULL);
-	for (my_lenShll++; my_lenShll--;)
-		my_resShll[my_lenShll] = *--my_strShll;
-	return (my_resShll);
-}
-
-/**
  * my_starts_withShll - this function checkes if needle starts with haystack
  *
  * @my_haystackShll: it is a string to search
@@ -107,4 +87,24 @@ char *my_starts_withShll(const char *my_haystackShll, const char *my_needleShll)
 		if (*my_needleShll++ != *my_haystackShll++)
 			return (NULL);
 	return ((char *)my_haystackShll);
+}
+
+/**
+ * _strlenShll - gets the length of a givin string
+ *
+ * @my_sShll: string
+ *
+ * Return: string length
+*/
+
+int _strlenShll(char *my_sShll)
+{
+        int my_lShll = 0;
+
+        if (!my_sShll)
+                return (0);
+
+        while (*my_sShll++)
+                my_lShll++;
+        return (my_lShll);
 }

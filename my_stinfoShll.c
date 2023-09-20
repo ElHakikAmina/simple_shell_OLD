@@ -2,22 +2,6 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
- * my_clear_infoShll - function that initializes info_t structure
- *
- * @my_infoShll: it is a struct address
- *
- * Return: Always returns 0
-*/
-
-void my_clear_infoShll(my_info_stShll *my_infoShll)
-{
-	my_infoShll->my_argShll = NULL;
-	my_infoShll->my_argvShll = NULL;
-	my_infoShll->my_pathShll = NULL;
-	my_infoShll->my_argcShll = 0;
-}
-
-/**
  * my_set_infoShll - function that initializes info_t structure
  *
  * @my_avShll: it is argument vector
@@ -49,4 +33,20 @@ void my_set_infoShll(my_info_stShll *my_infoShll, char **my_avShll)
 		my_replace_aliasShll(my_infoShll);
 		my_replace_varsShll(my_infoShll);
 	}
+}
+
+/**
+ * my_clear_infoShll - function that initializes info_t structure
+ *
+ * @my_infoShll: it is a struct address
+ *
+ * Return: Always returns 0
+*/
+
+void my_clear_infoShll(my_info_stShll *my_infoShll)
+{
+        my_infoShll->my_argShll = NULL;
+        my_infoShll->my_argvShll = NULL;
+        my_infoShll->my_pathShll = NULL;
+        my_infoShll->my_argcShll = 0;
 }

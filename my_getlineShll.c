@@ -1,11 +1,36 @@
 #include "main.h"
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri */
+
+/**
+ * read_bufShll - function that reads a buffer
+ * @my_infoShll: it is a struct
+ * @my_bufShll: it is a buffer
+ * @my_iShll: it is a size 
+ * Return: it retrurns r
+*/
+
+my_ssize_tShll my_read_bufShll(my_info_stShll *my_infoShll, char *my_bufShll, my_size_tShll *my_iShll)
+{
+	my_ssize_tShll my_rShll = 0;
+       
+	if (*my_iShll)
+		return (0);
+	my_rShll = read(my_infoShll->my_readfdShll, my_bufShll, MY_READ_BUF_SIZESHLL);
+	if (my_rShll >= 0)
+		*my_iShll = my_rShll;
+	return (my_rShll);
+}
+
 /**
  * my_input_buf - function that buffer chained commands
+ *
  * @my_infoShll: it is a struct
  * @my_bufShll: it is a address to buffer
  * @my_lenShll: it is a  address to length of var
- * Return: it returns a bytes read
+ *
+ * Return: a bytes read
  */
+
 my_ssize_tShll my_input_bufShll(my_info_stShll *my_infoShll, char **my_bufShll, my_size_tShll *my_lenShll)
 {
 	my_ssize_tShll my_rShll = 0;
@@ -41,10 +66,28 @@ my_ssize_tShll my_input_bufShll(my_info_stShll *my_infoShll, char **my_bufShll, 
 }
 
 /**
+ * my_sigintHandlerShll - function that  blocks ctrl-c
+ *
+ * @my_sig_numShll: it is a the signal number
+ *
+ * Return: Nothing
+*/
+
+void my_sigintHandlerShll(__attribute__((unused))int my_sig_numShll)
+{
+        _putsShll("\n");
+        _putsShll("$ ");
+        _putcharShll(MY_BUF_FLUSHSHLL);
+}
+
+/**
  * my_get_inputShll - function that gets a line minus the newline
+ *
  * @my_infoShll: it is a  struct
+ *
  * Return: it retruns bytes read
- */
+*/
+
 my_ssize_tShll my_get_inputShll(my_info_stShll *my_infoShll)
 {
 	static char *my_bufShll;
@@ -84,31 +127,15 @@ my_ssize_tShll my_get_inputShll(my_info_stShll *my_infoShll)
 }
 
 /**
- * read_bufShll - function that reads a buffer
- * @my_infoShll: it is a struct
- * @my_bufShll: it is a buffer
- * @my_iShll: it is a size
- * Return: it retrurns r
- */
-my_ssize_tShll my_read_bufShll(my_info_stShll *my_infoShll, char *my_bufShll, my_size_tShll *my_iShll)
-{
-	my_ssize_tShll my_rShll = 0;
-
-	if (*my_iShll)
-		return (0);
-	my_rShll = read(my_infoShll->my_readfdShll, my_bufShll, MY_READ_BUF_SIZESHLL);
-	if (my_rShll >= 0)
-		*my_iShll = my_rShll;
-	return (my_rShll);
-}
-
-/**
  * _getlineShll - function that  gets the next line of input from stdin
+ *
  * @my_infoShll: it is a struct
  * @my_ptrShll: it is a address of pointer to buffer
  * @my_lengthShll: it is a  size of preallocated ptr buffer if not NULL
+ *
  * Return:function that  s
- */
+*/
+
 int _getlineShll(my_info_stShll *my_infoShll, char **my_ptrShll, my_size_tShll *my_lengthShll)
 {
 	static char my_bufShll[MY_READ_BUF_SIZESHLL];
@@ -147,16 +174,3 @@ int _getlineShll(my_info_stShll *my_infoShll, char **my_ptrShll, my_size_tShll *
 	*my_ptrShll = my_pShll;
 	return (my_sShll);
 }
-
-/**
- * my_sigintHandlerShll - function that  blocks ctrl-c
- * @my_sig_numShll: it is a the signal number
- * Return: it is a void no retrun
- */
-void my_sigintHandlerShll(__attribute__((unused))int my_sig_numShll)
-{
-	_putsShll("\n");
-	_putsShll("$ ");
-	_putcharShll(MY_BUF_FLUSHSHLL);
-}
-

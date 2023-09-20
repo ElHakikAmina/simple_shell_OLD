@@ -73,9 +73,9 @@ int _aliasShll(my_info_stShll *my_infoShll)
                 }
                 return (0);
         }
-        for (my_iShll = 1; my_infoShll->my_argvShll[i]; my_iShll++)
+        for (my_iShll = 1; my_infoShll->my_argvShll[my_iShll]; my_iShll++)
         {
-                my_pShll = _strchrShll(my_infoShll->my_argvShll[i], '=');
+                my_pShll = _strchrShll(my_infoShll->my_argvShll[my_iShll], '=');
                 if (my_pShll)
                         my_set_aliasShll(my_infoShll, my_infoShll->my_argvShll[i]);
                 else

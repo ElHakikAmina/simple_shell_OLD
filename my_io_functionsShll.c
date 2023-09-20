@@ -2,6 +2,46 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
+ * my_build_history_listShll - function that adds entry to a history linked list
+ *
+ * @my_infoShll: it is a Structure containing potential arguments. Used to maintain
+ * @my_bufShll: it is a buffer
+ * @my_linecountShll: it si a the history linecount, histcount
+ *
+ * Return: it returns Always 0
+ */
+int my_build_history_listShll(my_info_stShll *my_infoShll, char *my_bufShll, int my_linecountShll)
+{
+        my_list_stShll *my_nodeShll = NULL;
+
+        if (my_infoShll->my_historyShll)
+                my_nodeShll = my_infoShll->my_historyShll;
+        my_add_node_endShll(&my_nodeShll, my_bufShll, my_linecountShll);
+
+        if (!my_infoShll->my_historyShll)
+                my_infoShll->my_historyShll = my_nodeShll;
+        return (0);
+}
+
+/**
+ * my_renumber_historyShll  : :-function that  renumbers the history linked list after changes
+ * @my_infoShll: it is a Structure containing potential arguments. Used to maintain
+ * Return: it returns the new histcount
+ */
+int my_renumber_historyShll(my_info_stShll *my_infoShll)
+{
+        my_list_stShll *my_nodeShll = my_infoShll->my_historyShll;
+        int my_iShll = 0;
+
+        while (my_nodeShll)
+        {
+                my_nodeShll->my_numShll = my_iShll++;
+                my_nodeShll = my_nodeShll->my_nextShll;
+        }
+        return (my_infoShll->my_histcountShll = my_iShll);
+}
+
+/**
  * my_get_history_fileShll - function that gets the history file
  * @my_infoShll: it returns  parameter struct
  *
@@ -23,6 +63,36 @@ char *my_get_history_fileShll(my_info_stShll *my_infoShll)
 	_strcatShll(my_bufShll, "/");
 	_strcatShll(my_bufShll, MY_HIST_FILESHLL);
 	return (my_bufShll);
+}
+
+/**
+ * my_write_historyShll - function that creates a file, or appends to an existing file
+ * @my_infoShll: it is a the parameter struct
+ *
+ * Return: it returns  1 on success, else -1
+ */
+
+int my_write_historyShll(my_info_stShll *my_infoShll)
+{
+        my_ssize_tShll my_fdShll;
+        char *my_filenameShll = my_get_history_fileShll(my_infoShll);
+        my_list_stShll *my_nodeShll = NULL;
+
+        if (!my_filenameShll)
+                return (-1);
+
+        my_fdShll = open(my_filenameShll, O_CREAT | O_TRUNC | O_RDWR, 0644);
+        free(my_filenameShll);
+        if (my_fdShll == -1)
+                return (-1);
+        for (my_nodeShll = my_infoShll->my_historyShll; my_nodeShll; my_nodeShll = my_nodeShll->my_nextShll)
+        {
+                _putsfdShll(my_nodeShll->my_strShll, my_fdShll);
+                _putfdShll('\n', my_fdShll);
+        }
+        _putfdShll(MY_BUF_FLUSHSHLL, my_fdShll);
+        close(my_fdShll);
+        return (1);
 }
 
 /**
@@ -73,73 +143,4 @@ int my_read_historyShll(my_info_stShll *my_infoShll)
 		my_delete_node_at_indexShll(&(my_infoShll->my_historyShll), 0);
 	my_renumber_historyShll(my_infoShll);
 	return (my_infoShll->my_histcountShll);
-}
-/**
- * my_write_historyShll - function that creates a file, or appends to an existing file
- * @my_infoShll: it is a the parameter struct
- *
- * Return: it returns  1 on success, else -1
- */
-
-int my_write_historyShll(my_info_stShll *my_infoShll)
-{
-	my_ssize_tShll my_fdShll;
-	char *my_filenameShll = my_get_history_fileShll(my_infoShll);
-	my_list_stShll *my_nodeShll = NULL;
-
-	if (!my_filenameShll)
-		return (-1);
-
-	my_fdShll = open(my_filenameShll, O_CREAT | O_TRUNC | O_RDWR, 0644);
-	free(my_filenameShll);
-	if (my_fdShll == -1)
-		return (-1);
-	for (my_nodeShll = my_infoShll->my_historyShll; my_nodeShll; my_nodeShll = my_nodeShll->my_nextShll)
-	{
-		_putsfdShll(my_nodeShll->my_strShll, my_fdShll);
-		_putfdShll('\n', my_fdShll);
-	}
-	_putfdShll(MY_BUF_FLUSHSHLL, my_fdShll);
-	close(my_fdShll);
-	return (1);
-}
-
-/**
- * my_build_history_listShll - function that adds entry to a history linked list
- *
- * @my_infoShll: it is a Structure containing potential arguments. Used to maintain
- * @my_bufShll: it is a buffer
- * @my_linecountShll: it si a the history linecount, histcount
- *
- * Return: it returns Always 0
- */
-int my_build_history_listShll(my_info_stShll *my_infoShll, char *my_bufShll, int my_linecountShll)
-{
-	my_list_stShll *my_nodeShll = NULL;
-
-	if (my_infoShll->my_historyShll)
-		my_nodeShll = my_infoShll->my_historyShll;
-	my_add_node_endShll(&my_nodeShll, my_bufShll, my_linecountShll);
-
-	if (!my_infoShll->my_historyShll)
-		my_infoShll->my_historyShll = my_nodeShll;
-	return (0);
-}
-
-/**
- * my_renumber_historyShll  : :-function that  renumbers the history linked list after changes
- * @my_infoShll: it is a Structure containing potential arguments. Used to maintain
- * Return: it returns the new histcount
- */
-int my_renumber_historyShll(my_info_stShll *my_infoShll)
-{
-	my_list_stShll *my_nodeShll = my_infoShll->my_historyShll;
-	int my_iShll = 0;
-
-	while (my_nodeShll)
-	{
-		my_nodeShll->my_numShll = my_iShll++;
-		my_nodeShll = my_nodeShll->my_nextShll;
-	}
-	return (my_infoShll->my_histcountShll = my_iShll);
 }

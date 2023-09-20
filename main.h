@@ -2,15 +2,15 @@
 #define MAIN_H
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
+#include <stdlib.h>
 #include <unistd.h>
-#include <sys/stat.h>
-#include <sys/types.h>
-#include <sys/wait.h>
 #include <limits.h>
-#include <fcntl.h>
+#include <sys/types.h>
 #include <errno.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <sys/wait.h>
 
 
 /* READ_BUF_SIZE */
@@ -21,17 +21,17 @@
 #define MY_BUF_FLUSHSHLL -1
 
 
-/*This part is for command chain*/
-#define MY_CMD_NORMSHLL	0
+/* This part is for command chain*/
+#define MY_CMD_NORMSHLL		0
 #define MY_CMD_ORSHLL		1
 #define MY_CMD_ANDSHLL		2
 #define MY_CMD_CHAINSHLL	3
 
-/* This part is  for convert_number() */
-#define MY_CONVERT_UNSIGNEDSHLL	2
+/* This part is for convert_number() */
+#define MY_CONVERT_UNSIGNEDSHLL		2
 #define MY_CONVERT_LOWERCASESHLL	1
 
-/* This part is  for: IF USING SYSTEM getline()*/
+/* This part is for: IF USING SYSTEM getline()*/
 #define MY_USE_GETLINESHLL	0
 #define MY_USE_STRTOKSHLL	0
 
@@ -42,10 +42,12 @@ extern char **my_environShll;
 
 /**
  * struct my_liststrShll - singly linked list
+ *
  * @my_numShll: number field
- * @my_strShll: string
- * @my_nextShll: pointer to next node
- */
+ * @my_strShll: a string input
+ * @my_nextShll: pointer to the next node
+*/
+
 typedef struct my_liststrShll
 {
 	int my_numShll;
@@ -55,7 +57,8 @@ typedef struct my_liststrShll
 
 /**
  * struct my_passinfoShll - it contains :  pseudo-arguments to pass into a function
- * allowing uniform prototype function pointer struct
+ *                          allowing uniform prototype function pointer struct
+ *
  * @my_argShll: a string generated from getline containing arguments
  * @my_argvShll: an array of string
  * @my_pathShll: a string path for the current command
@@ -74,7 +77,8 @@ typedef struct my_liststrShll
  * @my_cmd_buf_typeShll: CMD_type ||, &&, ;
  * @my_readfdShll: fd from which to read the line input
  * @my_histcountShll: history line count
- */
+*/
+
 typedef struct my_passinfoShll
 {
 	char *my_argShll;
@@ -103,139 +107,140 @@ typedef struct my_passinfoShll
 	0, 0, 0}
 
 /**
- * struct builtin - have built in string and related functions
+ * struct my_builtinShll - have built in string and related functions
+ *
  * @my_typeShll: variable for the builting command flag
  * @my_funcShll: function
- */
+*/
+
 typedef struct my_builtinShll
 {
 	char *my_typeShll;
 	int (*my_funcShll)(my_info_stShll *);
 } my_builtin_tableShll;
 
-void my_exe_cmdShll(char **my_argvShll); 
-void my_get_locationShll(info_st *my_infoShll); 
+void my_exe_cmdShll(char **my_argvShll);
+void my_get_locationShll(my_info_stShll *my_infoShll);
 
-/* This file is created by EL HAKIK Amina and Mehdi Belaazri string.c */
-int _strlenShll(char *my_sShll);
-char *_strcatShll(char *my_destShll, char *my_srcShll);
-char *_strdupShll(const char *my_strShll);
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri my_stringShll.c */
 char *_strcpyShll(char *my_destShll, char *my_srcShll);
 char *my_starts_withShll(const char *my_haystackShll, const char *my_needleShll);
+char *_strdupShll(const char *my_strShll);
+int _strlenShll(char *my_sShll);
+char *_strcatShll(char *my_destShll, char *my_srcShll);
 
-/* This file is created by EL HAKIK Amina and Mehdi Belaazri string_1.c*/
-int _putcharShll(char my_cShll);
-void _putsShll(char *my_strShll);
-int _strcmpShll(char *my_s1Shll, char *my_s2Shll);
-
-/* This file is created by EL HAKIK Amina and Mehdi Belaazri string_2.c*/
-char *_strchrShll(char *my_sShll, char my_cShll);
-char *_strncatShll(char *my_destShll, char *my_srcShll, int my_nShll);
-char *_strncpyShll(char *my_destShll, char *my_srcShll, int my_nShll);
-
-/* This file is created by EL HAKIK Amina and Mehdi Belaazri enviroment_var.c*/
-char *_getenvShll(my_info_stShll *my_infoShll, const char *my_nameShll);
-int _myenvShll(my_info_stShll *my_infoShll);
-char **my_get_environShll(my_info_stShll *my_infoShll);
-int my_populate_env_listShll(my_info_stShll *my_infoShll);
-int _mysetenvShll(my_info_stShll *);
-
-/* This file is created by EL HAKIK Amina and Mehdi Belaazri  enviroment_var1.c*/
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri my_enviroment_var1Shll.c*/
+int _unsetenvShll(my_info_stShll *my_infoShll);
 int _setenvShll(my_info_stShll *my_infoShll, char *my_varShll, char *my_valueShll);
 int _unsetenvShll(my_info_st *my_infoShll, char *my_varShll);
-int _myunsetenvShll(my_info_stShll *my_infoShll);
 
-/* This file is created by EL HAKIK Amina and Mehdi Belaazri list_string.c*/
-size_t my_print_liststrShll(const my_list_st *my_hShll);
-list_st *my_add_nodeShll(my_list_st **my_headShll, const char *my_strShll, int my_numShll);
-list_st *my_add_node_endShll(my_list_st **my_headShll, const char *my_strShll, int my_numShll);
-size_t my_print_listShll(const my_list_st *my_hShll);
-list_st *my_node_starts_withShll(my_list_st *my_nodeShll, char *my_prefixShll, char my_cShll);
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri my_string_2Shll.c*/
+char *_strncpyShll(char *my_destShll, char *my_srcShll, int my_nShll);
+char *_strncatShll(char *my_destShll, char *my_srcShll, int my_nShll);
+char *_strchrShll(char *my_sShll, char my_cShll);
 
-/* This file is created by EL HAKIK Amina and Mehdi Belaazri  list_string1.c*/
-int my_delete_node_at_indexShll(my_list_st **my_headShll, unsigned int my_indexShll);
-ssize_t my_get_node_indexShll(my_list_st *my_headShll, list_st *my_nodeShll);
-char **my_list_to_stringsShll(my_list_st *my_headShll);
-size_t my_list_lenShll(const my_list_st *my_hShll);
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri my_string_1Shll.c*/
+void _putsShll(char *my_strShll);
+int _strcmpShll(char *my_s1Shll, char *my_s2Shll);
+int _putcharShll(char my_cShll);
 
-/* This file is created by EL HAKIK Amina and Mehdi Belaazri  path.c*/
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri my_enviroment_varShll.c*/
+char **my_get_environShll(my_info_stShll *my_infoShll);
+int _setenvShll(my_info_stShll *);
+char *_getenvShll(my_info_stShll *my_infoShll, const char *my_nameShll);
+int my_populate_env_listShll(my_info_stShll *my_infoShll);
+int _envShll(my_info_stShll *my_infoShll);
+
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri my_pathShll.c*/
+int my_is_cmdShll(my_info_stShll *my_infoShll, char *my_pathShll);
+char *my_get_pathShll(my_info_stShll *my_infoShll, char *my_pathstrShll, char *my_cmdShll);
 char *my_dup_charsShll(char *my_pathstrShll, int my_startShll, int my_stopShll);
-char *my_get_pathShll(my_info_st *my_infoShll, char *my_pathstrShll, char *my_cmdShll);
-int my_is_cmdShll(my_info_st *my_infoShll, char *my_pathShll);
 
-/* This file is created by EL HAKIK Amina and Mehdi Belaazri  function1.c*/
-void my_print_errorShll(my_info_st *my_infoShll, char *my_estrShll);
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri my_list_stringShll.c*/
+my_list_stShll *my_add_nodeShll(my_list_stShll **my_headShll, const char *my_strShll, int my_numShll);
+size_t my_print_liststrShll(const my_list_stShll *my_hShll);
+size_t my_print_listShll(const my_list_stShll *my_hShll);
+my_list_stShll *my_node_starts_withShll(my_list_stShll *my_nodeShll, char *my_prefixShll, char my_cShll);
+my_list_stShll *my_add_node_endShll(my_list_stShll **my_headShll, const char *my_strShll, int my_numShll);
+
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri my_list_string1Shll.c*/
+char **my_list_to_stringsShll(my_list_stShll *my_headShll);
+int my_delete_node_at_indexShll(my_list_stShll **my_headShll, unsigned int my_indexShll);
+size_t my_list_lenShll(const my_list_stShll *my_hShll);
+ssize_t my_get_node_indexShll(my_list_stShll *my_headShll, my_list_stShll *my_nodeShll);
+
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri my_forkShll.c*/
+void my_fork_cmdShll(my_info_stShll *my_infoShll);
+
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri my_info_stShll.c*/
+void my_free_infoShll(my_info_stShll *my_infoShll, int my_allShll);
+
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri my_function1Shll.c*/
+int my_interactiveShll(my_info_stShll *my_infoShll);
 int my_print_dShll(int my_inputShll, int my_fdShll);
-int my_is_delimShll(char my_cShll, char *my_delimShll);
-int my_interactiveShll(my_info_st *my_infoShll);
 char *my_convert_numberShll(long int my_numShll, int my_baseShll, int my_flagsShll);
+void my_print_errorShll(my_info_stShll *my_infoShll, char *my_estrShll);
+int my_is_delimShll(char my_cShll, char *my_delimShll);
 
-/* This file is created by EL HAKIK Amina and Mehdi Belaazri  function2.c*/
-void my_remove_commentsShll(char *my_bufShll);
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri my_hshShll.c*/
+int my_hshShll(my_info_stShll *my_infoShll, char **my_avShll);
+int my_find_builtinShll(my_info_stShll *my_infoShll);
+
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri my_stinfoShll.c*/
+void my_clear_infoShll(my_info_stShll *my_infoShll);
+void my_set_infoShll(my_info_stShll *my_infoShll, char **my_avShll);
+
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri my_memory_funcShll.c*/
+void my_free_listShll(list_stShll **my_head_ptrShll);
+int my_bfreeShll(void **my_ptrShll);
+void *_reallocShll(void *my_ptrShll, unsigned int my_old_sizeShll, unsigned int my_new_sizeShll);
+char *_memsetShll(char *my_sShll, char my_bShll, unsigned int my_nShll);
+void my_ffreeShll(char **_ppShll);
+
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri my_function2Shll.c*/
 int _erratoiShll(char *my_sShll);
+void my_remove_commentsShll(char *my_bufShll);
 
-/* This file is created by EL HAKIK Amina and Mehdi Belaazri  errstr_func.c*/
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri my_io_functionsShll.c*/
+int my_build_history_listShll(my_info_stShll *my_infoShll, char *my_bufShll, int my_linecountShll);
+int my_renumber_historyShll(my_info_stShll *my_infoShll);
+char *my_get_history_fileShll(my_info_stShll *my_infoShll);
+int my_read_historyShll(my_info_stShll *my_infoShll);
+int my_write_historyShll(my_info_stShll *my_infoShll);
+
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri my_errstr_funcShll.c*/
+int _putsfdShll(char *my_strShll, int my_fdShll);
 int _eputcharShll(char my_cShll);
 void _eputsShll(char *my_strShll);
 int _putfdShll(char my_cShll, int my_fdShll);
-int _putsfdShll(char *my_strShll, int my_fdShll);
 
-/* This file is created by EL HAKIK Amina and Mehdi Belaazri  fork.c*/
-void my_fork_cmdShll(my_info_stShll *my_infoShll);
-
-/* This file is created by EL HAKIK Amina and Mehdi Belaazri  info_st.c*/
-void my_free_infoShll(my_info_stShll *my_infoShll, int my_allShll);
-
-/* This file is created by EL HAKIK Amina and Mehdi Belaazri  memory_func.c*/
-int my_bfreeShll(void **my_ptrShll);
-void my_ffreeShll(char **_pp);
-void my_free_listShll(list_stShll **my_head_ptrShll);
-void *_reallocShll(void *my_ptrShll, unsigned int my_old_sizeShll, unsigned int my_new_sizeShll);
-char *_memsetShll(char *my_sShll, char my_bShll, unsigned int my_nShll);
-
-/* This file is created by EL HAKIK Amina and Mehdi Belaazri  hsh*/
-int my_find_builtinShll(info_stShll *my_infoShll);
-int my_hshShll(my_info_stShll *my_infoShll, char **my_avShll);
-
-/* This file is created by EL HAKIK Amina and Mehdi Belaazri  builtin_commands.c*/
-int _myexitShll(my_info_stShll *my_infoShll);
-int _myhelpShll(my_info_stShll *my_infoShll);
-int my_print_aliasShll(my_list_stShll *my_nodeShll);
-int _myaliasShll(my_info_stShll *my_infoShll);
-int _mycdShll(my_info_stShll *my_infoShll);
-
-/* This file is created by EL HAKIK Amina and Mehdi Belaazri  builtin_commands2.c*/
-int _myhistoryShll(my_info_stShll *my_infoShll);
-int my_unset_aliasShll(my_info_stShll *my_infoShll, char *my_strShll);
-int my_set_aliasShll(my_info_stShll *my_infoShll, char *my_strShll);
-
-/* This file is created by EL HAKIK Amina and Mehdi Belaazri io_functions.c*/
-char *my_get_history_fileShll(my_info_stShll *my_infoShll);
-int my_read_historyShll(my_info_stShll *my_infoShll);
-int my_build_history_listShll(my_info_stShll *my_infoShll, char *my_buf, int my_linecountShll);
-int my_renumber_historyShll(my_info_stShll *my_infoShll);
-int my_write_historyShll(my_info_stShll *my_infoShll);
-
-/* This file is created by EL HAKIK Amina and Mehdi Belaazri  stinfo.c*/
-void my_set_infoShll(my_info_stShll *my_infoShll, char **my_avShll);
-void my_clear_infoShll(my_info_stShll *my_infoShll);
-
-/* This file is created by EL HAKIK Amina and Mehdi Belaazri  chain.c*/
-int my_is_chainShll(my_info_stShll *my_infoShll, char *my_bufShll, size_t *my_pShll);
-void my_check_chainShll(my_info_stShll *my_infoShll, char *my_bufShll, size_t *my_pShll, size_t my_iShll, size_t my_lenShll);
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri  my_chainShll.c*/
 int my_replace_aliasShll(my_info_stShll *my_infoShll);
+int my_is_chainShll(my_info_stShll *my_infoShll, char *my_bufShll, size_t *my_pShll);
 int my_replace_varsShll(my_info_stShll *my_infoShll);
 int my_replace_stringShll(char **my_oldShll, char *my_newShll);
+void my_check_chainShll(my_info_stShll *my_infoShll, char *my_bufShll, size_t *my_pShll, size_t my_iShll, size_t my_lenShll);
 
-/* This file is created by EL HAKIK Amina and Mehdi Belaazri  strtok.c*/
-char **my_str_tok(char *my_strShll, char *my_dShll);
-char **my_str_tok2(char *my_strShll, char my_dShll);
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri my_builtin_commandsShll.c, 2nd, 3rd and 4th*/
+int _aliasShll(my_info_stShll *my_infoShll);
+int _cdShll(my_info_stShll *my_infoShll);
+int my_set_aliasShll(my_info_stShll *my_infoShll, char *my_strShll);
+int my_unset_aliasShll(my_info_stShll *my_infoShll, char *my_strShll);
+int _historyShll(my_info_stShll *my_infoShll);
+int _exitShll(my_info_stShll *my_infoShll);
+int my_print_aliasShll(my_list_stShll *my_nodeShll);
+int _helpShll(my_info_stShll *my_infoShll);
 
-/* This file is created by EL HAKIK Amina and Mehdi Belaazri  getline.c*/
-void my_sigintHandlerShll(__attribute__((unused))int my_sig_numShll);
-int _getlineShll(my_info_stShll *my_info, char **ptr, size_t *my_lengthShll);
-ssize_t my_read_bufShll(my_info_stShll *my_infoShll, char *my_bufShll, size_t *iShll);
-ssize_t my_get_inputShll(my_info_stShll *my_infoShll);
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri  my_getlineShll.c*/
 ssize_t my_input_bufShll(my_info_stShll *my_infoShll, char **my_bufShll, size_t *my_lenShll);
+void my_sigintHandlerShll(__attribute__((unused))int my_sig_numShll);
+ssize_t my_read_bufShll(my_info_stShll *my_infoShll, char *my_bufShll, size_t *my_iShll);
+ssize_t my_get_inputShll(my_info_stShll *my_infoShll);
+int _getlineShll(my_info_stShll *my_infoShll, char **my_ptrShll, size_t *my_lengthShll);
+
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri my_strtokShll.c*/
+char **my_str_tok2(char *my_strShll, char my_dShll);
+char **my_str_tok(char *my_strShll, char *my_dShll);
+
 #endif
 

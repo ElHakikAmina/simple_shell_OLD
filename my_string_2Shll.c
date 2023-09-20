@@ -2,6 +2,53 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
+ * _strchrShll - locates a char in a string
+ *
+ * @sShll: string input
+ * @cShll: character to be located
+ *
+ * Return: a pointer to memory area
+*/
+
+char *_strchrShll(char *my_sShll, char my_cShll)
+{
+        do {
+                if (*my_sShll == my_cShll)
+                        return (my_sShll);
+        } while (*my_sShll++ != '\0');
+
+        return (NULL);
+}
+
+/**
+ * _strncatShll - concatenates 2 strings
+ *
+ * @my_destShll: it is a  destination
+ * @my_srcShll: it is a source
+ * @my_nShll: it is a the amount of bytes to be used
+ *
+ * Return: the concatenated string
+*/
+
+char *_strncatShll(char *my_destShll, char *my_srcShll, int my_nShll)
+{
+        int my_iShll = 0, my_jShll = 0;
+        char *my_sShll = my_destShll;
+
+        while (my_destShll[my_iShll] != '\0')
+                my_iShll++;
+        while (my_srcShll[my_jShll] != '\0' && my_jShll < my_nShll)
+        {
+                my_destShll[my_iShll] = my_srcShll[my_jShll];
+                my_iShll++;
+                my_jShll++;
+        }
+        if (my_jShll < my_nShll)
+                my_destShll[my_iShll] = '\0';
+        return (my_sShll);
+}
+
+/**
  * _strncpyShll - this function copies string
  *
  * @my_destShll: it is a destination
@@ -31,51 +78,4 @@ char *_strncpyShll(char *my_destShll, char *my_srcShll, int my_nShll)
 		}
 	}
 	return (my_sShll);
-}
-
-/**
- * _strncatShll - concatenates 2 strings
- *
- * @my_destShll: it is a  destination
- * @my_srcShll: it is a source
- * @my_nShll: it is a the amount of bytes to be used
- *
- * Return: the concatenated string
-*/
-
-char *_strncatShll(char *my_destShll, char *my_srcShll, int my_nShll)
-{
-	int my_iShll = 0, my_jShll = 0;
-	char *my_sShll = my_destShll;
-
-	while (my_destShll[my_iShll] != '\0')
-		my_iShll++;
-	while (my_srcShll[my_jShll] != '\0' && my_jShll < my_nShll)
-	{
-		my_destShll[my_iShll] = my_srcShll[my_jShll];
-		my_iShll++;
-		my_jShll++;
-	}
-	if (my_jShll < my_nShll)
-		my_destShll[my_iShll] = '\0';
-	return (my_sShll);
-}
-
-/**
- * _strchrShll - locates a char in a string
- *
- * @sShll: string input
- * @cShll: character to be located
- *
- * Return: a pointer to memory area
-*/
-
-char *_strchrShll(char *my_sShll, char my_cShll)
-{
-	do {
-		if (*my_sShll == my_cShll)
-			return (my_sShll);
-	} while (*my_sShll++ != '\0');
-
-	return (NULL);
 }
