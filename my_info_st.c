@@ -26,8 +26,8 @@ void my_free_infoShll(my_info_stShll *my_infoShll, int my_allShll)
 			my_free_listShll(&(my_infoShll->my_historyShll));
 		if (my_infoShll->my_aliasShll)
 			my_free_listShll(&(my_infoShll->my_aliasShll));
-		my_ffreeShll(my_infoShll->my_environShll);
-			my_infoShll->my_environShll = NULL;
+		my_ffreeShll(my_infoShll->environ);
+			my_infoShll->environ = NULL;
 		my_bfreeShll((void **)my_infoShll->my_cmd_bufShll);
 		if (my_infoShll->my_readfdShll > 2)
 			close(my_infoShll->my_readfdShll);
