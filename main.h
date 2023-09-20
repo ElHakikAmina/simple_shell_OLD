@@ -38,7 +38,7 @@
 #define MY_HIST_MAXSHLL	4096
 #define MY_HIST_FILESHLL	".simple_shell_history"
 
-extern char **my_environShll;
+extern char **environ;
 
 /**
  * struct my_liststrShll - singly linked list
@@ -68,7 +68,7 @@ typedef struct my_liststrShll
  * @my_linecount_flagShll: if on count this line of input
  * @my_fnameShll: program file name
  * @my_envShll: linked list local copy of environ
- * @my_environShll: custom modified copy of environ from ll env
+ * @environ: custom modified copy of environ from ll env
  * @my_historyShll: history node
  * @my_aliasShll: alias node
  * @my_env_changedShll: on if environ changed
@@ -92,7 +92,7 @@ typedef struct my_passinfoShll
 	my_list_stShll *my_envShll;
 	my_list_stShll *my_historyShll;
 	my_list_stShll *my_aliasShll;
-	char **my_environShll;
+	char **environ;
 	int my_env_changedShll;
 	int my_statusShll;
 
