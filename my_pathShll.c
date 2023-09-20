@@ -12,15 +12,14 @@
 
 int my_is_cmdShll(my_info_stShll *my_infoShll, char *my_pathShll)
 {
-        struct my_statShll my_stShll;
+        struct stat my_stShll;
 
         (void)my_infoShll;
-        if (!my_pathShll || my_statShll(my_pathShll, &my_stShll))
+        if (!my_pathShll || stat(my_pathShll, &my_stShll))
                 return (0);
 
-        if (my_stShll my_st_modeShll & MY_S_IFREGSHLL)
+        if (my_stShll.st_mode & S_IFREG)
                 return (1);
-
         return (0);
 }
 

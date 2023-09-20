@@ -4,8 +4,8 @@
 /**
  * _strchrShll - locates a char in a string
  *
- * @sShll: string input
- * @cShll: character to be located
+ * @my_sShll: string input
+ * @my_cShll: character to be located
  *
  * Return: a pointer to memory area
 */
@@ -65,7 +65,7 @@ char *_strncpyShll(char *my_destShll, char *my_srcShll, int my_nShll)
 
 	while (my_srcShll[my_iShll] != '\0' && my_iShll < my_nShll - 1)
 	{
-		my_destShll[iShll] = my_srcShll[my_i];
+		my_destShll[my_iShll] = my_srcShll[my_iShll];
 		my_iShll++;
 	}
 	if (my_iShll < my_nShll)

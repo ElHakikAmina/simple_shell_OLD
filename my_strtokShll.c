@@ -17,7 +17,7 @@ char **my_str_tok2Shll(char *my_strShll, char my_dShll)
 
 	if (my_strShll == NULL || my_strShll[0] == 0)
 		return (NULL);
-	for (my_iShll = 0; my_strShll[iShll] != '\0'; my_iShll++)
+	for (my_iShll = 0; my_strShll[my_iShll] != '\0'; my_iShll++)
 		if ((my_strShll[my_iShll] != my_dShll && my_strShll[my_iShll + 1] == my_dShll) ||
 			(my_strShll[my_iShll] != my_dShll && !my_strShll[my_iShll + 1]) || my_strShll[my_iShll + 1] == my_dShll)
 			my_numwordsShll++;
@@ -92,7 +92,7 @@ char **my_str_tokShll(char *my_strShll, char *my_dShll)
                         return (NULL);
                 }
                 for (my_mShll = 0; my_mShll < my_kShll; my_mShll++)
-                        my_sShll[my_jShll][my_mShll] = my_strShll[i++];
+                        my_sShll[my_jShll][my_mShll] = my_strShll[my_iShll++];
                 my_sShll[my_jShll][my_mShll] = 0;
         }
         my_sShll[my_jShll] = NULL;
