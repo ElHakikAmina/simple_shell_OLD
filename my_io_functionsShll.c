@@ -74,7 +74,7 @@ char *my_get_history_fileShll(my_info_stShll *my_infoShll)
 
 int my_write_historyShll(my_info_stShll *my_infoShll)
 {
-        my_ssize_tShll my_fdShll;
+        ssize_t my_fdShll;
         char *my_filenameShll = my_get_history_fileShll(my_infoShll);
         my_list_stShll *my_nodeShll = NULL;
 
@@ -106,7 +106,7 @@ int my_read_historyShll(my_info_stShll *my_infoShll)
 {
 	int my_iShll, my_lastShll = 0, my_linecountShll = 0;
 	ssize_t my_fdShll, my_rdlenShll, my_fsizeShll = 0;
-	struct my_statShll my_stShll;
+	struct stat my_stShll;
 	char *my_bufShll = NULL, *my_filenameShll = my_get_history_fileShll(my_infoShll);
 
 	if (!my_filenameShll)
@@ -116,8 +116,8 @@ int my_read_historyShll(my_info_stShll *my_infoShll)
 	free(my_filenameShll);
 	if (my_fdShll == -1)
 		return (0);
-	if (!my_fstatShll(my_fdShll, &my_stShll))
-		my_fsizeShll = my_stShll.my_st_sizeShll;
+	if (!fstat(my_fdShll, &my_stShll))
+		my_fsizeShll = my_stShll.st_size;
 	if (my_fsizeShll < 2)
 		return (0);
 	my_bufShll = malloc(sizeof(char) * (my_fsizeShll + 1));

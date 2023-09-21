@@ -32,7 +32,7 @@ int my_print_aliasShll(my_list_stShll *my_nodeShll)
  *  Return: Always return 0
 */
 
-int _helpShll(info_stShll *infoShll)
+int _helpShll(my_info_stShll *my_infoShll)
 {
         char **my_arg_arrayShll;
 

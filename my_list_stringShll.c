@@ -44,9 +44,9 @@ my_list_stShll *my_add_nodeShll(my_list_stShll **my_headShll, const char *my_str
  * Return: it returns size of list
 */
 
-my_size_tShll my_print_listShll(const my_list_stShll *my_hShll)
+size_t my_print_listShll(const my_list_stShll *my_hShll)
 {
-        my_size_tShll my_iShll = 0;
+        size_t my_iShll = 0;
 
         while (my_hShll)
         {

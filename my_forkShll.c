@@ -11,7 +11,7 @@
 
 void my_fork_cmdShll(my_info_stShll *my_infoShll)
 {
-	my_pid_tShll my_child_pidShll;
+	pid_t my_child_pidShll;
 
 	my_child_pidShll = fork();
 	if (my_child_pidShll == -1)

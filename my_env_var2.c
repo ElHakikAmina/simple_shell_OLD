@@ -57,7 +57,7 @@ int _unsetenvShll(my_info_stShll *my_infoShll, char *my_varShll)
  * @my_valueShll: the string env variable value
  * Return: Always 0
  */
-int _setenv(info_st *my_infoShll, char *my_varShll, char *my_valueShll)
+int _setenvShll(my_info_stShll *my_infoShll, char *my_varShll, char *my_valueShll)
 {
 	char *my_bufShll = NULL;
 	my_list_stShll *my_nodeShll;

@@ -48,4 +48,3 @@ int main(int my_argcShll, char **my_argvShll)
 	my_hshShll(my_infoShll, my_argvShll);
 	return (EXIT_SUCCESS);
 }
-

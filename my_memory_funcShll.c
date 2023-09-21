@@ -39,8 +39,8 @@ void my_free_listShll(my_list_stShll **my_head_ptrShll)
         while (my_nodeShll)
         {
                 my_next_nodeShll = my_nodeShll->my_nextShll;
-                my_freeShll(my_nodeShll->my_strShll);
-                my_freeShll(my_nodeShll);
+                free(my_nodeShll->my_strShll);
+                free(my_nodeShll);
                 my_nodeShll = my_next_nodeShll;
         }
         *my_head_ptrShll = NULL;

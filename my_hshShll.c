@@ -17,11 +17,11 @@ int my_find_builtinShll(my_info_stShll *my_infoShll)
         int my_iShll, my_builtin_in_retShll = -1;
         my_builtin_tableShll my_builtintblShll[] = {
                 {"exit", _exitShll},
-                {"env", _envShll},
+                {"env", _menvShll},
                 {"help", _helpShll},
                 {"history", _historyShll},
-                {"setenv", _setenvShll},
-                {"unsetenv", _unsetenvShll},
+                {"setenv", _msetenvShll},
+                {"unsetenv", _munsetenvShll},
                 {"cd", _cdShll},
                 {"alias", _aliasShll},
                 {NULL, NULL}
@@ -48,7 +48,7 @@ int my_find_builtinShll(my_info_stShll *my_infoShll)
 
 int my_hshShll(my_info_stShll *my_infoShll, char **my_avShll)
 {
-	my_ssize_tShll my_rShll = 0;
+	ssize_t my_rShll = 0;
 	int my_builtin_retShll = 0;
 
 	while (my_rShll != -1 && my_builtin_retShll != -2)

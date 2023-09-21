@@ -13,16 +13,16 @@ int _cdShll(my_info_stShll *my_infoShll)
 	char *my_sShll, *my_dirShll, my_bufferShll[1024];
 	int my_chdir_retShll;
 
-	my_sShell = my_getcwdShll(my_bufferShll, 1024);
+	my_sShll = getcwd(my_bufferShll, 1024);
 	if (!my_sShll)
 		_putsShll("TODO: >>getcwd failure emsg here<<\n");
 	if (!my_infoShll->my_argvShll[1])
 	{
 		my_dirShll = _getenvShll(my_infoShll, "HOME=");
 		if (!my_dirShll)
-			my_chdir_retShll = my_chdirShll((my_dirShll = _getenvShll(my_infoShll, "PWD=")) ? my_dirShll : "/");
+			my_chdir_retShll = chdir((my_dirShll = _getenvShll(my_infoShll, "PWD=")) ? my_dirShll : "/");
 		else
-			my_chdir_retShll = my_chdirShll(my_dirShll);
+			my_chdir_retShll = chdir(my_dirShll);
 	}
 	else if (_strcmpShll(my_infoShll->my_argvShll[1], "-") == 0)
 	{
@@ -33,10 +33,10 @@ int _cdShll(my_info_stShll *my_infoShll)
 			return (1);
 		}
 		_putsShll(_getenvShll(my_infoShll, "OLDPWD=")), _putcharShll('\n');
-		my_chdir_retShll = my_chdirShll((my_dirShll = _getenvShll(my_infoShll, "OLDPWD=")) ? my_dirShll : "/");
+		my_chdir_retShll = chdir((my_dirShll = _getenvShll(my_infoShll, "OLDPWD=")) ? my_dirShll : "/");
 	}
 	else
-		my_chdir_retShll = my_chdirShll(my_infoShll->my_argvShll[1]);
+		my_chdir_retShll = chdir(my_infoShll->my_argvShll[1]);
 	if (my_chdir_retShll == -1)
 	{
 		my_print_errorShll(my_infoShll, "can't cd to ");
@@ -45,7 +45,7 @@ int _cdShll(my_info_stShll *my_infoShll)
 	else
 	{
 		_setenvShll(my_infoShll, "OLDPWD", _getenvShll(my_infoShll, "PWD="));
-		_setenvShll(my_infoShll, "PWD", my_getcwdShll(my_bufferShll, 1024));
+		_setenvShll(my_infoShll, "PWD", getcwd(my_bufferShll, 1024));
 	}
 	return (0);
 }
@@ -77,7 +77,7 @@ int _aliasShll(my_info_stShll *my_infoShll)
         {
                 my_pShll = _strchrShll(my_infoShll->my_argvShll[my_iShll], '=');
                 if (my_pShll)
-                        my_set_aliasShll(my_infoShll, my_infoShll->my_argvShll[i]);
+                        my_set_aliasShll(my_infoShll, my_infoShll->my_argvShll[my_iShll]);
                 else
                         my_print_aliasShll(my_node_starts_withShll(my_infoShll->my_aliasShll,
                                                 my_infoShll->my_argvShll[my_iShll], '='));

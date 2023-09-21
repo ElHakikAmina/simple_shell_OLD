@@ -24,9 +24,9 @@ void my_sigintHandlerShll(__attribute__((unused))int my_sig_numShll)
  * Return: it retrurns r
 */
 
-my_ssize_tShll my_read_bufShll(my_info_stShll *my_infoShll, char *my_bufShll, my_size_tShll *my_iShll)
+ssize_t my_read_bufShll(my_info_stShll *my_infoShll, char *my_bufShll, size_t *my_iShll)
 {
-	my_ssize_tShll my_rShll = 0;
+	ssize_t my_rShll = 0;
        
 	if (*my_iShll)
 		return (0);
@@ -46,10 +46,10 @@ my_ssize_tShll my_read_bufShll(my_info_stShll *my_infoShll, char *my_bufShll, my
  * Return: a bytes read
  */
 
-my_ssize_tShll my_input_bufShll(my_info_stShll *my_infoShll, char **my_bufShll, my_size_tShll *my_lenShll)
+ssize_t my_input_bufShll(my_info_stShll *my_infoShll, char **my_bufShll, size_t *my_lenShll)
 {
-	my_ssize_tShll my_rShll = 0;
-	my_size_tShll my_len_pShll = 0;
+	ssize_t my_rShll = 0;
+	size_t my_len_pShll = 0;
 
 	if (!*my_lenShll)
 	{
@@ -57,9 +57,9 @@ my_ssize_tShll my_input_bufShll(my_info_stShll *my_infoShll, char **my_bufShll, 
 		*my_bufShll = NULL;
 		signal(SIGINT, my_sigintHandlerShll);
 #if MY_USE_GETLINESHLL
-		my_rShll = my_getlineShll(my_bufShll, &my_len_pShll, my_stdinShll);
+		my_rShll = getline(my_bufShll, &my_len_pShll, my_stdinShll);
 #else
-		my_rShll = my_getlineShll(my_infoShll, my_bufShll, &my_len_pShll);
+		my_rShll = _getlineShll(my_infoShll, my_bufShll, &my_len_pShll);
 #endif
 		if (my_rShll > 0)
 		{
@@ -88,10 +88,10 @@ my_ssize_tShll my_input_bufShll(my_info_stShll *my_infoShll, char **my_bufShll, 
  * Return: it retruns bytes read
 */
 
-my_ssize_tShll my_get_inputShll(my_info_stShll *my_infoShll)
+ssize_t my_get_inputShll(my_info_stShll *my_infoShll)
 {
 	static char *my_bufShll;
-	static my_size_tShll my_iShll, my_jShll, my_lenShll;
+	static size_t my_iShll, my_jShll, my_lenShll;
 	ssize_t my_rShll = 0;
 	char **my_buf_pShll = &(my_infoShll->my_argShll), *my_pShll;
 
@@ -116,7 +116,7 @@ my_ssize_tShll my_get_inputShll(my_info_stShll *my_infoShll)
 		if (my_iShll >= my_lenShll)
 		{
 			my_iShll = my_lenShll = 0;
-			my_infoShll->my_cmd_buf_typeShll = MY_CMD_NORMShll;
+			my_infoShll->my_cmd_buf_typeShll = MY_CMD_NORMSHLL;
 		}
 
 		*my_buf_pShll = my_pShll;
@@ -136,12 +136,12 @@ my_ssize_tShll my_get_inputShll(my_info_stShll *my_infoShll)
  * Return:function that  s
 */
 
-int _getlineShll(my_info_stShll *my_infoShll, char **my_ptrShll, my_size_tShll *my_lengthShll)
+int _getlineShll(my_info_stShll *my_infoShll, char **my_ptrShll, size_t *my_lengthShll)
 {
 	static char my_bufShll[MY_READ_BUF_SIZESHLL];
-	static my_size_tShll my_iShll, my_lenShll;
-	my_size_tShll my_kShll;
-	my_ssize_tShll my_rShll = 0, my_sShll = 0;
+	static size_t my_iShll, my_lenShll;
+	size_t my_kShll;
+	ssize_t my_rShll = 0, my_sShll = 0;
 	char *my_pShll = NULL, *my_new_pShll = NULL, *my_cShll;
 
 	my_pShll = *my_ptrShll;
@@ -156,7 +156,7 @@ int _getlineShll(my_info_stShll *my_infoShll, char **my_ptrShll, my_size_tShll *
 
 	my_cShll = _strchrShll(my_bufShll + my_iShll, '\n');
 	my_kShll = my_cShll ? 1 + (unsigned int)(my_cShll - my_bufShll) : my_lenShll;
-	my_new_pShll = _realloc(my_pShll, my_sShll, my_sShll ? my_sShll + my_kShll : my_kShll + 1);
+	my_new_pShll = _reallocShll(my_pShll, my_sShll, my_sShll ? my_sShll + my_kShll : my_kShll + 1);
 	if (!my_new_pShll)
 		return (my_pShll ? free(my_pShll), -1 : -1);
 
