@@ -1,6 +1,8 @@
 #include "main.h"
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri */
+
 /**
  * my_build_history_listShll - Function for adding
  * an entry to a history linked list.
@@ -112,53 +114,51 @@ int my_write_historyShll(my_info_stShll *my_infoShll)
 /**
  * my_read_historyShll - Function that reads history data from a file.
  *
- * @my_infoShll: Parameter struct.
+ * @inf: Parameter struct.
  *
  * Return: Returns the histcount on success, or 0 on failure.
 */
 
-int my_read_historyShll(my_info_stShll *my_infoShll)
+int my_read_historyShll(my_info_stShll *inf)
 {
-	int my_iShll, my_lastShll = 0, my_linecountShll = 0;
-	ssize_t my_fdShll, my_rdlenShll, my_fsizeShll = 0;
+	int ii, last = 0, my_line = 0;
+	ssize_t fdd, rdl, fs = 0;
 	struct stat my_stShll;
-	char *my_bufShll = NULL, *my_filenameShll =
-		 my_get_history_fileShll(my_infoShll);
+	char *bufS = NULL, *filen =
+		 my_get_history_fileShll(inf);
 
-	if (!my_filenameShll)
+	if (!filen)
 		return (0);
 
-	my_fdShll = open(my_filenameShll, O_RDONLY);
-	free(my_filenameShll);
-	if (my_fdShll == -1)
+	fdd = open(filen, O_RDONLY);
+	free(filen);
+	if (fdd == -1)
 		return (0);
-	if (!fstat(my_fdShll, &my_stShll))
-		my_fsizeShll = my_stShll.st_size;
-	if (my_fsizeShll < 2)
+	if (!fstat(fdd, &my_stShll))
+		fs = my_stShll.st_size;
+	if (fs < 2)
 		return (0);
-	my_bufShll = malloc(sizeof(char) * (my_fsizeShll + 1));
-	if (!my_bufShll)
+	bufS = malloc(sizeof(char) * (fs + 1));
+	if (!bufS)
 		return (0);
-	my_rdlenShll = read(my_fdShll, my_bufShll, my_fsizeShll);
-	my_bufShll[my_fsizeShll] = 0;
-	if (my_rdlenShll <= 0)
-		return (free(my_bufShll), 0);
-	close(my_fdShll);
-	for (my_iShll = 0; my_iShll < my_fsizeShll; my_iShll++)
-		if (my_bufShll[my_iShll] == '\n')
+	rdl = read(fdd, bufS, fs);
+	bufS[fs] = 0;
+	if (rdl <= 0)
+		return (free(bufS), 0);
+	close(fdd);
+	for (ii = 0; ii < fs; ii++)
+		if (bufS[ii] == '\n')
 		{
-			my_bufShll[my_iShll] = 0;
-			my_build_history_listShll(my_infoShll,
-					 my_bufShll + my_lastShll, my_linecountShll++);
-			my_lastShll = my_iShll + 1;
+			bufS[ii] = 0;
+			my_build_history_listShll(inf, bufS + last, my_line++);
+			last = ii + 1;
 		}
-	if (my_lastShll != my_iShll)
-		my_build_history_listShll(my_infoShll,
-				 my_bufShll + my_lastShll, my_linecountShll++);
-	free(my_bufShll);
-	my_infoShll->my_histcountShll = my_linecountShll;
-	while (my_infoShll->my_histcountShll-- >= MY_HIST_MAXSHLL)
-		my_delete_node_at_indexShll(&(my_infoShll->my_historyShll), 0);
-	my_renumber_historyShll(my_infoShll);
-	return (my_infoShll->my_histcountShll);
+	if (last != ii)
+		my_build_history_listShll(inf, bufS + last, my_line++);
+	free(bufS);
+	inf->my_histcountShll = my_line;
+	while (inf->my_histcountShll-- >= MY_HIST_MAXSHLL)
+		my_delete_node_at_indexShll(&(inf->my_historyShll), 0);
+	my_renumber_historyShll(inf);
+	return (inf->my_histcountShll);
 }
