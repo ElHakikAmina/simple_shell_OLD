@@ -12,18 +12,19 @@
 
 int my_unset_aliasShll(my_info_stShll *my_infoShll, char *my_strShll)
 {
-        char *my_pShll, my_cShll;
-        int my_retShll;
+	char *my_pShll, my_cShll;
+	int my_retShll;
 
-        my_pShll = _strchrShll(my_strShll, '=');
-        if (!my_pShll)
-                return (1);
-        my_cShll = *my_pShll;
-        *my_pShll = 0;
-        my_retShll = my_delete_node_at_indexShll(&(my_infoShll->my_aliasShll),
-                my_get_node_indexShll(my_infoShll->my_aliasShll, my_node_starts_withShll(my_infoShll->my_aliasShll, my_strShll, -1)));
-        *my_pShll = my_cShll;
-        return (my_retShll);
+	my_pShll = _strchrShll(my_strShll, '=');
+	if (!my_pShll)
+		return (1);
+	my_cShll = *my_pShll;
+	*my_pShll = 0;
+	my_retShll = my_delete_node_at_indexShll(&(my_infoShll->my_aliasShll),
+		 my_get_node_indexShll(my_infoShll->my_aliasShll, my_node_starts_withShll
+			 (my_infoShll->my_aliasShll, my_strShll, -1)));
+	*my_pShll = my_cShll;
+	return (my_retShll);
 }
 
 /**
@@ -46,5 +47,6 @@ int my_set_aliasShll(my_info_stShll *my_infoShll, char *my_strShll)
 		return (my_unset_aliasShll(my_infoShll, my_strShll));
 
 	my_unset_aliasShll(my_infoShll, my_strShll);
-	return (my_add_node_endShll(&(my_infoShll->my_aliasShll), my_strShll, 0) == NULL);
+	return (my_add_node_endShll(&(my_infoShll->my_aliasShll),
+			 my_strShll, 0) == NULL);
 }

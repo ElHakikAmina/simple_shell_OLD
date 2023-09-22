@@ -12,17 +12,17 @@
 
 char *_strcpyShll(char *my_destShll, char *my_srcShll)
 {
-        int my_iShll = 0;
+	int my_iShll = 0;
 
-        if (my_destShll == my_srcShll || my_srcShll == 0)
-                return (my_destShll);
-        while (my_srcShll[my_iShll])
-        {
-                my_destShll[my_iShll] = my_srcShll[my_iShll];
-                my_iShll++;
-        }
-        my_destShll[my_iShll] = 0;
-        return (my_destShll);
+	if (my_destShll == my_srcShll || my_srcShll == 0)
+		return (my_destShll);
+	while (my_srcShll[my_iShll])
+	{
+		my_destShll[my_iShll] = my_srcShll[my_iShll];
+		my_iShll++;
+	}
+	my_destShll[my_iShll] = 0;
+	return (my_destShll);
 }
 
 /**
@@ -35,20 +35,20 @@ char *_strcpyShll(char *my_destShll, char *my_srcShll)
 
 char *_strdupShll(const char *my_strShll)
 {
-        int my_lenShll = 0;
-        char *my_resShll;
+	int my_lenShll = 0;
+	char *my_resShll;
 
-        if (my_strShll == NULL)
-                return (NULL);
+	if (my_strShll == NULL)
+		return (NULL);
 
-        while (*my_strShll++)
-                my_lenShll++;
-        my_resShll = malloc(sizeof(char) * (my_lenShll + 1));
-        if (!my_resShll)
-                return (NULL);
-        for (my_lenShll++; my_lenShll--;)
-                my_resShll[my_lenShll] = *--my_strShll;
-        return (my_resShll);
+	while (*my_strShll++)
+		my_lenShll++;
+	my_resShll = malloc(sizeof(char) * (my_lenShll + 1));
+	if (!my_resShll)
+		return (NULL);
+	for (my_lenShll++; my_lenShll--;)
+		my_resShll[my_lenShll] = *--my_strShll;
+	return (my_resShll);
 }
 
 /**
@@ -73,15 +73,18 @@ char *_strcatShll(char *my_destShll, char *my_srcShll)
 }
 
 /**
- * my_starts_withShll - This function checks if `needle` is found at the start of `haystack`.
+ * my_starts_withShll - This function checks if `needle`
+ * is found at the start of `haystack`.
  *
  * @my_haystackShll: The string to search.
  * @my_needleShll: The substring to find.
  *
- * Return: An address pointing to the character in `haystack` immediately after `needle` or NULL if not found.
+ * Return: An address pointing to the character in `haystack`
+ * immediately after `needle` or NULL if not found.
 */
 
-char *my_starts_withShll(const char *my_haystackShll, const char *my_needleShll)
+char *my_starts_withShll(const char *my_haystackShll,
+		 const char *my_needleShll)
 {
 	while (*my_needleShll)
 		if (*my_needleShll++ != *my_haystackShll++)
@@ -99,12 +102,12 @@ char *my_starts_withShll(const char *my_haystackShll, const char *my_needleShll)
 
 int _strlenShll(char *my_sShll)
 {
-        int my_lShll = 0;
+	int my_lShll = 0;
 
-        if (!my_sShll)
-                return (0);
+	if (!my_sShll)
+		return (0);
 
-        while (*my_sShll++)
-                my_lShll++;
-        return (my_lShll);
+	while (*my_sShll++)
+		my_lShll++;
+	return (my_lShll);
 }

@@ -11,13 +11,13 @@
 
 int my_bfreeShll(void **my_ptrShll)
 {
-        if (my_ptrShll && *my_ptrShll)
-        {
-                free(*my_ptrShll);
-                *my_ptrShll = NULL;
-                return (1);
-        }
-        return (0);
+	if (my_ptrShll && *my_ptrShll)
+	{
+		free(*my_ptrShll);
+		*my_ptrShll = NULL;
+		return (1);
+	}
+	return (0);
 }
 
 /**
@@ -30,20 +30,20 @@ int my_bfreeShll(void **my_ptrShll)
 
 void my_free_listShll(my_list_stShll **my_head_ptrShll)
 {
-        my_list_stShll *my_nodeShll, *my_next_nodeShll, *my_headShll;
+	my_list_stShll *my_nodeShll, *my_next_nodeShll, *my_headShll;
 
-        if (!my_head_ptrShll || !*my_head_ptrShll)
-                return;
-        my_headShll = *my_head_ptrShll;
-        my_nodeShll = my_headShll;
-        while (my_nodeShll)
-        {
-                my_next_nodeShll = my_nodeShll->my_nextShll;
-                free(my_nodeShll->my_strShll);
-                free(my_nodeShll);
-                my_nodeShll = my_next_nodeShll;
-        }
-        *my_head_ptrShll = NULL;
+	if (!my_head_ptrShll || !*my_head_ptrShll)
+		return;
+	my_headShll = *my_head_ptrShll;
+	my_nodeShll = my_headShll;
+	while (my_nodeShll)
+	{
+		my_next_nodeShll = my_nodeShll->my_nextShll;
+		free(my_nodeShll->my_strShll);
+		free(my_nodeShll);
+		my_nodeShll = my_next_nodeShll;
+	}
+	*my_head_ptrShll = NULL;
 }
 
 /**
@@ -75,25 +75,27 @@ void my_ffreeShll(char **my_ppShll)
  * Return: A pointer to the reallocated memory.
 */
 
-void *_reallocShll(void *my_ptrShll, unsigned int my_old_sizeShll, unsigned int my_new_sizeShll)
+void *_reallocShll(void *my_ptrShll, unsigned int my_old_sizeShll,
+		 unsigned int my_new_sizeShll)
 {
-        char *my_pShll;
+	char *my_pShll;
 
-        if (!my_ptrShll)
-                return (malloc(my_new_sizeShll));
-        if (!my_new_sizeShll)
-                return (free(my_ptrShll), NULL);
-        if (my_new_sizeShll == my_old_sizeShll)
-                return (my_ptrShll);
+	if (!my_ptrShll)
+		return (malloc(my_new_sizeShll));
+	if (!my_new_sizeShll)
+		return (free(my_ptrShll), NULL);
+	if (my_new_sizeShll == my_old_sizeShll)
+		return (my_ptrShll);
 
-        my_pShll = malloc(my_new_sizeShll);
-        if (!my_pShll)
-                return (NULL);
-        my_old_sizeShll = my_old_sizeShll < my_new_sizeShll ? my_old_sizeShll : my_new_sizeShll;
-        while (my_old_sizeShll--)
-                my_pShll[my_old_sizeShll] = ((char *)my_ptrShll)[my_old_sizeShll];
-        free(my_ptrShll);
-        return (my_pShll);
+	my_pShll = malloc(my_new_sizeShll);
+	if (!my_pShll)
+		return (NULL);
+	my_old_sizeShll = my_old_sizeShll < my_new_sizeShll ?
+		 my_old_sizeShll : my_new_sizeShll;
+	while (my_old_sizeShll--)
+		my_pShll[my_old_sizeShll] = ((char *)my_ptrShll)[my_old_sizeShll];
+	free(my_ptrShll);
+	return (my_pShll);
 }
 
 /**

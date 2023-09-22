@@ -11,8 +11,8 @@
 
 int _historyShll(my_info_stShll *my_infoShll)
 {
-        my_print_listShll(my_infoShll->my_historyShll);
-        return (0);
+	my_print_listShll(my_infoShll->my_historyShll);
+	return (0);
 }
 
 /**
@@ -21,34 +21,36 @@ int _historyShll(my_info_stShll *my_infoShll)
  * @my_infoShll: A structure containing relevant information.
  *
  * Return: -1 if the built-in command is not found,
- *         0 if the built-in command is executed,
- *         1 if the built-in command is found but not successful,
- *         -2 if the built-in command signals an exit().
+ * 0 if the built-in command is executed,
+ * 1 if the built-in command is found but not successful,
+ * -2 if the built-in command signals an exit().
 */
 
 int my_find_builtinShll(my_info_stShll *my_infoShll)
 {
-        int my_iShll, my_builtin_in_retShll = -1;
-        my_builtin_tableShll my_builtintblShll[] = {
-                {"exit", _exitShll},
-                {"env", _menvShll},
-                {"help", _helpShll},
-                {"history", _historyShll},
-                {"setenv", _msetenvShll},
-                {"unsetenv", _munsetenvShll},
-                {"cd", _cdShll},
-                {"alias", _aliasShll},
-                {NULL, NULL}
-        };
+	int my_iShll, my_builtin_in_retShll = -1;
+	my_builtin_tableShll my_builtintblShll[] = {
+		{"exit", _exitShll},
+		{"env", _menvShll},
+		{"help", _helpShll},
+		{"history", _historyShll},
+		{"setenv", _msetenvShll},
+		{"unsetenv", _munsetenvShll},
+		{"cd", _cdShll},
+		{"alias", _aliasShll},
+		{NULL, NULL}
+	};
 
-        for (my_iShll = 0; my_builtintblShll[my_iShll].my_typeShll; my_iShll++)
-                if (_strcmpShll(my_infoShll->my_argvShll[0], my_builtintblShll[my_iShll].my_typeShll) == 0)
-                {
-                        my_infoShll->my_line_countShll++;
-                        my_builtin_in_retShll = my_builtintblShll[my_iShll].my_funcShll(my_infoShll);
-                        break;
-                }
-        return (my_builtin_in_retShll);
+	for (my_iShll = 0; my_builtintblShll[my_iShll].my_typeShll; my_iShll++)
+		if (_strcmpShll(my_infoShll->my_argvShll[0],
+					 my_builtintblShll[my_iShll].my_typeShll) == 0)
+		{
+			my_infoShll->my_line_countShll++;
+			my_builtin_in_retShll =
+				 my_builtintblShll[my_iShll].my_funcShll(my_infoShll);
+			break;
+		}
+	return (my_builtin_in_retShll);
 }
 
 /**

@@ -2,7 +2,8 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
- * my_sigintHandlerShll - Function that blocks the handling of the Ctrl-C signal.
+ * my_sigintHandlerShll - Function that blocks
+ * the handling of the Ctrl-C signal.
  *
  * @my_sig_numShll: The signal number (SIGINT).
  *
@@ -11,9 +12,9 @@
 
 void my_sigintHandlerShll(__attribute__((unused))int my_sig_numShll)
 {
-        _putsShll("\n");
-        _putsShll("$ ");
-        _putcharShll(MY_BUF_FLUSHSHLL);
+	_putsShll("\n");
+	_putsShll("$ ");
+	_putcharShll(MY_BUF_FLUSHSHLL);
 }
 
 /**
@@ -26,10 +27,11 @@ void my_sigintHandlerShll(__attribute__((unused))int my_sig_numShll)
  * Return: The number of bytes read.
 */
 
-ssize_t my_read_bufShll(my_info_stShll *my_infoShll, char *my_bufShll, size_t *my_iShll)
+ssize_t my_read_bufShll(my_info_stShll *my_infoShll,
+		 char *my_bufShll, size_t *my_iShll)
 {
 	ssize_t my_rShll = 0;
-       
+
 	if (*my_iShll)
 		return (0);
 	my_rShll = read(my_infoShll->my_readfdShll, my_bufShll, MY_READ_BUF_SIZESHLL);
@@ -48,7 +50,8 @@ ssize_t my_read_bufShll(my_info_stShll *my_infoShll, char *my_bufShll, size_t *m
  * Return: The number of bytes read.
 */
 
-ssize_t my_input_bufShll(my_info_stShll *my_infoShll, char **my_bufShll, size_t *my_lenShll)
+ssize_t my_input_bufShll(my_info_stShll *my_infoShll,
+		 char **my_bufShll, size_t *my_lenShll)
 {
 	ssize_t my_rShll = 0;
 	size_t my_len_pShll = 0;
@@ -72,7 +75,8 @@ ssize_t my_input_bufShll(my_info_stShll *my_infoShll, char **my_bufShll, size_t 
 			}
 			my_infoShll->my_linecount_flagShll = 1;
 			my_remove_commentsShll(*my_bufShll);
-			my_build_history_listShll(my_infoShll, *my_bufShll, my_infoShll->my_histcountShll++);
+			my_build_history_listShll(my_infoShll, *my_bufShll,
+					 my_infoShll->my_histcountShll++);
 			{
 				*my_lenShll = my_rShll;
 				my_infoShll->my_cmd_bufShll = my_bufShll;
@@ -83,7 +87,8 @@ ssize_t my_input_bufShll(my_info_stShll *my_infoShll, char **my_bufShll, size_t 
 }
 
 /**
- * my_get_inputShll - This function reads a line of input, excluding the newline character.
+ * my_get_inputShll - This function reads a line of input,
+ * excluding the newline character.
  *
  * @my_infoShll: A structure containing relevant data.
  *
@@ -138,7 +143,8 @@ ssize_t my_get_inputShll(my_info_stShll *my_infoShll)
  * Return: The result of the function.
 */
 
-int _getlineShll(my_info_stShll *my_infoShll, char **my_ptrShll, size_t *my_lengthShll)
+int _getlineShll(my_info_stShll *my_infoShll,
+		 char **my_ptrShll, size_t *my_lengthShll)
 {
 	static char my_bufShll[MY_READ_BUF_SIZESHLL];
 	static size_t my_iShll, my_lenShll;
@@ -158,7 +164,8 @@ int _getlineShll(my_info_stShll *my_infoShll, char **my_ptrShll, size_t *my_leng
 
 	my_cShll = _strchrShll(my_bufShll + my_iShll, '\n');
 	my_kShll = my_cShll ? 1 + (unsigned int)(my_cShll - my_bufShll) : my_lenShll;
-	my_new_pShll = _reallocShll(my_pShll, my_sShll, my_sShll ? my_sShll + my_kShll : my_kShll + 1);
+	my_new_pShll = _reallocShll(my_pShll, my_sShll, my_sShll ?
+			 my_sShll + my_kShll : my_kShll + 1);
 	if (!my_new_pShll)
 		return (my_pShll ? free(my_pShll), -1 : -1);
 

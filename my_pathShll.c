@@ -3,7 +3,7 @@
 
 /**
  * my_is_cmdShll - Determines whether a file is an executable command.
- * 
+ *
  * @my_infoShll: Information structure.
  * @my_pathShll: Path to the file.
  *
@@ -12,15 +12,15 @@
 
 int my_is_cmdShll(my_info_stShll *my_infoShll, char *my_pathShll)
 {
-        struct stat my_stShll;
+	struct stat my_stShll;
 
-        (void)my_infoShll;
-        if (!my_pathShll || stat(my_pathShll, &my_stShll))
-                return (0);
+	(void)my_infoShll;
+	if (!my_pathShll || stat(my_pathShll, &my_stShll))
+		return (0);
 
-        if (my_stShll.st_mode & S_IFREG)
-                return (1);
-        return (0);
+	if (my_stShll.st_mode & S_IFREG)
+		return (1);
+	return (0);
 }
 
 /**
@@ -38,7 +38,8 @@ char *my_dup_charsShll(char *my_pathstrShll, int my_startShll, int my_stopShll)
 	static char my_bufShll[1024];
 	int my_iShll = 0, my_jShll = 0;
 
-	for (my_jShll = 0, my_iShll = my_startShll; my_iShll < my_stopShll; my_iShll++)
+	for (my_jShll = 0, my_iShll = my_startShll;
+			 my_iShll < my_stopShll; my_iShll++)
 		if (my_pathstrShll[my_iShll] != ':')
 			my_bufShll[my_jShll++] = my_pathstrShll[my_iShll];
 	my_bufShll[my_jShll] = 0;
@@ -55,7 +56,8 @@ char *my_dup_charsShll(char *my_pathstrShll, int my_startShll, int my_stopShll)
  * Return: The full path of the command if found, or NULL.
 */
 
-char *my_get_pathShll(my_info_stShll *my_infoShll, char *my_pathstrShll, char *my_cmdShll)
+char *my_get_pathShll(my_info_stShll *my_infoShll,
+		 char *my_pathstrShll, char *my_cmdShll)
 {
 	int my_iShll = 0, my_curr_posShll = 0;
 	char *my_pathShll;

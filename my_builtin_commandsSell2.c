@@ -4,7 +4,8 @@
 /**
  * _cdShll - Changes the current directory of the process.
  *
- * @my_infoShll: A structure that may contain relevant arguments, ensuring a consistent function prototype.
+ * @my_infoShll: A structure that may contain relevant arguments,
+ * ensuring a consistent function prototype.
  *
  * Return: Always returns 0.
 */
@@ -21,7 +22,8 @@ int _cdShll(my_info_stShll *my_infoShll)
 	{
 		my_dirShll = _getenvShll(my_infoShll, "HOME=");
 		if (!my_dirShll)
-			my_chdir_retShll = chdir((my_dirShll = _getenvShll(my_infoShll, "PWD=")) ? my_dirShll : "/");
+			my_chdir_retShll = chdir((my_dirShll = _getenvShll(my_infoShll, "PWD="))
+				 ? my_dirShll : "/");
 		else
 			my_chdir_retShll = chdir(my_dirShll);
 	}
@@ -34,7 +36,8 @@ int _cdShll(my_info_stShll *my_infoShll)
 			return (1);
 		}
 		_putsShll(_getenvShll(my_infoShll, "OLDPWD=")), _putcharShll('\n');
-		my_chdir_retShll = chdir((my_dirShll = _getenvShll(my_infoShll, "OLDPWD=")) ? my_dirShll : "/");
+		my_chdir_retShll = chdir((my_dirShll = _getenvShll(my_infoShll, "OLDPWD="))
+			 ? my_dirShll : "/");
 	}
 	else
 		my_chdir_retShll = chdir(my_infoShll->my_argvShll[1]);
@@ -54,35 +57,36 @@ int _cdShll(my_info_stShll *my_infoShll)
 /**
  * _aliasShll - Mimics the alias builtin command (similar to 'man alias').
  *
- * @my_infoShll: A structure that may contain relevant arguments, ensuring a consistent function prototype.
+ * @my_infoShll: A structure that may contain relevant arguments,
+ * ensuring a consistent function prototype.
  *
  * Return: Always returns 0.
  */
 
 int _aliasShll(my_info_stShll *my_infoShll)
 {
-        int my_iShll = 0;
-        char *my_pShll = NULL;
-        my_list_stShll *my_nodeShll = NULL;
+	int my_iShll = 0;
+	char *my_pShll = NULL;
+	my_list_stShll *my_nodeShll = NULL;
 
-        if (my_infoShll->my_argcShll == 1)
-        {
-                my_nodeShll = my_infoShll->my_aliasShll;
-                while (my_nodeShll)
-                {
-                        my_print_aliasShll(my_nodeShll);
-                        my_nodeShll = my_nodeShll->my_nextShll;
-                }
-                return (0);
-        }
-        for (my_iShll = 1; my_infoShll->my_argvShll[my_iShll]; my_iShll++)
-        {
-                my_pShll = _strchrShll(my_infoShll->my_argvShll[my_iShll], '=');
-                if (my_pShll)
-                        my_set_aliasShll(my_infoShll, my_infoShll->my_argvShll[my_iShll]);
-                else
-                        my_print_aliasShll(my_node_starts_withShll(my_infoShll->my_aliasShll,
-                                                my_infoShll->my_argvShll[my_iShll], '='));
-        }
-        return (0);
+	if (my_infoShll->my_argcShll == 1)
+	{
+		my_nodeShll = my_infoShll->my_aliasShll;
+		while (my_nodeShll)
+		{
+			my_print_aliasShll(my_nodeShll);
+			my_nodeShll = my_nodeShll->my_nextShll;
+		}
+		return (0);
+	}
+	for (my_iShll = 1; my_infoShll->my_argvShll[my_iShll]; my_iShll++)
+	{
+		my_pShll = _strchrShll(my_infoShll->my_argvShll[my_iShll], '=');
+		if (my_pShll)
+			my_set_aliasShll(my_infoShll, my_infoShll->my_argvShll[my_iShll]);
+		else
+			my_print_aliasShll(my_node_starts_withShll(my_infoShll->my_aliasShll,
+						my_infoShll->my_argvShll[my_iShll], '='));
+	}
+	return (0);
 }

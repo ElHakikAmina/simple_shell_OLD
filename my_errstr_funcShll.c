@@ -21,7 +21,8 @@ void _eputsShll(char *my_strShll)
 }
 
 /**
- * _eputcharShll - Writes the character 'my_cShll' to the standard error stream.
+ * _eputcharShll - Writes the character 'my_cShll'
+ * to the standard error stream.
  *
  * @my_cShll: The character to be printed.
  *
@@ -67,7 +68,8 @@ int _putsfdShll(char *my_strShll, int my_fdShll)
 }
 
 /**
- * _putfdShll - Writes the character 'my_cShll' to the provided file descriptor.
+ * _putfdShll - Writes the character 'my_cShll'
+ * to the provided file descriptor.
  *
  * @my_cShll: The character to be printed.
  * @my_fdShll: The file descriptor for output.

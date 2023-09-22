@@ -6,7 +6,8 @@
  * @my_infoShll: Pointer to parameter and return info structure.
  * @my_estrShll: String containing the specified error type.
  *
- * Return: Returns the converted number if no numbers in the string, -1 on error.
+ * Return: Returns the converted number if
+ * no numbers in the string, -1 on error.
 */
 
 void my_print_errorShll(my_info_stShll *my_infoShll, char *my_estrShll)
@@ -101,7 +102,8 @@ int my_is_delimShll(char my_cShll, char *my_delimShll)
  * Return: Returns the converted string.
 */
 
-char *my_convert_numberShll(long int my_numShll, int my_baseShll, int my_flagsShll)
+char *my_convert_numberShll(long int my_numShll,
+		 int my_baseShll, int my_flagsShll)
 {
 	static char *my_arrayShll;
 	static char my_bufferShll[50];
@@ -115,7 +117,8 @@ char *my_convert_numberShll(long int my_numShll, int my_baseShll, int my_flagsSh
 		my_signShll = '-';
 
 	}
-	my_arrayShll = my_flagsShll & MY_CONVERT_LOWERCASESHLL ? "0123456789abcdef" : "0123456789ABCDEF";
+	my_arrayShll = my_flagsShll & MY_CONVERT_LOWERCASESHLL ?
+		 "0123456789abcdef" : "0123456789ABCDEF";
 	my_ptrShll = &my_bufferShll[49];
 	*my_ptrShll = '\0';
 

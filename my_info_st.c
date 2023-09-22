@@ -2,7 +2,8 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
- * my_free_infoShll - Releases the resources associated with the my_info_tShll struct.
+ * my_free_infoShll - Releases the resources
+ * associated with the my_info_tShll struct.
  *
  * @my_infoShll: A struct @
  * @my_allShll: A boolean flag to determine if all fields should be freed.

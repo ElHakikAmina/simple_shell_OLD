@@ -11,18 +11,19 @@
 
 size_t my_list_lenShll(const my_list_stShll *my_hShll)
 {
-        size_t my_iShll = 0;
+	size_t my_iShll = 0;
 
-        while (my_hShll)
-        {
-                my_hShll = my_hShll->my_nextShll;
-                my_iShll++;
-        }
-        return (my_iShll);
+	while (my_hShll)
+	{
+		my_hShll = my_hShll->my_nextShll;
+		my_iShll++;
+	}
+	return (my_iShll);
 }
 
 /**
- * my_get_node_indexShll - Function that retrieves the index of a specific node.
+ * my_get_node_indexShll - Function that retrieves
+ * the index of a specific node.
  *
  * @my_headShll: Pointer to the list's head.
  * @my_nodeShll: Pointer to the node.
@@ -30,18 +31,19 @@ size_t my_list_lenShll(const my_list_stShll *my_hShll)
  * Return: Returns the index of the node or -1 if not found.
 */
 
-ssize_t my_get_node_indexShll(my_list_stShll *my_headShll, my_list_stShll *my_nodeShll)
+ssize_t my_get_node_indexShll(my_list_stShll *my_headShll,
+		 my_list_stShll *my_nodeShll)
 {
-        size_t my_iShll = 0;
+	size_t my_iShll = 0;
 
-        while (my_headShll)
-        {
-                if (my_headShll == my_nodeShll)
-                        return (my_iShll);
-                my_headShll = my_headShll->my_nextShll;
-                my_iShll++;
-        }
-        return (-1);
+	while (my_headShll)
+	{
+		if (my_headShll == my_nodeShll)
+			return (my_iShll);
+		my_headShll = my_headShll->my_nextShll;
+		my_iShll++;
+	}
+	return (-1);
 }
 
 /**
@@ -53,7 +55,8 @@ ssize_t my_get_node_indexShll(my_list_stShll *my_headShll, my_list_stShll *my_no
  * Return: Returns 1 on success, 0 on failure.
 */
 
-int my_delete_node_at_indexShll(my_list_stShll **my_headShll, unsigned int my_indexShll)
+int my_delete_node_at_indexShll(my_list_stShll **my_headShll,
+		 unsigned int my_indexShll)
 {
 	my_list_stShll *my_nodeShll, *my_prev_nodeShll;
 	unsigned int my_iShll = 0;
@@ -87,7 +90,8 @@ int my_delete_node_at_indexShll(my_list_stShll **my_headShll, unsigned int my_in
 }
 
 /**
- * my_list_to_stringsShll - Function that converts a linked list to an array of strings.
+ * my_list_to_stringsShll - Function that converts
+ * a linked list to an array of strings.
  *
  * @my_headShll: Pointer to the first node.
  *
@@ -106,7 +110,8 @@ char **my_list_to_stringsShll(my_list_stShll *my_headShll)
 	my_strsShll = malloc(sizeof(char *) * (my_iShll + 1));
 	if (!my_strsShll)
 		return (NULL);
-	for (my_iShll = 0; my_nodeShll; my_nodeShll = my_nodeShll->my_nextShll, my_iShll++)
+	for (my_iShll = 0; my_nodeShll; my_nodeShll =
+			 my_nodeShll->my_nextShll, my_iShll++)
 	{
 		my_strShll = malloc(_strlenShll(my_nodeShll->my_strShll) + 1);
 		if (!my_strShll)

@@ -27,7 +27,8 @@ void my_set_infoShll(my_info_stShll *my_infoShll, char **my_avShll)
 				my_infoShll->my_argvShll[1] = NULL;
 			}
 		}
-		for (my_iShll = 0; my_infoShll->my_argvShll && my_infoShll->my_argvShll[my_iShll]; my_iShll++)
+		for (my_iShll = 0; my_infoShll->my_argvShll &&
+				 my_infoShll->my_argvShll[my_iShll]; my_iShll++)
 			;
 		my_infoShll->my_argcShll = 1;
 		my_replace_aliasShll(my_infoShll);
@@ -45,8 +46,8 @@ void my_set_infoShll(my_info_stShll *my_infoShll, char **my_avShll)
 
 void my_clear_infoShll(my_info_stShll *my_infoShll)
 {
-        my_infoShll->my_argShll = NULL;
-        my_infoShll->my_argvShll = NULL;
-        my_infoShll->my_pathShll = NULL;
-        my_infoShll->my_argcShll = 0;
+	my_infoShll->my_argShll = NULL;
+	my_infoShll->my_argvShll = NULL;
+	my_infoShll->my_pathShll = NULL;
+	my_infoShll->my_argcShll = 0;
 }

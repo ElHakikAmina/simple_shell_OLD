@@ -5,8 +5,9 @@
  *
  * @my_sShll: The input string to convert.
  *
- * Return: Returns the converted number if numbers are found in the string; 
- *         otherwise, it returns -1 in case of an error or 0 if no numbers are present.
+ * Return: Returns the converted number if numbers are found in the string;
+ * otherwise, it returns -1 in case of an error or
+ * 0 if no numbers are present.
 */
 
 int _erratoiShll(char *my_sShll)
@@ -33,8 +34,8 @@ int _erratoiShll(char *my_sShll)
 }
 
 /**
- * my_remove_commentsShll - Replaces the first instance of '#' with a null 
- *                          terminator '\0' in the provided string.
+ * my_remove_commentsShll - Replaces the first instance of '#' with a null
+ * terminator '\0' in the provided string.
  *
  * @my_bufShll: The address of the string to be modified.
  *
@@ -46,7 +47,8 @@ void my_remove_commentsShll(char *my_bufShll)
 	int my_iShll;
 
 	for (my_iShll = 0; my_bufShll[my_iShll] != '\0'; my_iShll++)
-		if (my_bufShll[my_iShll] == '#' && (!my_iShll || my_bufShll[my_iShll - 1] == ' '))
+		if (my_bufShll[my_iShll] == '#' && (!my_iShll ||
+					 my_bufShll[my_iShll - 1] == ' '))
 		{
 			my_bufShll[my_iShll] = '\0';
 			break;

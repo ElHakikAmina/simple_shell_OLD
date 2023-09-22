@@ -12,17 +12,17 @@
 
 int _strcmpShll(char *my_s1Shll, char *my_s2Shll)
 {
-        while (*my_s1Shll && *my_s2Shll)
-        {
-                if (*my_s1Shll != *my_s2Shll)
-                        return (*my_s1Shll - *my_s2Shll);
-                my_s1Shll++;
-                my_s2Shll++;
-        }
-        if (*my_s1Shll == *my_s2Shll)
-                return (0);
-        else
-                return (*my_s1Shll < *my_s2Shll ? -1 : 1);
+	while (*my_s1Shll && *my_s2Shll)
+	{
+		if (*my_s1Shll != *my_s2Shll)
+			return (*my_s1Shll - *my_s2Shll);
+		my_s1Shll++;
+		my_s2Shll++;
+	}
+	if (*my_s1Shll == *my_s2Shll)
+		return (0);
+	else
+		return (*my_s1Shll < *my_s2Shll ? -1 : 1);
 }
 
 /**
@@ -35,17 +35,17 @@ int _strcmpShll(char *my_s1Shll, char *my_s2Shll)
 
 int _putcharShll(char my_cShll)
 {
-        static int my_iShll;
-        static char my_bufShll[MY_WRITE_BUF_SIZESHLL];
+	static int my_iShll;
+	static char my_bufShll[MY_WRITE_BUF_SIZESHLL];
 
-        if (my_cShll == MY_BUF_FLUSHSHLL || my_iShll >= MY_WRITE_BUF_SIZESHLL)
-        {
-                write(1, my_bufShll, my_iShll);
-                my_iShll = 0;
-        }
-        if (my_cShll != MY_BUF_FLUSHSHLL)
-                my_bufShll[my_iShll++] = my_cShll;
-        return (1);
+	if (my_cShll == MY_BUF_FLUSHSHLL || my_iShll >= MY_WRITE_BUF_SIZESHLL)
+	{
+		write(1, my_bufShll, my_iShll);
+		my_iShll = 0;
+	}
+	if (my_cShll != MY_BUF_FLUSHSHLL)
+		my_bufShll[my_iShll++] = my_cShll;
+	return (1);
 }
 
 /**

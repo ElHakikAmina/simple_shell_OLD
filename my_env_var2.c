@@ -46,7 +46,8 @@ int _unsetenvShll(my_info_stShll *my_infoShll, char *my_varShll)
 		my_pShll = my_starts_withShll(my_nodeShll->my_strShll, my_varShll);
 		if (my_pShll && *my_pShll == '=')
 		{
-			my_infoShll->my_env_changedShll = my_delete_node_at_indexShll(&(my_infoShll->my_envShll), my_iShll);
+			my_infoShll->my_env_changedShll = my_delete_node_at_indexShll
+				(&(my_infoShll->my_envShll), my_iShll);
 			my_iShll = 0;
 			my_nodeShll = my_infoShll->my_envShll;
 			continue;
@@ -67,7 +68,8 @@ int _unsetenvShll(my_info_stShll *my_infoShll, char *my_varShll)
  * Return: Always returns 0.
 */
 
-int _setenvShll(my_info_stShll *my_infoShll, char *my_varShll, char *my_valueShll)
+int _setenvShll(my_info_stShll *my_infoShll, char *my_varShll,
+		 char *my_valueShll)
 {
 	char *my_bufShll = NULL;
 	my_list_stShll *my_nodeShll;

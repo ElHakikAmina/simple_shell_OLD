@@ -12,12 +12,12 @@
 
 char *_strchrShll(char *my_sShll, char my_cShll)
 {
-        do {
-                if (*my_sShll == my_cShll)
-                        return (my_sShll);
-        } while (*my_sShll++ != '\0');
+	do {
+		if (*my_sShll == my_cShll)
+			return (my_sShll);
+	} while (*my_sShll++ != '\0');
 
-        return (NULL);
+	return (NULL);
 }
 
 /**
@@ -32,20 +32,20 @@ char *_strchrShll(char *my_sShll, char my_cShll)
 
 char *_strncatShll(char *my_destShll, char *my_srcShll, int my_nShll)
 {
-        int my_iShll = 0, my_jShll = 0;
-        char *my_sShll = my_destShll;
+	int my_iShll = 0, my_jShll = 0;
+	char *my_sShll = my_destShll;
 
-        while (my_destShll[my_iShll] != '\0')
-                my_iShll++;
-        while (my_srcShll[my_jShll] != '\0' && my_jShll < my_nShll)
-        {
-                my_destShll[my_iShll] = my_srcShll[my_jShll];
-                my_iShll++;
-                my_jShll++;
-        }
-        if (my_jShll < my_nShll)
-                my_destShll[my_iShll] = '\0';
-        return (my_sShll);
+	while (my_destShll[my_iShll] != '\0')
+		my_iShll++;
+	while (my_srcShll[my_jShll] != '\0' && my_jShll < my_nShll)
+	{
+		my_destShll[my_iShll] = my_srcShll[my_jShll];
+		my_iShll++;
+		my_jShll++;
+	}
+	if (my_jShll < my_nShll)
+		my_destShll[my_iShll] = '\0';
+	return (my_sShll);
 }
 
 /**

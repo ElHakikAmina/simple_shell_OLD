@@ -39,7 +39,8 @@ char *_getenvShll(my_info_stShll *my_infoShll, const char *my_nameShll)
 }
 
 /**
- * my_get_environShll - Return a copy of the string array containing our environment.
+ * my_get_environShll - Return a copy of the string
+ * array containing our environment.
  *
  * @my_infoShll: Parameter structure.
  *
@@ -76,7 +77,8 @@ int my_populate_env_listShll(my_info_stShll *my_infoShll)
 }
 
 /**
- * _msetenvShll - Initialize a new environment variable or modify an existing one.
+ * _msetenvShll - Initialize a new environment variable
+ * or modify an existing one.
  *
  * @my_infoShll: Parameter structure.
  *
@@ -90,7 +92,8 @@ int _msetenvShll(my_info_stShll *my_infoShll)
 		_eputsShll("Incorrect number of arguments\n");
 		return (1);
 	}
-	if (_setenvShll(my_infoShll, my_infoShll->my_argvShll[1], my_infoShll->my_argvShll[2]))
+	if (_setenvShll(my_infoShll, my_infoShll->my_argvShll[1],
+				 my_infoShll->my_argvShll[2]))
 		return (0);
 	return (1);
 }
