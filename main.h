@@ -13,7 +13,7 @@
 #include <sys/wait.h>
 
 
-/* READ_BUF_SIZE */
+/* READ_BUF_SIZE2 */
 #define MY_READ_BUF_SIZESHLL 1024
 /* WRITE_BUF_SIZE */
 #define MY_WRITE_BUF_SIZESHLL 1024
