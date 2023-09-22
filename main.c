@@ -4,13 +4,13 @@
 /**
  * main - Primary function
  *
- * @argc: number of arguments
- * @argv: list of arguments
+ * @my_argcShll: number of arguments
+ * @my_argvShll: list of arguments
  *
  * Return: 0 (Success), 1 otherwise
 */
 
-int main(int argc, char **argv)
+int main(int my_argcShll, char **my_argvShll)
 {
 	my_info_stShll my_infoShll[] = { MY_INFO_INITSHLL };
 
@@ -21,9 +21,9 @@ int main(int argc, char **argv)
 			: "=r" (my_fdShll)
 			: "r" (my_fdShll));
 
-	if (argc == 2)
+	if (my_argcShll == 2)
 	{
-		my_fdShll = open(argv[1], O_RDONLY);
+		my_fdShll = open(my_argvShll[1], O_RDONLY);
 		if (my_fdShll == -1)
 		{
 			if (errno == EACCES)
@@ -31,9 +31,9 @@ int main(int argc, char **argv)
 
 			if (errno == ENOENT)
 			{
-				_eputsShll(argv[0]);
+				_eputsShll(my_argvShll[0]);
 				_eputsShll(": 0: can't open ");
-				_eputsShll(argv[1]);
+				_eputsShll(my_argvShll[1]);
 				_eputcharShll('\n');
 				_eputcharShll(MY_BUF_FLUSHSHLL);
 				exit(127);
@@ -45,6 +45,6 @@ int main(int argc, char **argv)
 	}
 	my_populate_env_listShll(my_infoShll);
 	my_read_historyShll(my_infoShll);
-	hsh(my_infoShll, argv);
+	hsh(my_infoShll, my_argvShll);
 	return (EXIT_SUCCESS);
 }
