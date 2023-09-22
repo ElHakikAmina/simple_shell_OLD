@@ -2,10 +2,10 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
- * main - Entry point
+ * main - Primary function
  *
- * @my_argcShll: number of arguments
- * @my_argvShll: list of arguments
+ * @argc: number of arguments
+ * @argv: list of arguments
  *
  * Return: 0 (Success), 1 otherwise
 */
