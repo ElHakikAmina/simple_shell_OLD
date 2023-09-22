@@ -238,7 +238,7 @@ ssize_t my_read_bufShll(my_info_stShll *my_infoShll, char *my_bufShll, size_t *m
 ssize_t my_get_inputShll(my_info_stShll *my_infoShll);
 int _getlineShll(my_info_stShll *my_infoShll, char **my_ptrShll, size_t *my_lengthShll);
 
-/* This file is created by EL HAKIK Amina and Mehdi Belaazri my_strtokShll.c*/
+/* This fa ile is created by EL HAKIK Amina and Mehdi Belaazri my_strtokShll.c*/
 char **my_str_tok2Shll(char *my_strShll, char my_dShll);
 char **my_str_tokShll(char *my_strShll, char *my_dShll);
 
