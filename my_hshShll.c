@@ -2,6 +2,20 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
+ * _historyShll - Displays command history with line numbers.
+ *
+ * @my_infoShll: Parameter struct.
+ *
+ * Return: Always returns 0.
+*/
+
+int _historyShll(my_info_stShll *my_infoShll)
+{
+        my_print_listShll(my_infoShll->my_historyShll);
+        return (0);
+}
+
+/**
  * my_find_builtinShll - This function searches for a built-in command.
  *
  * @my_infoShll: A structure containing relevant information.
