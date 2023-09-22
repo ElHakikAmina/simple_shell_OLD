@@ -2,10 +2,11 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
- * my_print_aliasShll - this function is responsible for : prints an alias string.
- * @my_nodeShll: variable the alias node.
+ * my_print_aliasShll - Display an alias string.
  *
- * Return: Always 0 on success, 1 on error
+ * @my_nodeShll: The alias node.
+ *
+ * Return: 0 on success, 1 on error.
 */
 
 int my_print_aliasShll(my_list_stShll *my_nodeShll)
@@ -26,13 +27,14 @@ int my_print_aliasShll(my_list_stShll *my_nodeShll)
 }
 
 /**
- * _helpShll - this function is responsible for changing the current directory of the process.
- * @my_infoShll: Structure containing potential arguments. Used to maintain
- *          constant function prototype.
- *  Return: Always return 0
+ * _helpShll - This function is responsible for updating the current working directory of the process.
+ *
+ * @my_infoShll: A structure that may contain additional arguments, ensuring a consistent function prototype.
+ *
+ * Return: Returns 0 upon successful execution.
 */
 
-int _helpShll(info_stShll *infoShll)
+int _helpShll(my_info_stShll *my_infoShll)
 {
         char **my_arg_arrayShll;
 
@@ -44,11 +46,12 @@ int _helpShll(info_stShll *infoShll)
 }
 
 /**
- * _exitShll - This function is responsible for gracefully exiting the shell.
- * @my_infoShll: A structure that may contain relevant arguments, ensuring a consistent
- * function prototype.
- * Return: This function exits the shell with a specified exit status (0) if info.argv[0] is not equal to "exit".
- */
+ * _exitShll - Exits the shell if info.argv[0] is not "exit".
+ *
+ * @my_infoShll: A structure that may contain pertinent arguments, ensuring a consistent function prototype.
+ *
+ * Return: Exits the shell with a specified exit status (0).
+*/
 
 int _exitShll(my_info_stShll *my_infoShll)
 {

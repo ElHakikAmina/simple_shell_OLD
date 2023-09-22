@@ -2,36 +2,35 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
- * my_is_cmdShll - function that determines if a file is executable command
+ * my_is_cmdShll - Determines whether a file is an executable command.
  * 
- * @my_infoShll: it is the info struct
- * @my_pathShll: it is path to the file
+ * @my_infoShll: Information structure.
+ * @my_pathShll: Path to the file.
  *
- * Return: 1 if true, 0 if false
+ * Return: 1 if it's an executable command, 0 otherwise.
 */
 
 int my_is_cmdShll(my_info_stShll *my_infoShll, char *my_pathShll)
 {
-        struct my_statShll my_stShll;
+        struct stat my_stShll;
 
         (void)my_infoShll;
-        if (!my_pathShll || my_statShll(my_pathShll, &my_stShll))
+        if (!my_pathShll || stat(my_pathShll, &my_stShll))
                 return (0);
 
-        if (my_stShll my_st_modeShll & MY_S_IFREGSHLL)
+        if (my_stShll.st_mode & S_IFREG)
                 return (1);
-
         return (0);
 }
 
 /**
- * my_dup_charsShll - function that duplicates characters
+ * my_dup_charsShll - Duplicates characters from a string.
  *
- * @my_pathstrShll: it is the PATH string
- * @my_startShll: it is starting index
- * @my_stopShll: it is stopping index
+ * @my_pathstrShll: The PATH string.
+ * @my_startShll: Starting index.
+ * @my_stopShll: Stopping index.
  *
- * Return: a pointer to new buffer
+ * Return: A pointer to a new character buffer.
 */
 
 char *my_dup_charsShll(char *my_pathstrShll, int my_startShll, int my_stopShll)
@@ -47,13 +46,13 @@ char *my_dup_charsShll(char *my_pathstrShll, int my_startShll, int my_stopShll)
 }
 
 /**
- * my_get_pathShll - function finds this ccommand in the PATH string
+ * my_get_pathShll - Finds the full path of a command in the PATH string.
  *
- * @my_infoShll: it is the info struct
- * @my_pathstrShll: it is the PATH string
- * @my_cmdShll: it is command to find
+ * @my_infoShll: Information structure.
+ * @my_pathstrShll: The PATH string.
+ * @my_cmdShll: Command to locate.
  *
- * Return: the full path of cmd if success or NULL
+ * Return: The full path of the command if found, or NULL.
 */
 
 char *my_get_pathShll(my_info_stShll *my_infoShll, char *my_pathstrShll, char *my_cmdShll)

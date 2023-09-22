@@ -2,11 +2,11 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
- * my_bfreeShll - function that frees a pointer and nulls the address
+ * my_bfreeShll - Frees a pointer and sets it to NULL.
  *
- * @my_ptrShll: it is an address of pointer to be freed
+ * @my_ptrShll: Address of the pointer to be freed.
  *
- * Return: 1 for success 0 for fail
+ * Return: 1 for success, 0 for failure.
 */
 
 int my_bfreeShll(void **my_ptrShll)
@@ -21,11 +21,11 @@ int my_bfreeShll(void **my_ptrShll)
 }
 
 /**
- * my_free_listShll - function that frees all nodes of a list
+ * my_free_listShll - Frees all nodes of a linked list.
  *
- * @my_head_ptrShll: it is an address of pointer to head node
+ * @my_head_ptrShll: Address of the pointer to the head node.
  *
- * Return: Nothing
+ * Return: Nothing.
 */
 
 void my_free_listShll(my_list_stShll **my_head_ptrShll)
@@ -39,19 +39,19 @@ void my_free_listShll(my_list_stShll **my_head_ptrShll)
         while (my_nodeShll)
         {
                 my_next_nodeShll = my_nodeShll->my_nextShll;
-                my_freeShll(my_nodeShll->my_strShll);
-                my_freeShll(my_nodeShll);
+                free(my_nodeShll->my_strShll);
+                free(my_nodeShll);
                 my_nodeShll = my_next_nodeShll;
         }
         *my_head_ptrShll = NULL;
 }
 
 /**
- * my_ffreeShll - function that frees a string of strings
+ * my_ffreeShll - Frees a string of strings.
  *
- * @my_ppShll: it is a string of strings
+ * @my_ppShll: String of strings to be freed.
  *
- * Return: Always 0
+ * Return: Always 0.
 */
 
 void my_ffreeShll(char **my_ppShll)
@@ -66,13 +66,13 @@ void my_ffreeShll(char **my_ppShll)
 }
 
 /**
- * _reallocShll - function that  reallocates a block of memory
+ * _reallocShll - Reallocates a block of memory.
  *
- * @my_ptrShll: it is a  pointer to previous mallocated block
- * @my_old_sizeShll: it is a byte size of previous block
- * @my_new_sizeShll:it is a byte size of new block
+ * @my_ptrShll: Pointer to the previously allocated block.
+ * @my_old_sizeShll: Byte size of the previous block.
+ * @my_new_sizeShll: Byte size of the new block.
  *
- * Return: a pointer
+ * Return: A pointer to the reallocated memory.
 */
 
 void *_reallocShll(void *my_ptrShll, unsigned int my_old_sizeShll, unsigned int my_new_sizeShll)
@@ -97,13 +97,13 @@ void *_reallocShll(void *my_ptrShll, unsigned int my_old_sizeShll, unsigned int 
 }
 
 /**
- * _memsetShll - function that fills the memory with const byte
+ * _memsetShll - Fills the memory with a constant byte.
  *
- * @my_sShll: it is a pointer ta memory area
- * @my_bShll: it is a the byte to fill *s with
- * @my_nShll: it is a  the amount of bytes to be filled
+ * @my_sShll: Pointer to the memory area.
+ * @my_bShll: The byte used to fill *s.
+ * @my_nShll: The number of bytes to be filled.
  *
- * Return: it returns (s)
+ * Return: A pointer to the memory area (*s).
 */
 
 char *_memsetShll(char *my_sShll, char my_bShll, unsigned int my_nShll)

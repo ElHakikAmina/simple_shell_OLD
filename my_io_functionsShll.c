@@ -2,14 +2,15 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
- * my_build_history_listShll - function that adds entry to a history linked list
+ * my_build_history_listShll - Function for adding an entry to a history linked list.
  *
- * @my_infoShll: it is a Structure containing potential arguments. Used to maintain
- * @my_bufShll: it is a buffer
- * @my_linecountShll: it si a the history linecount, histcount
+ * @my_infoShll: A structure containing potential arguments, used to maintain
+ * @my_bufShll: A buffer.
+ * @my_linecountShll: The history line count, histcount.
  *
- * Return: it returns Always 0
- */
+ * Return: Always returns 0.
+*/
+
 int my_build_history_listShll(my_info_stShll *my_infoShll, char *my_bufShll, int my_linecountShll)
 {
         my_list_stShll *my_nodeShll = NULL;
@@ -24,10 +25,13 @@ int my_build_history_listShll(my_info_stShll *my_infoShll, char *my_bufShll, int
 }
 
 /**
- * my_renumber_historyShll  : :-function that  renumbers the history linked list after changes
- * @my_infoShll: it is a Structure containing potential arguments. Used to maintain
- * Return: it returns the new histcount
- */
+ * my_renumber_historyShll - Function designed to renumber the history linked list after making changes.
+ *
+ * @my_infoShll: Structure containing potential arguments, used for maintenance.
+ *
+ * Return: Returns the updated histcount.
+*/
+
 int my_renumber_historyShll(my_info_stShll *my_infoShll)
 {
         my_list_stShll *my_nodeShll = my_infoShll->my_historyShll;
@@ -42,11 +46,12 @@ int my_renumber_historyShll(my_info_stShll *my_infoShll)
 }
 
 /**
- * my_get_history_fileShll - function that gets the history file
- * @my_infoShll: it returns  parameter struct
+ * my_get_history_fileShll - Function responsible for obtaining the history file.
  *
- * Return: it returns  allocated string containg history file
- */
+ * @my_infoShll: Parameter struct.
+ *
+ * Return: Returns an allocated string containing the history file.
+*/
 
 char *my_get_history_fileShll(my_info_stShll *my_infoShll)
 {
@@ -66,15 +71,16 @@ char *my_get_history_fileShll(my_info_stShll *my_infoShll)
 }
 
 /**
- * my_write_historyShll - function that creates a file, or appends to an existing file
- * @my_infoShll: it is a the parameter struct
+ * my_write_historyShll - Function that creates a new file or appends to an existing file.
  *
- * Return: it returns  1 on success, else -1
- */
+ * @my_infoShll: Parameter struct.
+ *
+ * Return: Returns 1 on success, or -1 on failure.
+*/
 
 int my_write_historyShll(my_info_stShll *my_infoShll)
 {
-        my_ssize_tShll my_fdShll;
+        ssize_t my_fdShll;
         char *my_filenameShll = my_get_history_fileShll(my_infoShll);
         my_list_stShll *my_nodeShll = NULL;
 
@@ -96,17 +102,18 @@ int my_write_historyShll(my_info_stShll *my_infoShll)
 }
 
 /**
- * my_read_historyShll - function that reads history from file
- * @my_infoShll: it is a the parameter struct
+ * my_read_historyShll - Function that reads history data from a file.
  *
- * Return: it returns histcount on success, 0 otherwise
- */
+ * @my_infoShll: Parameter struct.
+ *
+ * Return: Returns the histcount on success, or 0 on failure.
+*/
 
 int my_read_historyShll(my_info_stShll *my_infoShll)
 {
 	int my_iShll, my_lastShll = 0, my_linecountShll = 0;
 	ssize_t my_fdShll, my_rdlenShll, my_fsizeShll = 0;
-	struct my_statShll my_stShll;
+	struct stat my_stShll;
 	char *my_bufShll = NULL, *my_filenameShll = my_get_history_fileShll(my_infoShll);
 
 	if (!my_filenameShll)
@@ -116,8 +123,8 @@ int my_read_historyShll(my_info_stShll *my_infoShll)
 	free(my_filenameShll);
 	if (my_fdShll == -1)
 		return (0);
-	if (!my_fstatShll(my_fdShll, &my_stShll))
-		my_fsizeShll = my_stShll.my_st_sizeShll;
+	if (!fstat(my_fdShll, &my_stShll))
+		my_fsizeShll = my_stShll.st_size;
 	if (my_fsizeShll < 2)
 		return (0);
 	my_bufShll = malloc(sizeof(char) * (my_fsizeShll + 1));

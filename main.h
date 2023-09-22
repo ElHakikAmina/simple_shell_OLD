@@ -38,7 +38,7 @@
 #define MY_HIST_MAXSHLL	4096
 #define MY_HIST_FILESHLL	".simple_shell_history"
 
-extern char **my_environShll;
+extern char **environ;
 
 /**
  * struct my_liststrShll - singly linked list
@@ -52,7 +52,7 @@ typedef struct my_liststrShll
 {
 	int my_numShll;
 	char *my_strShll;
-	struct my_liststr *my_nextShll;
+	struct my_liststrShll *my_nextShll;
 } my_list_stShll;
 
 /**
@@ -68,7 +68,7 @@ typedef struct my_liststrShll
  * @my_linecount_flagShll: if on count this line of input
  * @my_fnameShll: program file name
  * @my_envShll: linked list local copy of environ
- * @my_environShll: custom modified copy of environ from ll env
+ * @environ: custom modified copy of environ from ll env
  * @my_historyShll: history node
  * @my_aliasShll: alias node
  * @my_env_changedShll: on if environ changed
@@ -92,7 +92,7 @@ typedef struct my_passinfoShll
 	my_list_stShll *my_envShll;
 	my_list_stShll *my_historyShll;
 	my_list_stShll *my_aliasShll;
-	char **my_environShll;
+	char **environ;
 	int my_env_changedShll;
 	int my_statusShll;
 
@@ -130,9 +130,9 @@ int _strlenShll(char *my_sShll);
 char *_strcatShll(char *my_destShll, char *my_srcShll);
 
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri my_enviroment_var1Shll.c*/
-int _unsetenvShll(my_info_stShll *my_infoShll);
+int _munsetenvShll(my_info_stShll *my_infoShll);
 int _setenvShll(my_info_stShll *my_infoShll, char *my_varShll, char *my_valueShll);
-int _unsetenvShll(my_info_st *my_infoShll, char *my_varShll);
+int _unsetenvShll(my_info_stShll *my_infoShll, char *my_varShll);
 
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri my_string_2Shll.c*/
 char *_strncpyShll(char *my_destShll, char *my_srcShll, int my_nShll);
@@ -146,10 +146,10 @@ int _putcharShll(char my_cShll);
 
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri my_enviroment_varShll.c*/
 char **my_get_environShll(my_info_stShll *my_infoShll);
-int _setenvShll(my_info_stShll *);
+int _msetenvShll(my_info_stShll *my_infoShll);
 char *_getenvShll(my_info_stShll *my_infoShll, const char *my_nameShll);
 int my_populate_env_listShll(my_info_stShll *my_infoShll);
-int _envShll(my_info_stShll *my_infoShll);
+int _menvShll(my_info_stShll *my_infoShll);
 
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri my_pathShll.c*/
 int my_is_cmdShll(my_info_stShll *my_infoShll, char *my_pathShll);
@@ -191,7 +191,7 @@ void my_clear_infoShll(my_info_stShll *my_infoShll);
 void my_set_infoShll(my_info_stShll *my_infoShll, char **my_avShll);
 
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri my_memory_funcShll.c*/
-void my_free_listShll(list_stShll **my_head_ptrShll);
+void my_free_listShll(my_list_stShll **my_head_ptrShll);
 int my_bfreeShll(void **my_ptrShll);
 void *_reallocShll(void *my_ptrShll, unsigned int my_old_sizeShll, unsigned int my_new_sizeShll);
 char *_memsetShll(char *my_sShll, char my_bShll, unsigned int my_nShll);
@@ -239,8 +239,7 @@ ssize_t my_get_inputShll(my_info_stShll *my_infoShll);
 int _getlineShll(my_info_stShll *my_infoShll, char **my_ptrShll, size_t *my_lengthShll);
 
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri my_strtokShll.c*/
-char **my_str_tok2(char *my_strShll, char my_dShll);
-char **my_str_tok(char *my_strShll, char *my_dShll);
+char **my_str_tok2Shll(char *my_strShll, char my_dShll);
+char **my_str_tokShll(char *my_strShll, char *my_dShll);
 
 #endif
-

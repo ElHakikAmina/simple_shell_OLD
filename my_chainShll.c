@@ -2,13 +2,13 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
- * my_check_chainShll - checks we should continue chaining based on last status
+ * my_check_chainShll - Check if chaining should continue based on the last status.
  *
- * @my_infoShll: the parameter struct
- * @my_bufShll: the char buffer
- * @my_pShll: address of current position in buf
- * @my_iShll: starting position in buf
- * @my_lenShll: length of buf
+ * @my_infoShll: Parameter structure.
+ * @my_bufShll: Character buffer.
+ * @my_pShll: Current position in buf.
+ * @my_iShll: Starting position in buf.
+ * @my_lenShll: Buffer length.
  *
  * Return: Void
 */
@@ -38,11 +38,11 @@ void my_check_chainShll(my_info_stShll *my_infoShll, char *my_bufShll, size_t *m
 }
 
 /**
- * my_replace_aliasShll - replaces an aliases in the tokenized string
+ * my_replace_aliasShll - Replace aliases in the tokenized string.
  *
- * @my_infoShll: the parameter struct
+ * @my_infoShll: Parameter structure.
  *
- * Return: 1 if replaced, 0 otherwise
+ * Return: 1 if replaced, 0 otherwise.
 */
 
 int my_replace_aliasShll(my_info_stShll *my_infoShll)
@@ -70,12 +70,12 @@ int my_replace_aliasShll(my_info_stShll *my_infoShll)
 }
 
 /**
- * my_replace_stringShll - replaces string
+ * my_replace_stringShll - Replace a string.
  *
- * @my_oldShll: address of old string
- * @my_newShll: new string
+ * @my_oldShll: Old string address.
+ * @my_newShll: New string.
  *
- * Return: 1 if replaced, 0 otherwise
+ * Return: 1 if replaced, 0 otherwise.
 */
 
 int my_replace_stringShll(char **my_oldShll, char *my_newShll)
@@ -86,11 +86,11 @@ int my_replace_stringShll(char **my_oldShll, char *my_newShll)
 }
 
 /**
- * my_replace_varsShll - replaces vars in the tokenized string
+ * my_replace_varsShll - Replaces variables in the tokenized string.
  *
- * @my_infoShll: the parameter struct
+ * @my_infoShll: The parameter structure.
  *
- * Return: 1 if replaced, 0 otherwise
+ * Return: 1 if replaced, 0 otherwise.
 */
 
 int my_replace_varsShll(my_info_stShll *my_infoShll)
@@ -129,13 +129,13 @@ int my_replace_varsShll(my_info_stShll *my_infoShll)
 }
 
 /**
- * my_is_chainShll - test if current char in buffer is a chain delimeter
+ * my_is_chainShll - Tests if the current character in the buffer is a chain delimiter.
  *
- * @my_infoShll: the parameter struct
- * @my_bufShll: the char buffer
- * @my_pShll: address of current position in buffer
+ * @my_infoShll: The parameter structure.
+ * @my_bufShll: The character buffer.
+ * @my_pShll: The address of the current position in the buffer.
  *
- * Return: 1 if chain delimeter, 0 otherwise
+ * Return: 1 if it's a chain delimiter, 0 otherwise.
 */
 
 int my_is_chainShll(my_info_stShll *my_infoShll, char *my_bufShll, size_t *my_pShll)

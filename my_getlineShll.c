@@ -2,11 +2,11 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
- * my_sigintHandlerShll - function that  blocks ctrl-c
+ * my_sigintHandlerShll - Function that blocks the handling of the Ctrl-C signal.
  *
- * @my_sig_numShll: it is a the signal number
+ * @my_sig_numShll: The signal number (SIGINT).
  *
- * Return: Nothing
+ * Return: Nothing.
 */
 
 void my_sigintHandlerShll(__attribute__((unused))int my_sig_numShll)
@@ -17,16 +17,18 @@ void my_sigintHandlerShll(__attribute__((unused))int my_sig_numShll)
 }
 
 /**
- * my_read_bufShll - function that reads a buffer
- * @my_infoShll: it is a struct
- * @my_bufShll: it is a buffer
- * @my_iShll: it is a size 
- * Return: it retrurns r
+ * my_read_bufShll - Function that reads data into a buffer.
+ *
+ * @my_infoShll: A structure containing information.
+ * @my_bufShll: The buffer to read data into.
+ * @my_iShll: The size of data to read.
+ *
+ * Return: The number of bytes read.
 */
 
-my_ssize_tShll my_read_bufShll(my_info_stShll *my_infoShll, char *my_bufShll, my_size_tShll *my_iShll)
+ssize_t my_read_bufShll(my_info_stShll *my_infoShll, char *my_bufShll, size_t *my_iShll)
 {
-	my_ssize_tShll my_rShll = 0;
+	ssize_t my_rShll = 0;
        
 	if (*my_iShll)
 		return (0);
@@ -37,19 +39,19 @@ my_ssize_tShll my_read_bufShll(my_info_stShll *my_infoShll, char *my_bufShll, my
 }
 
 /**
- * my_input_bufShll - function that buffer chained commands
+ * my_input_bufShll - This function buffers chained commands.
  *
- * @my_infoShll: it is a struct
- * @my_bufShll: it is a address to buffer
- * @my_lenShll: it is a  address to length of var
+ * @my_infoShll: A structure holding necessary information.
+ * @my_bufShll: The address of the buffer.
+ * @my_lenShll: The address of the length variable.
  *
- * Return: a bytes read
- */
+ * Return: The number of bytes read.
+*/
 
-my_ssize_tShll my_input_bufShll(my_info_stShll *my_infoShll, char **my_bufShll, my_size_tShll *my_lenShll)
+ssize_t my_input_bufShll(my_info_stShll *my_infoShll, char **my_bufShll, size_t *my_lenShll)
 {
-	my_ssize_tShll my_rShll = 0;
-	my_size_tShll my_len_pShll = 0;
+	ssize_t my_rShll = 0;
+	size_t my_len_pShll = 0;
 
 	if (!*my_lenShll)
 	{
@@ -57,9 +59,9 @@ my_ssize_tShll my_input_bufShll(my_info_stShll *my_infoShll, char **my_bufShll, 
 		*my_bufShll = NULL;
 		signal(SIGINT, my_sigintHandlerShll);
 #if MY_USE_GETLINESHLL
-		my_rShll = my_getlineShll(my_bufShll, &my_len_pShll, my_stdinShll);
+		my_rShll = getline(my_bufShll, &my_len_pShll, my_stdinShll);
 #else
-		my_rShll = my_getlineShll(my_infoShll, my_bufShll, &my_len_pShll);
+		my_rShll = _getlineShll(my_infoShll, my_bufShll, &my_len_pShll);
 #endif
 		if (my_rShll > 0)
 		{
@@ -81,17 +83,17 @@ my_ssize_tShll my_input_bufShll(my_info_stShll *my_infoShll, char **my_bufShll, 
 }
 
 /**
- * my_get_inputShll - function that gets a line minus the newline
+ * my_get_inputShll - This function reads a line of input, excluding the newline character.
  *
- * @my_infoShll: it is a  struct
+ * @my_infoShll: A structure containing relevant data.
  *
- * Return: it retruns bytes read
+ * Return: The number of bytes read.
 */
 
-my_ssize_tShll my_get_inputShll(my_info_stShll *my_infoShll)
+ssize_t my_get_inputShll(my_info_stShll *my_infoShll)
 {
 	static char *my_bufShll;
-	static my_size_tShll my_iShll, my_jShll, my_lenShll;
+	static size_t my_iShll, my_jShll, my_lenShll;
 	ssize_t my_rShll = 0;
 	char **my_buf_pShll = &(my_infoShll->my_argShll), *my_pShll;
 
@@ -116,7 +118,7 @@ my_ssize_tShll my_get_inputShll(my_info_stShll *my_infoShll)
 		if (my_iShll >= my_lenShll)
 		{
 			my_iShll = my_lenShll = 0;
-			my_infoShll->my_cmd_buf_typeShll = MY_CMD_NORMShll;
+			my_infoShll->my_cmd_buf_typeShll = MY_CMD_NORMSHLL;
 		}
 
 		*my_buf_pShll = my_pShll;
@@ -127,21 +129,21 @@ my_ssize_tShll my_get_inputShll(my_info_stShll *my_infoShll)
 }
 
 /**
- * _getlineShll - function that  gets the next line of input from stdin
+ * _getlineShll - This function retrieves the next line of input from stdin.
  *
- * @my_infoShll: it is a struct
- * @my_ptrShll: it is a address of pointer to buffer
- * @my_lengthShll: it is a  size of preallocated ptr buffer if not NULL
+ * @my_infoShll: A structure with essential information.
+ * @my_ptrShll: The address of a pointer to the buffer.
+ * @my_lengthShll: The size of the preallocated buffer (if not NULL).
  *
- * Return:function that  s
+ * Return: The result of the function.
 */
 
-int _getlineShll(my_info_stShll *my_infoShll, char **my_ptrShll, my_size_tShll *my_lengthShll)
+int _getlineShll(my_info_stShll *my_infoShll, char **my_ptrShll, size_t *my_lengthShll)
 {
 	static char my_bufShll[MY_READ_BUF_SIZESHLL];
-	static my_size_tShll my_iShll, my_lenShll;
-	my_size_tShll my_kShll;
-	my_ssize_tShll my_rShll = 0, my_sShll = 0;
+	static size_t my_iShll, my_lenShll;
+	size_t my_kShll;
+	ssize_t my_rShll = 0, my_sShll = 0;
 	char *my_pShll = NULL, *my_new_pShll = NULL, *my_cShll;
 
 	my_pShll = *my_ptrShll;
@@ -156,7 +158,7 @@ int _getlineShll(my_info_stShll *my_infoShll, char **my_ptrShll, my_size_tShll *
 
 	my_cShll = _strchrShll(my_bufShll + my_iShll, '\n');
 	my_kShll = my_cShll ? 1 + (unsigned int)(my_cShll - my_bufShll) : my_lenShll;
-	my_new_pShll = _realloc(my_pShll, my_sShll, my_sShll ? my_sShll + my_kShll : my_kShll + 1);
+	my_new_pShll = _reallocShll(my_pShll, my_sShll, my_sShll ? my_sShll + my_kShll : my_kShll + 1);
 	if (!my_new_pShll)
 		return (my_pShll ? free(my_pShll), -1 : -1);
 

@@ -2,16 +2,16 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
- * my_fork_cmdShll - forks an exec thread to run cmd
+ * my_fork_cmdShll - Creates a new process to execute a command.
  *
- * @my_infoShll: a  struct
+ * @my_infoShll: A structure containing relevant information.
  *
- * Return: Nothing
+ * Return: None.
 */
 
 void my_fork_cmdShll(my_info_stShll *my_infoShll)
 {
-	my_pid_tShll my_child_pidShll;
+	pid_t my_child_pidShll;
 
 	my_child_pidShll = fork();
 	if (my_child_pidShll == -1)

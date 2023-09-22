@@ -2,16 +2,16 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
- * my_list_lenShll -function that  determines length of linked list
+ * my_list_lenShll - Function that calculates the length of a linked list.
  *
- * @my_hShll: it is a pointer to first node
+ * @my_hShll: Pointer to the first node.
  *
- * Return: it returns size of list
+ * Return: Returns the size of the list.
 */
 
 size_t my_list_lenShll(const my_list_stShll *my_hShll)
 {
-        my_size_tShll my_iShll = 0;
+        size_t my_iShll = 0;
 
         while (my_hShll)
         {
@@ -22,17 +22,17 @@ size_t my_list_lenShll(const my_list_stShll *my_hShll)
 }
 
 /**
- * my_get_node_indexShll - function that gets the index of a node
+ * my_get_node_indexShll - Function that retrieves the index of a specific node.
  *
- * @my_headShll: it is a pointer to list head
- * @my_nodeShll: it is a pointer to the node
+ * @my_headShll: Pointer to the list's head.
+ * @my_nodeShll: Pointer to the node.
  *
- * Return: it returns  index of node or -1
+ * Return: Returns the index of the node or -1 if not found.
 */
 
 ssize_t my_get_node_indexShll(my_list_stShll *my_headShll, my_list_stShll *my_nodeShll)
 {
-        my_size_tShll my_iShll = 0;
+        size_t my_iShll = 0;
 
         while (my_headShll)
         {
@@ -45,12 +45,12 @@ ssize_t my_get_node_indexShll(my_list_stShll *my_headShll, my_list_stShll *my_no
 }
 
 /**
- * my_delete_node_at_indexShll -  deletes node at given index
+ * my_delete_node_at_indexShll - Function that deletes a node at a given index.
  *
- * @my_headShll: it is a address of pointer to first node
- * @my_indexShll: it is aindex of node to delete
+ * @my_headShll: Address of a pointer to the first node.
+ * @my_indexShll: Index of the node to be deleted.
  *
- * Return: 1 on success, 0 on failure
+ * Return: Returns 1 on success, 0 on failure.
 */
 
 int my_delete_node_at_indexShll(my_list_stShll **my_headShll, unsigned int my_indexShll)
@@ -87,17 +87,17 @@ int my_delete_node_at_indexShll(my_list_stShll **my_headShll, unsigned int my_in
 }
 
 /**
- * my_list_to_stringsShll - function that returns an array of strings of the list->str
+ * my_list_to_stringsShll - Function that converts a linked list to an array of strings.
  *
- * @my_headShll: it is a pointer to first node
+ * @my_headShll: Pointer to the first node.
  *
- * Return: it returns  array of strings
+ * Return: Returns an array of strings.
 */
 
 char **my_list_to_stringsShll(my_list_stShll *my_headShll)
 {
 	my_list_stShll *my_nodeShll = my_headShll;
-	my_size_tShll my_iShll = my_list_lenShll(my_headShll), my_jShll;
+	size_t my_iShll = my_list_lenShll(my_headShll), my_jShll;
 	char **my_strsShll;
 	char *my_strShll;
 
