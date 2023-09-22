@@ -54,7 +54,7 @@ int my_find_builtinShll(my_info_stShll *my_infoShll)
 }
 
 /**
- * my_hshShll - The primary shell loop.
+ * hsh - The primary shell loop.
  *
  * @my_infoShll: A structure containing vital information.
  * @my_avShll: An argument vector.

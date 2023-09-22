@@ -182,7 +182,7 @@ char *my_convert_numberShll(long int my_numShll, int my_baseShll, int my_flagsSh
 void my_print_errorShll(my_info_stShll *my_infoShll, char *my_estrShll);
 int my_is_delimShll(char my_cShll, char *my_delimShll);
 
-/* This file is created by EL HAKIK Amina and Mehdi Belaazri my_hshShll.c*/
+/* This file is created by EL HAKIK Amina and Mehdi Belaazri hsh.c*/
 int hsh(my_info_stShll *my_infoShll, char **my_avShll);
 int my_find_builtinShll(my_info_stShll *my_infoShll);
 
