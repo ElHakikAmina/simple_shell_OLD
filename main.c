@@ -45,6 +45,6 @@ int main(int argc, char **argv)
 	}
 	my_populate_env_listShll(my_infoShll);
 	my_read_historyShll(my_infoShll);
-	my_hshShll(my_infoShll, argv);
+	hsh(my_infoShll, argv);
 	return (EXIT_SUCCESS);
 }

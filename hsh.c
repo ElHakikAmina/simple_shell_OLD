@@ -62,7 +62,7 @@ int my_find_builtinShll(my_info_stShll *my_infoShll)
  * Return: 0 for success, 1 otherwise.
 */
 
-int my_hshShll(my_info_stShll *my_infoShll, char **my_avShll)
+int hsh(my_info_stShll *my_infoShll, char **my_avShll)
 {
 	ssize_t my_rShll = 0;
 	int my_builtin_retShll = 0;
