@@ -1,9 +1,13 @@
 #include "main.h"
+
 /**
- * _menvShll - prints the current env.
- * @my_infoShll: structure.
- * Return: Always 0
- */
+ * _menvShll - Print the current environment.
+ *
+ * @my_infoShll: Parameter structure.
+ *
+ * Return: Always returns 0.
+*/
+
 int _menvShll(my_info_stShll *my_infoShll)
 {
 	my_print_liststrShll(my_infoShll->my_envShll);
@@ -11,11 +15,14 @@ int _menvShll(my_info_stShll *my_infoShll)
 }
 
 /**
- * _getenvShll - gets the value of an environ variable.
- * @my_infoShll: structure.
- * @my_nameShll: enviroment variable name.
- * Return: env value
+ * _getenvShll - Retrieve the value of an environment variable.
+ *
+ * @my_infoShll: Parameter structure.
+ * @my_nameShll: Environment variable name.
+ *
+ * Return: Environment variable value.
  */
+
 char *_getenvShll(my_info_stShll *my_infoShll, const char *my_nameShll)
 {
 	my_list_stShll *my_nodeShll = my_infoShll->my_envShll;
@@ -32,10 +39,13 @@ char *_getenvShll(my_info_stShll *my_infoShll, const char *my_nameShll)
 }
 
 /**
- * get_environ - returns the string array copy of our environ.
- * @info: struct.
- * Return: environ
+ * my_get_environShll - Return a copy of the string array containing our environment.
+ *
+ * @my_infoShll: Parameter structure.
+ *
+ * Return: Environment array.
  */
+
 char **my_get_environShll(my_info_stShll *my_infoShll)
 {
 	if (!my_infoShll->environ || my_infoShll->my_env_changedShll)
@@ -47,10 +57,13 @@ char **my_get_environShll(my_info_stShll *my_infoShll)
 }
 
 /**
- * my_populate_env_listShll - populate env linked list
- * @my_infoShll: struct
- * Return: Always 0
+ * my_populate_env_listShll - Populate the environment linked list.
+ *
+ * @my_infoShll: Parameter structure.
+ *
+ * Return: Always returns 0.
  */
+
 int my_populate_env_listShll(my_info_stShll *my_infoShll)
 {
 	my_list_stShll *my_nodeShll = NULL;
@@ -63,10 +76,13 @@ int my_populate_env_listShll(my_info_stShll *my_infoShll)
 }
 
 /**
- * _msetenvShll - init a new env variable or modify an existing one
- * @my_infoShll: struct
- * Return: Always 0
+ * _msetenvShll - Initialize a new environment variable or modify an existing one.
+ *
+ * @my_infoShll: Parameter structure.
+ *
+ * Return: Always returns 0.
  */
+
 int _msetenvShll(my_info_stShll *my_infoShll)
 {
 	if (my_infoShll->my_argcShll != 3)

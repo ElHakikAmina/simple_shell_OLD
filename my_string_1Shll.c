@@ -2,12 +2,12 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
- * _strcmpShll - compares between two strings
+ * _strcmpShll - Compares two strings.
  *
- * @my_s1Shll: first string
- * @my_s2Shll: second string
+ * @my_s1Shll: First string.
+ * @my_s2Shll: Second string.
  *
- * Return: neg if s1 < s2, pos if s1 > s2, zero otherwise
+ * Return: Negative if s1 < s2, positive if s1 > s2, zero otherwise.
 */
 
 int _strcmpShll(char *my_s1Shll, char *my_s2Shll)
@@ -26,11 +26,11 @@ int _strcmpShll(char *my_s1Shll, char *my_s2Shll)
 }
 
 /**
- * _putcharShll - ths function write a char c to standard output
+ * _putcharShll - Writes a character 'c' to standard output.
  *
- * @my_cShll: character
+ * @my_cShll: Character to write.
  *
- * Return:it returns  1 on success, -1 on error and errno is set
+ * Return: 1 on success, -1 on error with errno set accordingly.
 */
 
 int _putcharShll(char my_cShll)
@@ -49,11 +49,11 @@ int _putcharShll(char my_cShll)
 }
 
 /**
- * _putsShll - this function  prints a string
+ * _putsShll - Outputs a string.
  *
- * @my_strShll:it is a  string
+ * @my_strShll: The string to display.
  *
- * Return: it Always returns  0
+ * Return: Always returns 0.
 */
 
 void _putsShll(char *my_strShll)

@@ -2,11 +2,13 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
- * my_set_aliasShll - this function will : sets alias to string
- * @my_infoShll: this will : parameter struct
- * @my_strShll: this will :the string alias
- * Return: Always returns 0 on success, 1 on error
- */
+ * my_set_aliasShll - Assigns an alias to a specified string.
+ *
+ * @my_infoShll: A structure containing relevant parameters.
+ * @my_strShll: The string to be used as an alias.
+ *
+ * Return: 0 on success, 1 on error.
+*/
 
 int my_set_aliasShll(my_info_stShll *my_infoShll, char *my_strShll)
 {

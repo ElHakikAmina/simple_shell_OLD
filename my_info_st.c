@@ -2,12 +2,12 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
- * my_free_infoShll - frees my_info_tShll struct fields
+ * my_free_infoShll - Releases the resources associated with the my_info_tShll struct.
  *
- * @my_infoShll: a struct @
- * @my_allShll: it is true if freeing all fields
+ * @my_infoShll: A struct @
+ * @my_allShll: A boolean flag to determine if all fields should be freed.
  *
- * Return: 0 (Always)
+ * Return: Always returns 0.
 */
 
 void my_free_infoShll(my_info_stShll *my_infoShll, int my_allShll)

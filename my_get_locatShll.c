@@ -2,11 +2,11 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
- * my_get_locationShll function that finds a command in path
+ * my_get_locationShll - This function searches for a command within the system's PATH.
  *
- * @my_infoShll: it is a struct
+ * @my_infoShll: A structure containing relevant information.
  *
- * Return: 0 (Always)
+ * Return: Always returns 0.
 */
 
 void my_get_locationShll(my_info_stShll *my_infoShll)

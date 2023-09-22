@@ -1,9 +1,13 @@
 #include "main.h"
+
 /**
- * _munsetenvShll - remove an env variable
- * @my_infoShll: struct
- * Return: Always 0
- */
+ * _munsetenvShll - Remove an environment variable.
+ *
+ * @my_infoShll: Parameter structure.
+ *
+ * Return: Always returns 0.
+*/
+
 int _munsetenvShll(my_info_stShll *my_infoShll)
 {
 	int my_iShll;
@@ -20,11 +24,14 @@ int _munsetenvShll(my_info_stShll *my_infoShll)
 }
 
 /**
- * _unsetenvShll - Remove an env variable
- * @my_infoShll: struct
- * @my_varShll: the string env variable property
- * Return: 1 on delete, 0 if not
+ * _unsetenvShll - Delete an environment variable.
+ *
+ * @my_infoShll: Parameter structure.
+ * @my_varShll: The string representing the environment variable.
+ *
+ * Return: Returns 1 upon deletion, 0 if not found.
  */
+
 int _unsetenvShll(my_info_stShll *my_infoShll, char *my_varShll)
 {
 	my_list_stShll *my_nodeShll = my_infoShll->my_envShll;
@@ -51,12 +58,15 @@ int _unsetenvShll(my_info_stShll *my_infoShll, char *my_varShll)
 }
 
 /**
- * _setenvShll - init a new env variable or modify an existing one
- * @my_infoShll: struct
- * @my_varShll: the string env variable property
- * @my_valueShll: the string env variable value
- * Return: Always 0
- */
+ * _setenvShll - Initialize or modify an environment variable.
+ *
+ * @my_infoShll: Parameter structure.
+ * @my_varShll: The string representing the environment variable.
+ * @my_valueShll: The string representing the environment variable's value.
+ *
+ * Return: Always returns 0.
+*/
+
 int _setenvShll(my_info_stShll *my_infoShll, char *my_varShll, char *my_valueShll)
 {
 	char *my_bufShll = NULL;

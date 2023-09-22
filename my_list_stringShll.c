@@ -2,14 +2,14 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
- * my_add_nodeShll - function that adds a node to the start of the list
+ * my_add_nodeShll - Function that inserts a node at the beginning of a linked list.
  *
- * @my_headShll: it is a address of pointer to head node
- * @my_strShll: it is a str field of node
- * @my_numShll: it is a node index used by history
+ * @my_headShll: Address of a pointer to the head node.
+ * @my_strShll: String field of the new node.
+ * @my_numShll: Node index used for history.
  *
- * Return: it returns size of list
- */
+ * Return: Returns the updated size of the list.
+*/
 
 my_list_stShll *my_add_nodeShll(my_list_stShll **my_headShll, const char *my_strShll, int my_numShll)
 {
@@ -37,11 +37,11 @@ my_list_stShll *my_add_nodeShll(my_list_stShll **my_headShll, const char *my_str
 }
 
 /**
- * my_print_listShll - function that prints all elements of a list_st linked list
+ * my_print_listShll - Prints all elements of a list_st linked list.
  *
- * @my_hShll: it is a pointer to first node
+ * @my_hShll: Pointer to the first node.
  *
- * Return: it returns size of list
+ * Return: The size of the list.
 */
 
 size_t my_print_listShll(const my_list_stShll *my_hShll)
@@ -62,13 +62,13 @@ size_t my_print_listShll(const my_list_stShll *my_hShll)
 }
 
 /**
- * my_node_starts_withShll - function that  returns node whose string starts with prefix
+ * my_node_starts_withShll - Finds a node whose string begins with a given prefix.
  *
- * @my_nodeShll: it is a pointer to list head
- * @my_prefixShll: it is a string to match
- * @my_cShll: it is a the next character after prefix to match
+ * @my_nodeShll: Pointer to the list head.
+ * @my_prefixShll: Prefix string to match.
+ * @my_cShll: Next character after the matched prefix.
  *
- * Return: it is a match node or null
+ * Return: The matching node or NULL if not found.
 */
 
 my_list_stShll *my_node_starts_withShll(my_list_stShll *my_nodeShll, char *my_prefixShll, char my_cShll)
@@ -86,11 +86,11 @@ my_list_stShll *my_node_starts_withShll(my_list_stShll *my_nodeShll, char *my_pr
 }
 
 /**
- * my_print_liststrShll function that  prints only the str element of a list_t linked list
+ * my_print_liststrShll - Prints only the 'str' element of a list_t linked list.
  *
- * @my_hShll: it is a pointer to first node
+ * @my_hShll: Pointer to the first node.
  *
- * Return: it returns size of list
+ * Return: The size of the list.
 */
 
 size_t my_print_liststrShll(const my_list_stShll *my_hShll)
@@ -108,13 +108,13 @@ size_t my_print_liststrShll(const my_list_stShll *my_hShll)
 }
 
 /**
- * my_add_node_endShll - function that adds a node to the end of the list
+ * my_add_node_endShll - Appends a node to the end of a linked list.
  *
- * @my_headShll:it is a  address of pointer to head node
- * @my_strShll: it is a str field of node
- * @my_numShll: it is a  node index used by history
+ * @my_headShll: Pointer to the head node.
+ * @my_strShll: String for the new node.
+ * @my_numShll: Node index used in history.
  *
- * Return: size of list
+ * Return: The updated list size.
 */
 
 my_list_stShll *my_add_node_endShll(my_list_stShll **my_headShll, const char *my_strShll, int my_numShll)

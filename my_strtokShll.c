@@ -2,12 +2,12 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
- * my_str_tok2Shll - splits a string into words
+ * my_str_tok2Shll - This function divides a string into words using a specified delimiter.
  *
- * @my_strShll: a string
- * @my_dShll: the delimeter string
+ * @my_strShll: The input string to be split.
+ * @my_dShll: The delimiter string.
  *
- * Return: pointer to an array of strings, or NULL (failure)
+ * Return: A pointer to an array of strings, or NULL in case of failure.
 */
 
 char **my_str_tok2Shll(char *my_strShll, char my_dShll)
@@ -50,12 +50,12 @@ char **my_str_tok2Shll(char *my_strShll, char my_dShll)
 }
 
 /**
- * my_str_tokShll - splits a string into words repeated delimeters are ignored
+ * my_str_tokShll - This function divides a string into words while ignoring repeated delimiters.
  *
- * @my_strShll: a string
- * @my_dShll: the delimeter string
+ * @my_strShll: The input string to be split.
+ * @my_dShll: The delimiter string.
  *
- * Return: a pointer to an array of strings, or NULL for fail
+ * Return: A pointer to an array of strings, or NULL if the operation fails.
 */
 
 char **my_str_tokShll(char *my_strShll, char *my_dShll)

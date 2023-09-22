@@ -2,11 +2,13 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
- * my_unset_aliasShll - this function will : sets alias to string
- * @my_infoShll: parameter struct
- * @my_strShll: the string alias
- * Return: Always returns 0 on success, 1 on error
- */
+ * my_unset_aliasShll - Renames a string alias.
+ *
+ * @my_infoShll: Parameter struct.
+ * @my_strShll: New alias name.
+ *
+ * Return: 0 on success, 1 on error.
+*/
 
 int my_unset_aliasShll(my_info_stShll *my_infoShll, char *my_strShll)
 {
@@ -25,12 +27,12 @@ int my_unset_aliasShll(my_info_stShll *my_infoShll, char *my_strShll)
 }
 
 /**
- * _historyShll - this function will : displays the history list, one command by line, preceded
- * with line numbers, starting at 0.
- * @my_infoShll: Structure containing potential arguments. Used to maintain
- * constant function prototype.
- * Return: Always returns 0
- */
+ * _historyShll - Displays command history with line numbers.
+ *
+ * @my_infoShll: Parameter struct.
+ *
+ * Return: Always returns 0.
+*/
 
 int _historyShll(my_info_stShll *my_infoShll)
 {

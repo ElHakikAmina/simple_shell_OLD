@@ -1,12 +1,13 @@
 #include "main.h"
 
 /**
- * my_print_errorShll - prints an error message.
- * @my_infoShll: the parameter & return info struct.
- * @my_estrShll: string containing specified error type.
- * Return: 0 if no numbers in string, converted number otherwise
- *        -1 on error
- */
+ * my_print_errorShll - Displays an error message.
+ *
+ * @my_infoShll: Pointer to parameter and return info structure.
+ * @my_estrShll: String containing the specified error type.
+ *
+ * Return: Returns the converted number if no numbers in the string, -1 on error.
+*/
 
 void my_print_errorShll(my_info_stShll *my_infoShll, char *my_estrShll)
 {
@@ -18,12 +19,16 @@ void my_print_errorShll(my_info_stShll *my_infoShll, char *my_estrShll)
 	_eputsShll(": ");
 	_eputsShll(my_estrShll);
 }
+
 /**
- * my_print_dShll - function prints a decimal number.
- * @my_inputShll: the input.
- * @my_fdShll: the filedescriptor to write to.
- * Return: number of characters printed
- */
+ * my_print_dShll - Prints a decimal number.
+ *
+ * @my_inputShll: The input number.
+ * @my_fdShll: The file descriptor to write to.
+ *
+ * Return: Returns the number of characters printed.
+*/
+
 int my_print_dShll(int my_inputShll, int my_fdShll)
 {
 	int (*__putcharShll)(char) = _putcharShll;
@@ -55,11 +60,13 @@ int my_print_dShll(int my_inputShll, int my_fdShll)
 
 	return (my_countShll);
 }
+
 /**
-* my_interactiveShll - returns true if shell is interactive mode.
-* @my_infoShll: struct address.
-*
-*Return: 1 if interactive mode, 0 otherwise
+ * my_interactiveShll - Determines if the shell is in interactive mode.
+ *
+ * @my_infoShll: Pointer to the struct address.
+ *
+ * Return: Returns 1 if the shell is in interactive mode, 0 otherwise.
 */
 
 int my_interactiveShll(my_info_stShll *my_infoShll)
@@ -68,10 +75,12 @@ int my_interactiveShll(my_info_stShll *my_infoShll)
 }
 
 /**
-* my_is_delimShll - checks if character is a delimeter
-* @my_cShll: the char to check
-* @my_delimShll: the delimeter string
-* Return: 1 if true, 0 if false
+ * my_is_delimShll - Checks if a character is a delimiter.
+ *
+ * @my_cShll: The character to check.
+ * @my_delimShll: The delimiter string.
+ *
+ * Return: Returns 1 if the character is a delimiter, 0 otherwise.
 */
 
 int my_is_delimShll(char my_cShll, char *my_delimShll)
@@ -83,13 +92,14 @@ int my_is_delimShll(char my_cShll, char *my_delimShll)
 }
 
 /**
- * my_convert_numberShll - converter function, a clone of itoa
- * @my_numShll: number
- * @my_baseShll: base
- * @my_flagsShll: argument flags
+ * my_convert_numberShll - Conversion function, similar to itoa.
  *
- * Return: string
- */
+ * @my_numShll: The number to convert.
+ * @my_baseShll: The base for conversion.
+ * @my_flagsShll: Argument flags.
+ *
+ * Return: Returns the converted string.
+*/
 
 char *my_convert_numberShll(long int my_numShll, int my_baseShll, int my_flagsShll)
 {

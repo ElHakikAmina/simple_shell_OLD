@@ -2,12 +2,12 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
- * _strchrShll - locates a char in a string
+ * _strchrShll - Finds a character in a string.
  *
- * @my_sShll: string input
- * @my_cShll: character to be located
+ * @my_sShll: The input string.
+ * @my_cShll: The character to locate.
  *
- * Return: a pointer to memory area
+ * Return: A pointer to the memory area.
 */
 
 char *_strchrShll(char *my_sShll, char my_cShll)
@@ -21,13 +21,13 @@ char *_strchrShll(char *my_sShll, char my_cShll)
 }
 
 /**
- * _strncatShll - concatenates 2 strings
+ * _strncatShll - Combines two strings.
  *
- * @my_destShll: it is a  destination
- * @my_srcShll: it is a source
- * @my_nShll: it is a the amount of bytes to be used
+ * @my_destShll: The destination.
+ * @my_srcShll: The source.
+ * @my_nShll: The number of bytes to utilize.
  *
- * Return: the concatenated string
+ * Return: The resulting concatenated string.
 */
 
 char *_strncatShll(char *my_destShll, char *my_srcShll, int my_nShll)
@@ -49,13 +49,13 @@ char *_strncatShll(char *my_destShll, char *my_srcShll, int my_nShll)
 }
 
 /**
- * _strncpyShll - this function copies string
+ * _strncpyShll - This function duplicates a string.
  *
- * @my_destShll: it is a destination
- * @my_srcShll: it is a source string
- * @my_nShll: it is a  the amoount of char to be copied
+ * @my_destShll: The target destination.
+ * @my_srcShll: The source string.
+ * @my_nShll: The count of characters to be copied.
  *
- * Return: it returns the concatenated string
+ * Return: The duplicated string.
 */
 
 char *_strncpyShll(char *my_destShll, char *my_srcShll, int my_nShll)

@@ -2,12 +2,12 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
- * _strcpyShll - this function  copies a string
+ * _strcpyShll - Function for copying a string.
  *
- * @my_destShll: it is a destination
- * @my_srcShll: it is a source
+ * @my_destShll: Destination buffer.
+ * @my_srcShll: Source buffer.
  *
- * Return: pointer to dest
+ * Return: Pointer to the destination buffer.
 */
 
 char *_strcpyShll(char *my_destShll, char *my_srcShll)
@@ -26,11 +26,11 @@ char *_strcpyShll(char *my_destShll, char *my_srcShll)
 }
 
 /**
- * _strdupShll - duplicates a string
+ * _strdupShll - Function to create a duplicate of a string.
  *
- * @my_strShll: string input
+ * @my_strShll: The input string.
  *
- * Return: pointer the the dup string
+ * Return: A pointer to the duplicated string.
 */
 
 char *_strdupShll(const char *my_strShll)
@@ -52,12 +52,12 @@ char *_strdupShll(const char *my_strShll)
 }
 
 /**
- * _strcatShll - this function concatenates 2 strings
+ * _strcatShll - Function to concatenate two strings.
  *
- * @my_destShll: it is the destination buffer
- * @my_srcShll: it is the source buffer
+ * @my_destShll: The destination buffer.
+ * @my_srcShll: The source buffer.
  *
- * Return: pointer to dest buffer
+ * Return: A pointer to the destination buffer.
 */
 
 char *_strcatShll(char *my_destShll, char *my_srcShll)
@@ -73,12 +73,12 @@ char *_strcatShll(char *my_destShll, char *my_srcShll)
 }
 
 /**
- * my_starts_withShll - this function checkes if needle starts with haystack
+ * my_starts_withShll - This function checks if `needle` is found at the start of `haystack`.
  *
- * @my_haystackShll: it is a string to search
- * @my_needleShll: it is the substring to find
+ * @my_haystackShll: The string to search.
+ * @my_needleShll: The substring to find.
  *
- * Return: address of the next char of haystack or null
+ * Return: An address pointing to the character in `haystack` immediately after `needle` or NULL if not found.
 */
 
 char *my_starts_withShll(const char *my_haystackShll, const char *my_needleShll)
@@ -90,11 +90,11 @@ char *my_starts_withShll(const char *my_haystackShll, const char *my_needleShll)
 }
 
 /**
- * _strlenShll - gets the length of a givin string
+ * _strlenShll - This function calculates the length of a given string.
  *
- * @my_sShll: string
+ * @my_sShll: The input string.
  *
- * Return: string length
+ * Return: The length of the string.
 */
 
 int _strlenShll(char *my_sShll)

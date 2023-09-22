@@ -1,9 +1,12 @@
 #include "main.h"
+
 /**
-* _erratoiShll - converts a string to an integer
-* @my_sShll: the string to be converted
-* Return: 0 if no numbers in string, converted number otherwise
-* -1 on error
+ * _erratoiShll - Converts a given string into an integer.
+ *
+ * @my_sShll: The input string to convert.
+ *
+ * Return: Returns the converted number if numbers are found in the string; 
+ *         otherwise, it returns -1 in case of an error or 0 if no numbers are present.
 */
 
 int _erratoiShll(char *my_sShll)
@@ -30,11 +33,13 @@ int _erratoiShll(char *my_sShll)
 }
 
 /**
- * my_remove_commentsShll - function replaces first instance of '#' with '\0'
- * @my_bufShll: address of the string to modify
+ * my_remove_commentsShll - Replaces the first instance of '#' with a null 
+ *                          terminator '\0' in the provided string.
  *
- * Return: Always 0;
- */
+ * @my_bufShll: The address of the string to be modified.
+ *
+ * Return: Always returns 0.
+*/
 
 void my_remove_commentsShll(char *my_bufShll)
 {

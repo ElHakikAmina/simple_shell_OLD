@@ -2,10 +2,11 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
- * _cdShll - this function is responsible for changes the current directory of the process
- * @my_infoShll: Structure containing potential arguments. Used to maintain
- *          constant function prototype.
- *  Return: Always 0
+ * _cdShll - Changes the current directory of the process.
+ *
+ * @my_infoShll: A structure that may contain relevant arguments, ensuring a consistent function prototype.
+ *
+ * Return: Always returns 0.
 */
 
 int _cdShll(my_info_stShll *my_infoShll)
@@ -51,11 +52,12 @@ int _cdShll(my_info_stShll *my_infoShll)
 }
 
 /**
- * _aliasShll - mimics the alias builtin (man alias)
- * @my_infoShll: Structure containing potential arguments. Used to maintain
- * constant function prototype.
- * Return: Always 0
-*/
+ * _aliasShll - Mimics the alias builtin command (similar to 'man alias').
+ *
+ * @my_infoShll: A structure that may contain relevant arguments, ensuring a consistent function prototype.
+ *
+ * Return: Always returns 0.
+ */
 
 int _aliasShll(my_info_stShll *my_infoShll)
 {

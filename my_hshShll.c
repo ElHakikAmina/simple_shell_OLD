@@ -2,14 +2,14 @@
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri */
 
 /**
- * my_find_builtinShll - finds a builtin command
+ * my_find_builtinShll - This function searches for a built-in command.
  *
- * @my_infoShll: struct
+ * @my_infoShll: A structure containing relevant information.
  *
- * Return: -1 if builtin not found
- *         0 if builtin is executed
- *         1 if builtin found (but not successful)
- *         -2 if builtin signals exit()
+ * Return: -1 if the built-in command is not found,
+ *         0 if the built-in command is executed,
+ *         1 if the built-in command is found but not successful,
+ *         -2 if the built-in command signals an exit().
 */
 
 int my_find_builtinShll(my_info_stShll *my_infoShll)
@@ -38,12 +38,12 @@ int my_find_builtinShll(my_info_stShll *my_infoShll)
 }
 
 /**
- * my_hshShll - main shell loop
+ * my_hshShll - The primary shell loop.
  *
- * @my_infoShll: it is a struct
- * @my_avShll: it is a argument vector
+ * @my_infoShll: A structure containing vital information.
+ * @my_avShll: An argument vector.
  *
- * Return: 0 (Succes), 1 otherwise
+ * Return: 0 for success, 1 otherwise.
 */
 
 int my_hshShll(my_info_stShll *my_infoShll, char **my_avShll)
