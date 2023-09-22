@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _munsetenvShll - Remove a environment variable.
+ * _munsetenvShll - Remove an environment variable.
  *
  * @my_infoShll: Parameter structure.
  *
