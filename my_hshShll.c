@@ -92,4 +92,5 @@ int my_hshShll(my_info_stShll *my_infoShll, char **my_avShll)
 			exit(my_infoShll->my_statusShll);
 		exit(my_infoShll->my_err_numShll);
 	}
+	return (my_builtin_retShll);
 }
