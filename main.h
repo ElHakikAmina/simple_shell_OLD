@@ -205,7 +205,7 @@ void my_remove_commentsShll(char *my_bufShll);
 int my_build_history_listShll(my_info_stShll *my_infoShll, char *my_bufShll, int my_linecountShll);
 int my_renumber_historyShll(my_info_stShll *my_infoShll);
 char *my_get_history_fileShll(my_info_stShll *my_infoShll);
-int my_read_historyShll(my_info_stShll *my_infoShll);
+int my_read_historyShll(my_info_stShll *inf);
 int my_write_historyShll(my_info_stShll *my_infoShll);
 
 /* This file is created by EL HAKIK Amina and Mehdi Belaazri my_errstr_funcShll.c*/
