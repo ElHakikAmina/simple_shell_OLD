@@ -17,7 +17,7 @@ void my_set_infoShll(my_info_stShll *my_infoShll, char **my_avShll)
 	my_infoShll->my_fnameShll = my_avShll[0];
 	if (my_infoShll->my_argShll)
 	{
-		my_infoShll->my_argvShll = my_str_tokShll(my_infoShll->my_argShll, " \t");
+		my_infoShll->my_argvShll = str_tok(my_infoShll->my_argShll, " \t");
 		if (!my_infoShll->my_argvShll)
 		{
 			my_infoShll->my_argvShll = malloc(sizeof(char *) * 2);
