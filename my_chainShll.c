@@ -63,7 +63,7 @@ int my_replace_aliasShll(my_info_stShll *my_infoShll)
 		my_pShll = _strchrShll(my_nodeShll->my_strShll, '=');
 		if (!my_pShll)
 			return (0);
-		my_pShll = my_strdupShll(my_pShll + 1);
+		my_pShll = _strdupShll(my_pShll + 1);
 		if (!my_pShll)
 			return (0);
 		my_infoShll->my_argvShll[0] = my_pShll;
@@ -115,7 +115,7 @@ int my_replace_varsShll(my_info_stShll *my_infoShll)
 		if (!_strcmpShll(my_infoShll->my_argvShll[my_iShll], "$$"))
 		{
 			my_replace_stringShll(&(my_infoShll->my_argvShll[my_iShll]),
-					 my_strdupShll(my_convert_numberShll(getpid(), 10, 0)));
+					 _strdupShll(my_convert_numberShll(getpid(), 10, 0)));
 			continue;
 		}
 		my_nodeShll = my_node_starts_withShll(my_infoShll->my_envShll,
@@ -123,10 +123,10 @@ int my_replace_varsShll(my_info_stShll *my_infoShll)
 		if (my_nodeShll)
 		{
 			my_replace_stringShll(&(my_infoShll->my_argvShll[my_iShll]),
-				my_strdupShll(_strchrShll(my_nodeShll->my_strShll, '=') + 1));
+				_strdupShll(_strchrShll(my_nodeShll->my_strShll, '=') + 1));
 			continue;
 		}
-		my_replace_stringShll(&my_infoShll->my_argvShll[my_iShll], my_strdupShll(""));
+		my_replace_stringShll(&my_infoShll->my_argvShll[my_iShll], _strdupShll(""));
 	}
 	return (0);
 }
